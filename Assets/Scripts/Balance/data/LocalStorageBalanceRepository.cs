@@ -40,7 +40,7 @@ namespace Balance.data
         {
             var removeResult = GetBalanceValue(currencyType) - value;
             var balance = Mathf.Max(0, removeResult);
-            LocalStorageIO.SetInt(PREFS_KEY_PREFIX, balance);
+            LocalStorageIO.SetInt(PREFS_KEY_PREFIX + currencyType, balance);
             LocalStorageIO.Save();
             balanceFlowMap[currencyType] = balance;
         }

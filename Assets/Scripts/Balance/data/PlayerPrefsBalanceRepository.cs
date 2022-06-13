@@ -39,7 +39,7 @@ namespace Balance.data
         {
             var removeResult = GetBalanceValue(currencyType) - value;
             var balance = Mathf.Max(0, removeResult);
-            PlayerPrefs.SetInt(PREFS_KEY_PREFIX, balance);
+            PlayerPrefs.SetInt(PREFS_KEY_PREFIX + currencyType, balance);
             balanceFlowMap[currencyType] = balance;
         }
 
