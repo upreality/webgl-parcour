@@ -7,7 +7,7 @@ using Zenject;
 
 namespace Purchases.data
 {
-    public class CoinsPurchaseRepository : ICoinsPurchaseRepository
+    public class CurrencyPurchaseRepository : ICurrencyPurchaseRepository
     {
         [Inject] private IPurchaseEntitiesDao entitiesDao;
         [Inject] private ISavedPurchasedStateDao stateDao;

@@ -13,7 +13,7 @@ namespace Purchases.presentation.ui
     {
         [Inject] private AnalyticsAdapter analytics;
         [Inject] private PurchasedStateUseCase purchasedStateUseCase;
-        [Inject] private CoinsPurchaseUseCase coinsPurchaseUseCase;
+        [Inject] private CurrencyPurchaseUseCase currencyPurchaseUseCase;
         [Inject] private PurchaseAvailableUseCase purchaseAvailableUseCase;
         [Inject] private RewardedVideoPurchaseUseCase rewardedVideoPurchaseUseCase;
         [Inject] private IPurchaseRepository purchaseRepository;
@@ -38,9 +38,9 @@ namespace Purchases.presentation.ui
             .GetPurchaseAvailable(purchaseId)
             .Take(1)
             .Where(available => available)
-            .SelectMany(coinsPurchaseUseCase.ExecutePurchase(purchaseId))
+            .SelectMany(currencyPurchaseUseCase.ExecutePurchase(purchaseId))
             .Subscribe((res) => {
-                if (res == CoinsPurchaseUseCase.CoinsPurchaseResult.Success) analytics.SendPurchasedEvent(purchaseId);
+                if (res == CurrencyPurchaseUseCase.CurrencyPurchaseResult.Success) analytics.SendPurchasedEvent(purchaseId);
             }) //Ignore result
             .AddTo(this);
 

@@ -24,11 +24,11 @@ namespace Purchases._di
             //Repositories
             Container.Bind<IPurchaseRepository>().To<PurchaseRepository>().AsSingle();
             Container.Bind<IPurchaseImageRepository>().To<PurchaseImageRepository>().AsSingle();
-            Container.Bind<ICoinsPurchaseRepository>().To<CoinsPurchaseRepository>().AsSingle();
+            Container.Bind<ICurrencyPurchaseRepository>().To<CurrencyPurchaseRepository>().AsSingle();
             Container.Bind<IPassLevelRewardPurchasesRepository>().To<PassLevelRewardPurchasesRepository>().AsSingle();
             Container.Bind<IRewardedVideoPurchaseRepository>().To<RewardedVideoPurchaseRepository>().AsSingle();
             //UseCases
-            Container.Bind<CoinsPurchaseUseCase>().ToSelf().AsSingle();
+            Container.Bind<CurrencyPurchaseUseCase>().ToSelf().AsSingle();
             Container.Bind<PurchasedStateUseCase>().ToSelf().AsSingle();
             Container.Bind<PurchaseAvailableUseCase>().ToSelf().AsSingle();
             Container.Bind<RewardedVideoPurchaseUseCase>().ToSelf().AsSingle();

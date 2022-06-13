@@ -1,4 +1,5 @@
 ﻿using System;
+using Balance.domain;
 using Balance.domain.repositories;
 using UniRx;
 using UnityEngine;
@@ -11,13 +12,13 @@ namespace Balance.data
 
         private readonly IntReactiveProperty balanceFlow = new();
 
-        public IObservable<int> GetBalance()
+        public IObservable<int> GetBalance(CurrencyType currencyType)
         {
             balanceFlow.Value = GetBalanceValue();
             return balanceFlow;
         }
 
-        public void Add(int value)
+        public void Add(int value, CurrencyType currencyType)
         {
             var balance = GetBalanceValue() + value;
             PlayerPrefs.SetInt(PREFS_KEY_PREFIX, balance);
@@ -32,7 +33,7 @@ namespace Balance.data
             }
         }
 
-        public void Remove(int value)
+        public void Remove(int value, CurrencyType currencyType)
         {
             var removeResult = GetBalanceValue() - value;
             var balance = Mathf.Max(0, removeResult);
