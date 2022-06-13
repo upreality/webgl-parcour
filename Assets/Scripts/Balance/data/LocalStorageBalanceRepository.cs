@@ -4,6 +4,7 @@ using Balance.domain.repositories;
 using Plugins.FileIO;
 using UniRx;
 using UnityEngine;
+using Utils.Reactive;
 
 namespace Balance.data
 {
@@ -11,22 +12,22 @@ namespace Balance.data
     {
         private const string PREFS_KEY_PREFIX = "Balance";
 
-        private readonly IntReactiveProperty balanceFlow = new();
+        private readonly ReactiveDictionary<CurrencyType, int> balanceFlowMap = new();
 
         public IObservable<int> GetBalance(CurrencyType currencyType)
         {
-            balanceFlow.Value = GetBalanceValue();
-            return balanceFlow;
+            balanceFlowMap[currencyType] = GetBalanceValue(currencyType);
+            return balanceFlowMap.GetItemFlow(currencyType);
         }
 
         public void Add(int value, CurrencyType currencyType)
         {
-            var balance = GetBalanceValue() + value;
+            var balance = GetBalanceValue(currencyType) + value;
             LocalStorageIO.SetInt(PREFS_KEY_PREFIX, balance);
             LocalStorageIO.Save();
             try
             {
-                balanceFlow.Value = balance;
+                balanceFlowMap[currencyType] = balance;
             }
             catch (Exception e)
             {
@@ -37,13 +38,14 @@ namespace Balance.data
 
         public void Remove(int value, CurrencyType currencyType)
         {
-            var removeResult = GetBalanceValue() - value;
+            var removeResult = GetBalanceValue(currencyType) - value;
             var balance = Mathf.Max(0, removeResult);
             LocalStorageIO.SetInt(PREFS_KEY_PREFIX, balance);
             LocalStorageIO.Save();
-            balanceFlow.Value = balance;
+            balanceFlowMap[currencyType] = balance;
         }
 
-        private static int GetBalanceValue() => LocalStorageIO.GetInt(PREFS_KEY_PREFIX, 0);
+        private static int GetBalanceValue(CurrencyType currencyType) => LocalStorageIO
+            .GetInt(PREFS_KEY_PREFIX + currencyType, 0);
     }
 }
