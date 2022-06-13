@@ -23,7 +23,7 @@ namespace Balance.data
         public void Add(int value, CurrencyType currencyType)
         {
             var balance = GetBalanceValue(currencyType) + value;
-            LocalStorageIO.SetInt(PREFS_KEY_PREFIX, balance);
+            LocalStorageIO.SetInt(PREFS_KEY_PREFIX + currencyType, balance);
             LocalStorageIO.Save();
             try
             {

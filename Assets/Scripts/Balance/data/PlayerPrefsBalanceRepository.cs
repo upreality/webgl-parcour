@@ -23,7 +23,7 @@ namespace Balance.data
         public void Add(int value, CurrencyType currencyType)
         {
             var balance = GetBalanceValue(currencyType) + value;
-            PlayerPrefs.SetInt(PREFS_KEY_PREFIX, balance);
+            PlayerPrefs.SetInt(PREFS_KEY_PREFIX + currencyType, balance);
             try
             {
                 balanceFlowMap[currencyType] = balance;
