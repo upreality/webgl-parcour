@@ -7,7 +7,7 @@ using Zenject;
 
 namespace Levels.presentation.analytics
 {
-    public class LevelFailedAnalyticsEvent : MonoBehaviour
+    public class LevelFailedAnalyticsEventUseCase
     {
         [Inject] private ICurrentLevelRepository currentLevelRepository;
         [Inject] private AnalyticsAdapter analytics;

@@ -61,6 +61,12 @@ namespace Ads._di
                 .FromInstance(muteAudioInterstitialAdNavigatorDecorator)
                 .AsSingle()
                 .WhenInjectedInto<InterstitialAdNavigatorCounterDecorator>();
+
+            //TODO: check if this common case injection is valid or not
+            Container
+                .Bind<IInterstitalAdNavigator>()
+                .To<InterstitialAdNavigatorCounterDecorator>()
+                .AsSingle();
         }
     }
 }
