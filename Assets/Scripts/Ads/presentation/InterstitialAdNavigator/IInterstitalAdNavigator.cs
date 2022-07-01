@@ -1,6 +1,6 @@
 using System;
 
-namespace Ads
+namespace Ads.presentation.InterstitialAdNavigator
 {
     public interface IInterstitalAdNavigator
     {

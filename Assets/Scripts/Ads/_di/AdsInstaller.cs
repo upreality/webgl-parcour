@@ -1,4 +1,4 @@
-using Ads.InterstitialAdNavigator;
+using Ads.presentation.InterstitialAdNavigator;
 using Ads.presentation.InterstitialAdNavigator.core;
 using Ads.presentation.InterstitialAdNavigator.decorators;
 using UnityEngine;

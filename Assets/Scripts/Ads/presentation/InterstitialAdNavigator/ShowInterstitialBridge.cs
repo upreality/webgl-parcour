@@ -1,9 +1,8 @@
-﻿using System;
-using Doozy.Engine;
+﻿using Doozy.Engine;
 using UniRx;
 using UnityEngine;
 
-namespace Ads.presentation
+namespace Ads.presentation.InterstitialAdNavigator
 {
     public class ShowInterstitialBridge: MonoBehaviour
     {
