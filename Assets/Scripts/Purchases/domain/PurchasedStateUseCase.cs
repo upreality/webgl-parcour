@@ -9,7 +9,7 @@ namespace Purchases.domain
     public class PurchasedStateUseCase
     {
         [Inject] private IPurchaseRepository repository;
-        [Inject] private ICoinsPurchaseRepository coinsPurchaseRepository;
+        [Inject] private ICurrencyPurchaseRepository currencyPurchaseRepository;
         [Inject] private IRewardedVideoPurchaseRepository videoPurchaseRepository;
         [Inject] private IPassLevelRewardPurchasesRepository passLevelPurchaseRepository;
         [Inject] private ILevelPassedStateProvider levelPassedStateProvider;
@@ -20,7 +20,7 @@ namespace Purchases.domain
             switch (type)
             {
                 case PurchaseType.Coins:
-                    return coinsPurchaseRepository.GetPurchasedState(purchaseId);
+                    return currencyPurchaseRepository.GetPurchasedState(purchaseId);
                 case PurchaseType.RewardedVideo:
                     var currentWatchesFlow = videoPurchaseRepository.GetRewardedVideoCurrentWatchesCount(purchaseId);
                     var requiredWatches = videoPurchaseRepository.GetRewardedVideoWatchesCount(purchaseId);

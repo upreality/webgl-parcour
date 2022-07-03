@@ -9,7 +9,7 @@ namespace Purchases.presentation.ui
 {
     public class CoinsPurchaseItem: PurchaseItem
     {
-        [Inject] private ICoinsPurchaseRepository coinsPurchaseRepository;
+        [Inject] private ICurrencyPurchaseRepository currencyPurchaseRepository;
         
         [SerializeField] private GameObject cost;
         [SerializeField] private Text costText;
@@ -17,7 +17,7 @@ namespace Purchases.presentation.ui
         protected override void Setup(long purchaseId, bool purchasedState)
         {
             base.Setup(purchaseId, purchasedState);
-            costText.text = coinsPurchaseRepository.GetCost(purchaseId).ToString();
+            costText.text = currencyPurchaseRepository.GetCost(purchaseId).ToString();
             cost.SetActive(!purchasedState);
         }
 

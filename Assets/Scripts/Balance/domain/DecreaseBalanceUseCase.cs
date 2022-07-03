@@ -9,23 +9,32 @@ namespace Balance.domain
     {
         [Inject] private IBalanceRepository repository;
 
-        public IObservable<bool> GetCanDecrease(int value) => repository
-            .GetBalance()
-            .Select(balance => balance >= value);
+        public IObservable<bool> GetCanDecrease(int amount, CurrencyType currencyType)
+        {
+            if (currencyType == CurrencyType.None)
+                return Observable.Return(false);
+                
+            return repository
+                .GetBalance(currencyType)
+                .Select(balance => balance >= amount);
+        }
 
         // bool
-        public IObservable<DecreaseBalanceResult> Decrease(int value) => GetCanDecrease(value)
+        public IObservable<DecreaseBalanceResult> Decrease(
+            int amount,
+            CurrencyType currencyType
+        ) => GetCanDecrease(amount, currencyType)
             .Take(1)
             .Select(canDecrease =>
-                DecreaseBalance(canDecrease, value)
+                DecreaseBalance(canDecrease, amount, currencyType)
             );
 
-        private DecreaseBalanceResult DecreaseBalance(bool canDecrease, int value)
+        private DecreaseBalanceResult DecreaseBalance(bool canDecrease, int amount, CurrencyType currencyType)
         {
             if (!canDecrease)
                 return DecreaseBalanceResult.LowBalance;
 
-            repository.Remove(value);
+            repository.Remove(amount, currencyType);
             return DecreaseBalanceResult.Success;
         }
 
