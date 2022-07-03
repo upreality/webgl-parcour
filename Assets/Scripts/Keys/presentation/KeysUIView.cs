@@ -31,8 +31,16 @@ namespace Keys.presentation
             if (isVisible == state)
                 return;
 
-            if (state) view.Show(!view.gameObject.activeInHierarchy);
-            else view.Hide(!view.gameObject.activeInHierarchy);
+            if (view.gameObject.activeInHierarchy)
+            {
+                if (state) view.Show();
+                else view.Hide();
+            }
+            else
+            {
+                view.gameObject.SetActive(state);
+            }
+            
         }
     }
 }

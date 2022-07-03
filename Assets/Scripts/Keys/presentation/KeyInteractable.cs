@@ -18,5 +18,11 @@ namespace Keys.presentation
                 (interactable, enoughKeys) => interactable && enoughKeys
             );
         }
+        
+        protected override void Interaction()
+        {
+            base.Interaction();
+            keysRepository.RemoveKey();
+        }
     }
 }
