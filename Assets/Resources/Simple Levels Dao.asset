@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultReward: 0
   scenePrefabs:
-  - {fileID: 3162181485403739344, guid: 08e8c4743fae33546a4a41d8bb10f218, type: 3}
+  - {fileID: 6431462036071146553, guid: ce2438aebb2f0d248a98817e2c562f4f, type: 3}
   - {fileID: 3634756615278807473, guid: ac7c06350b81d424bb24e1f0265399a1, type: 3}
   - {fileID: 4523921892281010859, guid: 935a57c4e1adfda40bf50ca98a64e721, type: 3}
   - {fileID: 67618656091627475, guid: 4fd3bbcefeb322e47954890889184896, type: 3}
