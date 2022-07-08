@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using Zenject;
 
-namespace Gameplay.Inputs
+namespace Gameplay.PlayerInput
 {
     public class InputButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     {

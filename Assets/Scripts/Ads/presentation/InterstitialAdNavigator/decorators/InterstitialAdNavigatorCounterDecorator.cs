@@ -5,9 +5,9 @@ using Zenject;
 
 namespace Ads.presentation.InterstitialAdNavigator.decorators
 {
-    public class InterstitialAdNavigatorCounterDecorator : MonoBehaviour, IInterstitalAdNavigator
+    public class InterstitialAdNavigatorCounterDecorator : MonoBehaviour, IInterstitialAdNavigator
     {
-        [Inject] private IInterstitalAdNavigator adNavigator;
+        [Inject] private IInterstitialAdNavigator adNavigator;
 
         //TODO: replace with di
         private readonly IInterstitialShowIntervalProvider intervalProvider =

@@ -2,9 +2,12 @@ using System;
 
 namespace Ads.presentation.InterstitialAdNavigator
 {
-    public interface IInterstitalAdNavigator
+    public interface IInterstitialAdNavigator
     {
         IObservable<ShowInterstitialResult> ShowAd();
+
+        const string DeathInterstitialAdNavigatorId = "DeathInterstitialAdNavigatorId";
+        const string LevelLoadedInterstitialAdNavigatorId = "LevelLoadedInterstitialAdNavigator";
     }
 
     public class ShowInterstitialResult

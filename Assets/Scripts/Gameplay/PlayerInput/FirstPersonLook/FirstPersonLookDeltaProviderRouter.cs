@@ -1,14 +1,13 @@
-﻿using Gameplay.Input;
-using SDK.Platform.domain;
+﻿using SDK.Platform.domain;
 using UnityEngine;
 using Zenject;
 
-namespace Gameplay.Inputs
+namespace Gameplay.PlayerInput.FirstPersonLook
 {
-    public class FirstPersonLookDeltaProviderRouter: FirstPersonLook.ILookDeltaProvider
+    public class FirstPersonLookDeltaProviderRouter: global::FirstPersonLook.ILookDeltaProvider
     {
-        [Inject(Id = "DesktopLookDeltaProvider")] private FirstPersonLook.ILookDeltaProvider desktopProvider;
-        [Inject(Id = "MobileLookDeltaProvider")] private FirstPersonLook.ILookDeltaProvider mobileProvider; 
+        [Inject(Id = "DesktopLookDeltaProvider")] private global::FirstPersonLook.ILookDeltaProvider desktopProvider;
+        [Inject(Id = "MobileLookDeltaProvider")] private global::FirstPersonLook.ILookDeltaProvider mobileProvider; 
         [Inject] private IPlatformProvider platformProvider;
 
         private bool initialized = false;

@@ -1,8 +1,7 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using Zenject;
 
-namespace Gameplay.Inputs
+namespace Gameplay.PlayerInput
 {
     public class ResetInput: MonoBehaviour
     {

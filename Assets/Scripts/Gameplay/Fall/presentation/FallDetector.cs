@@ -1,7 +1,7 @@
 using UnityEngine;
 using Zenject;
 
-namespace Gameplay.Fall.presenatation
+namespace Gameplay.Fall.presentation
 {
     public class FallDetector : MonoBehaviour
     {

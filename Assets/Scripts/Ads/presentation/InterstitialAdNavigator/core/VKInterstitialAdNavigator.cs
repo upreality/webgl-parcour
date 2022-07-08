@@ -5,7 +5,7 @@ using Zenject;
 
 namespace Ads.presentation.InterstitialAdNavigator.core
 {
-    public class VKInterstitialAdNavigator : IInterstitalAdNavigator
+    public class VKInterstitialAdNavigator : IInterstitialAdNavigator
     {
         [Inject] private VKSDK instance;
 

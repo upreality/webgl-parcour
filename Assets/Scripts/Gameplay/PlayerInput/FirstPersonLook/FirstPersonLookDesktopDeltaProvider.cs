@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
 using static UnityEngine.Input;
 
-namespace Gameplay.Input
+namespace Gameplay.PlayerInput.FirstPersonLook
 {
-    public class FirstPersonLookDesktopDeltaProvider: FirstPersonLook.ILookDeltaProvider
+    public class FirstPersonLookDesktopDeltaProvider: global::FirstPersonLook.ILookDeltaProvider
     {
         public Vector2 GetDelta() => new(GetAxisRaw("Mouse X"), GetAxisRaw("Mouse Y"));
     }

@@ -1,6 +1,6 @@
 ﻿using Zenject;
 
-namespace Gameplay.Inputs.Jump
+namespace Gameplay.PlayerInput.Jumping
 {
     public class JumpInputMobileProvider: global::Jump.IJumpInputProvider
     {

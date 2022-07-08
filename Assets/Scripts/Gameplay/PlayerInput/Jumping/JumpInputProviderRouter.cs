@@ -1,9 +1,7 @@
-﻿using Gameplay.Input;
-using Gameplay.Inputs.Jump;
-using SDK.Platform.domain;
+﻿using SDK.Platform.domain;
 using Zenject;
 
-namespace Gameplay.Inputs
+namespace Gameplay.PlayerInput.Jumping
 {
     public class JumpInputProviderRouter: global::Jump.IJumpInputProvider
     {

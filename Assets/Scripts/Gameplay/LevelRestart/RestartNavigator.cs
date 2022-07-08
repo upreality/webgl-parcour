@@ -1,7 +1,4 @@
-﻿using System;
-using Ads.presentation.InterstitialAdNavigator;
-
-namespace Gameplay.Restart.presentation
+﻿namespace Gameplay.LevelRestart
 {
     public class RestartNavigator
     {

@@ -1,4 +1,4 @@
-﻿namespace Gameplay.Inputs.Jump
+﻿namespace Gameplay.PlayerInput.Jumping
 {
     public class JumpInputDesktopProvider: global::Jump.IJumpInputProvider
     {

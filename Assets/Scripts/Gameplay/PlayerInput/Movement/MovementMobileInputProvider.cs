@@ -1,8 +1,7 @@
-﻿using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using Zenject;
 
-namespace Gameplay.Inputs
+namespace Gameplay.PlayerInput.Movement
 {
     public class MovementMobileInputProvider : FirstPersonMovement.IMovementInputProvider
     {

@@ -20,14 +20,14 @@ namespace Ads._di
         public override void InstallBindings()
         {
             Container
-                .Bind<IInterstitalAdNavigator>()
+                .Bind<IInterstitialAdNavigator>()
 #if YANDEX_SDK
                 .To<YandexInterstitialAdNavigator>()
                 .AsSingle()
                 .WhenInjectedInto<YandexInterstitialNavigatorHitsDecorator>();
                 
             Container
-                .Bind<IInterstitalAdNavigator>()
+                .Bind<IInterstitialAdNavigator>()
                 .To<YandexInterstitialNavigatorHitsDecorator>()
 #elif VK_SDK
                 .To<VKInterstitialAdNavigator>()
@@ -42,30 +42,36 @@ namespace Ads._di
                 .WhenInjectedInto<InterstitialAdNavigatorAnalyticsDecorator>();
 
             Container
-                .Bind<IInterstitalAdNavigator>()
+                .Bind<IInterstitialAdNavigator>()
                 .To<InterstitialAdNavigatorAnalyticsDecorator>()
                 .FromNew()
                 .AsSingle()
                 .WhenInjectedInto<InterstitialAdNavigatorLockLookDecorator>();
 
             Container
-                .Bind<IInterstitalAdNavigator>()
+                .Bind<IInterstitialAdNavigator>()
                 .To<InterstitialAdNavigatorLockLookDecorator>()
                 .FromInstance(interstitialAdNavigatorLockLookDecorator)
                 .AsSingle()
                 .WhenInjectedInto<InterstitialAdNavigatorMuteAudioDecorator>();
 
             Container
-                .Bind<IInterstitalAdNavigator>()
+                .Bind<IInterstitialAdNavigator>()
                 .To<InterstitialAdNavigatorMuteAudioDecorator>()
                 .FromInstance(muteAudioInterstitialAdNavigatorDecorator)
                 .AsSingle()
                 .WhenInjectedInto<InterstitialAdNavigatorCounterDecorator>();
 
-            //TODO: check if this common case injection is valid or not
             Container
-                .Bind<IInterstitalAdNavigator>()
-                .To<InterstitialAdNavigatorCounterDecorator>()
+                .Bind<IInterstitialAdNavigator>()
+                .WithId(IInterstitialAdNavigator.DeathInterstitialAdNavigatorId)
+                .FromInstance(dieCounterNavigator)
+                .AsSingle();
+            
+            Container
+                .Bind<IInterstitialAdNavigator>()
+                .WithId(IInterstitialAdNavigator.LevelLoadedInterstitialAdNavigatorId)
+                .FromInstance(levelLoadedCounterNavigator)
                 .AsSingle();
         }
     }

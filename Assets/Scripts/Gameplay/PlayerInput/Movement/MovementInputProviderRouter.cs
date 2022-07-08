@@ -2,7 +2,7 @@
 using UnityEngine;
 using Zenject;
 
-namespace Gameplay.Inputs
+namespace Gameplay.PlayerInput.Movement
 {
     public class MovementInputProviderRouter : FirstPersonMovement.IMovementInputProvider
     {

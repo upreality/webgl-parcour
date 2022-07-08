@@ -1,4 +1,4 @@
-﻿namespace Gameplay.Fall.presenatation
+﻿namespace Gameplay.Fall.presentation
 {
     public interface IFallNavigator
     {

@@ -395,7 +395,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1181905276}
   - component: {fileID: 1181905277}
-  - component: {fileID: 1181905278}
   - component: {fileID: 8252314825089267692}
   m_Layer: 0
   m_Name: FallController
@@ -433,50 +432,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6ec0215dcf320e4d9e78c412e59b7f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  turnUpDuration: 2
-  fallenEvent: Die
---- !u!114 &1181905278
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1181905275}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8ea9f92203d31e240bc110ff7b26d05c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  DebugMode: 0
-  Event:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1181905277}
-        m_TargetAssemblyTypeName: FallController, Assembly-CSharp
-        m_MethodName: StartFall
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 8252314825089267692}
-        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
-        m_MethodName: SetTrigger
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: fall
-          m_BoolArgument: 0
-        m_CallState: 2
-  GameEvent: Fall
-  ListenForAllGameEvents: 0
+  look: {fileID: 4963157938584106549}
+  dieFade: {fileID: 0}
+  dieAnimator: {fileID: 8252314825089267692}
+  fallAnimatorTrigger: fall
 --- !u!95 &8252314825089267692
 Animator:
   serializedVersion: 4
@@ -1409,7 +1368,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fallHeight: -10
   target: {fileID: 5006041144151971659}
-  startFallGameEvent: Fall
 --- !u!114 &1073346349
 MonoBehaviour:
   m_ObjectHideFlags: 0

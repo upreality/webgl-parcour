@@ -1,7 +1,8 @@
 using Gameplay;
-using Gameplay.Input;
-using Gameplay.Inputs;
-using Gameplay.Inputs.Jump;
+using Gameplay.PlayerInput;
+using Gameplay.PlayerInput.FirstPersonLook;
+using Gameplay.PlayerInput.Jumping;
+using Gameplay.PlayerInput.Movement;
 using SDK.GameState;
 using UnityEngine;
 using Zenject;

@@ -2,9 +2,9 @@
 using UnityEngine;
 using static UnityEngine.Input;
 
-namespace Gameplay.Inputs
+namespace Gameplay.PlayerInput.FirstPersonLook
 {
-    public class FirstPersonLookMobileDeltaProvider : FirstPersonLook.ILookDeltaProvider
+    public class FirstPersonLookMobileDeltaProvider : global::FirstPersonLook.ILookDeltaProvider
     {
         private float multiplier = 0.2f;
         private int minX = Screen.width / 2;

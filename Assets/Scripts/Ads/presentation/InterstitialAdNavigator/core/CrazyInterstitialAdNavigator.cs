@@ -6,7 +6,7 @@ using CrazyGames;
 
 namespace Ads.presentation.InterstitialAdNavigator.core
 {
-    public class CrazyInterstitialAdNavigator : IInterstitalAdNavigator
+    public class CrazyInterstitialAdNavigator : IInterstitialAdNavigator
     {
         public IObservable<ShowInterstitialResult> ShowAd()
         {

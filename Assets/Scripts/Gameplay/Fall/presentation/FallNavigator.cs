@@ -1,21 +1,27 @@
 using System.Collections;
 using Doozy.Engine.UI;
-using Gameplay.Death.presentation;
+using Gameplay.Death;
+using UniRx;
 using UnityEngine;
 using Zenject;
 
-namespace Gameplay.Fall.presenatation
+namespace Gameplay.Fall.presentation
 {
-    public class FallNavigator: MonoBehaviour, IFallNavigator
+    public class FallNavigator : MonoBehaviour, IFallNavigator
     {
         [SerializeField] private FirstPersonLook look;
         [SerializeField] private UIView dieFade;
+        [SerializeField] private Animator dieAnimator;
+        [SerializeField] private string fallAnimatorTrigger = "fall";
+
         [Inject] private FallSettings fallSettings;
         [Inject] private DeathNavigator deathNavigator;
 
         public void StartFall()
         {
             dieFade.Show();
+            fallAnimatorTrigger = "fall";
+            dieAnimator.SetTrigger(fallAnimatorTrigger);
             StartCoroutine(FallCoroutine());
         }
 
@@ -27,7 +33,7 @@ namespace Gameplay.Fall.presenatation
             var lookRotation = Quaternion.LookRotation(Vector3.up);
 
             var timer = fallSettings.turnUpDuration;
-            
+
             while (timer > 0)
             {
                 timer -= Time.deltaTime;
@@ -37,7 +43,7 @@ namespace Gameplay.Fall.presenatation
             }
 
             look.enabled = true;
-            deathNavigator.HandleDeath();
+            deathNavigator.HandleDeath().Subscribe().AddTo(this);
         }
     }
 }

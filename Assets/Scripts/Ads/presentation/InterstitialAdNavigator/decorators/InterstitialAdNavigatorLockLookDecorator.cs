@@ -5,10 +5,10 @@ using Zenject;
 
 namespace Ads.presentation.InterstitialAdNavigator.decorators
 {
-    public class InterstitialAdNavigatorLockLookDecorator : MonoBehaviour, IInterstitalAdNavigator
+    public class InterstitialAdNavigatorLockLookDecorator : MonoBehaviour, IInterstitialAdNavigator
     {
         [Inject] private FirstPersonLook look;
-        [Inject] private IInterstitalAdNavigator Target;
+        [Inject] private IInterstitialAdNavigator Target;
 
         private bool uiShownState = false;
 

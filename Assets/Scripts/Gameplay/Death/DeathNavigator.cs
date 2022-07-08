@@ -1,19 +1,19 @@
 ﻿using System;
 using Ads.presentation.InterstitialAdNavigator;
-using Gameplay.Restart.presentation;
+using Gameplay.LevelRestart;
 using Levels.presentation.analytics;
 using UniRx;
 using Zenject;
 
-namespace Gameplay.Death.presentation
+namespace Gameplay.Death
 {
     public class DeathNavigator
     {
-        [Inject] private IInterstitalAdNavigator adNavigator;
+        [Inject] private IInterstitialAdNavigator adNavigator;
         [Inject] private RestartNavigator restartNavigator;
         [Inject] private GameStateNavigator gameStateNavigator;
         [Inject] private LevelFailedAnalyticsEventUseCase levelFailedEventUseCase;
-        
+
         public IObservable<Unit> HandleDeath()
         {
             levelFailedEventUseCase.Send();

@@ -589,6 +589,18 @@ Transform:
   m_Father: {fileID: 1382979411}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &413856190 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1181905277, guid: 0b5633ffafe83d14c972b01f08e08286,
+    type: 3}
+  m_PrefabInstance: {fileID: 1651423022}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6ec0215dcf320e4d9e78c412e59b7f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &498165576
 GameObject:
   m_ObjectHideFlags: 0
@@ -1824,6 +1836,7 @@ GameObject:
   - component: {fileID: 1425927132}
   - component: {fileID: 1425927134}
   - component: {fileID: 1425927133}
+  - component: {fileID: 1425927135}
   m_Layer: 0
   m_Name: SceneContext
   m_TagString: Untagged
@@ -1859,6 +1872,7 @@ MonoBehaviour:
   - {fileID: 1425927131}
   - {fileID: 1425927133}
   - {fileID: 1425927134}
+  - {fileID: 1425927135}
   _installerPrefabs: []
   _autoRun: 1
   OnPreInstall:
@@ -1967,6 +1981,20 @@ MonoBehaviour:
     type: 3}
   rewardedVideoPurchaseItemPrefab: {fileID: 5927374557383947949, guid: e9184f866c19539459b6a6f048de0280,
     type: 3}
+--- !u!114 &1425927135
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1425927127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce8f4c8f5e50495cbb14d4655feae55d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fallSettings: {fileID: 11400000, guid: 6aeb6118ec5eb4645bcdf2bede8c39fa, type: 2}
+  fallNavigator: {fileID: 413856190}
 --- !u!1 &1474724046
 GameObject:
   m_ObjectHideFlags: 0

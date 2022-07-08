@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using static UnityEngine.Input;
 
-namespace Gameplay.Inputs
+namespace Gameplay.PlayerInput.Movement
 {
     public class MovementDesktopInputProvider : FirstPersonMovement.IMovementInputProvider
     {

@@ -6,13 +6,13 @@ namespace Ads.presentation.InterstitialAdNavigator
 {
     public class ShowInterstitialBridge: MonoBehaviour
     {
-        private IInterstitalAdNavigator navigator;
+        private IInterstitialAdNavigator navigator;
         [SerializeField] private string onShownEvent;
         [SerializeField] private string onFailedEvent;
 
         private void Awake()
         {
-            navigator = GetComponent<IInterstitalAdNavigator>();
+            navigator = GetComponent<IInterstitialAdNavigator>();
         }
 
         public void TryShow()

@@ -8,9 +8,9 @@ using Zenject;
 
 namespace Ads.presentation.InterstitialAdNavigator.decorators
 {
-    public class InterstitialAdNavigatorAnalyticsDecorator : IInterstitalAdNavigator
+    public class InterstitialAdNavigatorAnalyticsDecorator : IInterstitialAdNavigator
     {
-        [Inject] private IInterstitalAdNavigator target;
+        [Inject] private IInterstitialAdNavigator target;
         [Inject] private AnalyticsAdapter analytics;
 
         private IAdPlacement placement = new SimpleAdPlacement("undefined");
