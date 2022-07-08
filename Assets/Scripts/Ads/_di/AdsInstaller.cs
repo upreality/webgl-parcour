@@ -65,14 +65,12 @@ namespace Ads._di
             Container
                 .Bind<IInterstitialAdNavigator>()
                 .WithId(IInterstitialAdNavigator.DeathInterstitialAdNavigatorId)
-                .FromInstance(dieCounterNavigator)
-                .AsSingle();
-            
+                .FromInstance(dieCounterNavigator);
+
             Container
                 .Bind<IInterstitialAdNavigator>()
                 .WithId(IInterstitialAdNavigator.LevelLoadedInterstitialAdNavigatorId)
-                .FromInstance(levelLoadedCounterNavigator)
-                .AsSingle();
+                .FromInstance(levelLoadedCounterNavigator);
         }
     }
 }
