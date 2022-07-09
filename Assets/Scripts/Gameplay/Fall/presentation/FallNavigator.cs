@@ -43,6 +43,7 @@ namespace Gameplay.Fall.presentation
             }
 
             look.enabled = true;
+            dieFade.Hide();
             deathNavigator.HandleDeath().Subscribe().AddTo(this);
         }
     }

@@ -1,6 +1,6 @@
 ﻿using System;
 using Ads.presentation.InterstitialAdNavigator;
-using Gameplay.LevelRestart;
+using Gameplay.Respawn;
 using Levels.presentation.analytics;
 using UniRx;
 using Zenject;
@@ -10,8 +10,9 @@ namespace Gameplay.Death
 {
     public class DeathNavigator
     {
-        [Inject(Id = DeathInterstitialAdNavigatorId)] private IInterstitialAdNavigator adNavigator;
-        [Inject] private RestartNavigator restartNavigator;
+        [Inject] private IInterstitialAdNavigator adNavigator;
+
+        [Inject] private RespawnNavigator respawnNavigator;
         [Inject] private GameStateNavigator gameStateNavigator;
         [Inject] private LevelFailedAnalyticsEventUseCase levelFailedEventUseCase;
 
@@ -19,7 +20,7 @@ namespace Gameplay.Death
         {
             levelFailedEventUseCase.Send();
             gameStateNavigator.SetLevelPlayingState(false);
-            return adNavigator.ShowAd().Do(_ => restartNavigator.Restart()).Select(_ => Unit.Default);
+            return adNavigator.ShowAd().Do(_ => respawnNavigator.Respawn()).Select(_ => Unit.Default);
         }
     }
 }

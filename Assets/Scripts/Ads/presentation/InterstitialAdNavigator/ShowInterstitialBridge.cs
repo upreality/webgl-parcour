@@ -21,7 +21,7 @@ namespace Ads.presentation.InterstitialAdNavigator
                 res =>
                 {
                     var message = res.isSuccess ? onShownEvent : onFailedEvent;
-                    GameEventMessage.SendEvent(message);   
+                    GameEventMessage.SendEvent(message);
                 },
                 e => GameEventMessage.SendEvent(onFailedEvent)
             ).AddTo(this);

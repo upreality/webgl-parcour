@@ -1,25 +1,29 @@
 using System;
 using UniRx;
-using UnityEngine;
 using Zenject;
 
 namespace Ads.presentation.InterstitialAdNavigator.decorators
 {
-    public class InterstitialAdNavigatorCounterDecorator : MonoBehaviour, IInterstitialAdNavigator
+    public class InterstitialAdNavigatorCounterDecorator : IInterstitialAdNavigator
     {
-        [Inject] private IInterstitialAdNavigator adNavigator;
+        private IInterstitialAdNavigator adNavigator;
 
         //TODO: replace with di
-        private readonly IInterstitialShowIntervalProvider intervalProvider =
-            new NoIntervalInterstitialShowIntervalProvider();
+        private readonly IInterstitialShowIntervalProvider intervalProvider = new NoIntervalProvider();
 
         private int invokeTimes;
         private int showInterval = 1;
 
-        private void Start() => intervalProvider
-            .GetShowInterval()
-            .Subscribe(interval => showInterval = interval)
-            .AddTo(this);
+        private readonly IDisposable observeShowIntervalDisposable;
+
+        [Inject]
+        public InterstitialAdNavigatorCounterDecorator(IInterstitialAdNavigator adNavigator)
+        {
+            this.adNavigator = adNavigator;
+            observeShowIntervalDisposable = intervalProvider
+                .GetShowInterval()
+                .Subscribe(interval => showInterval = interval);
+        }
 
         public IObservable<ShowInterstitialResult> ShowAd()
         {
@@ -34,14 +38,16 @@ namespace Ads.presentation.InterstitialAdNavigator.decorators
             return adNavigator.ShowAd();
         }
 
+        ~InterstitialAdNavigatorCounterDecorator() => observeShowIntervalDisposable.Dispose();
+
         public interface IInterstitialShowIntervalProvider
         {
             public IObservable<int> GetShowInterval();
         }
-    }
-
-    public class NoIntervalInterstitialShowIntervalProvider : InterstitialAdNavigatorCounterDecorator.IInterstitialShowIntervalProvider
-    {
-        public IObservable<int> GetShowInterval() => Observable.Return(1);
+        
+        private class NoIntervalProvider : IInterstitialShowIntervalProvider
+        {
+            public IObservable<int> GetShowInterval() => Observable.Return(1);
+        }
     }
 }

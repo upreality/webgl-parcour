@@ -1,3 +1,4 @@
+using Ads.data;
 using Ads.presentation.InterstitialAdNavigator;
 using Ads.presentation.InterstitialAdNavigator.core;
 using Ads.presentation.InterstitialAdNavigator.decorators;
@@ -9,12 +10,7 @@ namespace Ads._di
 {
     public class AdsInstaller : MonoInstaller
     {
-        [SerializeField] private InterstitialAdNavigatorCounterDecorator dieCounterNavigator;
-        [SerializeField] private InterstitialAdNavigatorCounterDecorator levelLoadedCounterNavigator;
-
-        [FormerlySerializedAs("lockLookInterstitialAdNavigatorDecorator")] [SerializeField]
-        private InterstitialAdNavigatorLockLookDecorator interstitialAdNavigatorLockLookDecorator;
-
+        [SerializeField] private InterstitialAdNavigatorLockLookDecorator interstitialAdNavigatorLockLookDecorator;
         [SerializeField] private InterstitialAdNavigatorMuteAudioDecorator muteAudioInterstitialAdNavigatorDecorator;
 
         public override void InstallBindings()
@@ -64,13 +60,7 @@ namespace Ads._di
 
             Container
                 .Bind<IInterstitialAdNavigator>()
-                .WithId(IInterstitialAdNavigator.DeathInterstitialAdNavigatorId)
-                .FromInstance(dieCounterNavigator);
-
-            Container
-                .Bind<IInterstitialAdNavigator>()
-                .WithId(IInterstitialAdNavigator.LevelLoadedInterstitialAdNavigatorId)
-                .FromInstance(levelLoadedCounterNavigator);
+                .To<InterstitialAdNavigatorMuteAudioDecorator>();
         }
     }
 }

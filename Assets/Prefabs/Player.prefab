@@ -397,7 +397,7 @@ GameObject:
   - component: {fileID: 1181905277}
   - component: {fileID: 8252314825089267692}
   m_Layer: 0
-  m_Name: FallController
+  m_Name: FallNavigator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

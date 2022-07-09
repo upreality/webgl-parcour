@@ -1,8 +1,8 @@
 using UnityEngine;
 
-namespace Gameplay
+namespace Gameplay.Respawn
 {
-    public class Restart : MonoBehaviour
+    public class RespawnNavigator : MonoBehaviour
     {
         [SerializeField] private Transform spawn;
         [SerializeField] private Rigidbody playerRigidbody;
