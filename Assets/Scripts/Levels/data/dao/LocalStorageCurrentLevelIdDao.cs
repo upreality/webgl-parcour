@@ -5,16 +5,16 @@ namespace Levels.data.dao
 {
     public class LocalStorageCurrentLevelIdDao : CurrentLevelRepository.ICurrentLevelIdDao
     {
-        private const string PrefsKeyPrefix = "CurrentLevelId";
+        private const string KeyPrefix = "CurrentLevelId";
 
-        public bool HasCurrentLevelId() => LocalStorageIO.HasKey(PrefsKeyPrefix);
+        public bool HasCurrentLevelId() => LocalStorageIO.HasKey(KeyPrefix);
 
         public long GetCurrentLevelId()
         {
-            var storedLevelIdData = LocalStorageIO.GetString(PrefsKeyPrefix);
+            var storedLevelIdData = LocalStorageIO.GetString(KeyPrefix);
             return Convert.ToInt64(storedLevelIdData);
         }
 
-        public void SetCurrentLevelId(long id) => LocalStorageIO.SetString(PrefsKeyPrefix, id.ToString());
+        public void SetCurrentLevelId(long id) => LocalStorageIO.SetString(KeyPrefix, id.ToString());
     }
 }
