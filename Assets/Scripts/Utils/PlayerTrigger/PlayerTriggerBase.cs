@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Gameplay.PlayerTriggers
+namespace Utils.PlayerTrigger
 {
     public abstract class PlayerTriggerBase : MonoBehaviour
     {

@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace Gameplay.PlayerTriggers
+namespace Utils.PlayerTrigger
 {
     public class UnityEventPlayerTrigger : PlayerTriggerBase
     {

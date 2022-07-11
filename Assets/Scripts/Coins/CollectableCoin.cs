@@ -1,6 +1,6 @@
 using Balance.presentation;
-using Gameplay.PlayerTriggers;
 using UnityEngine;
+using Utils.PlayerTrigger;
 using Zenject;
 
 namespace Coins
