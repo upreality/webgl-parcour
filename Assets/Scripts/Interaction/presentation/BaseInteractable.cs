@@ -3,6 +3,7 @@ using System.Collections;
 using Interaction.domain;
 using UniRx;
 using UnityEngine;
+using static Interaction.domain.IInteractable.SelectedState;
 
 namespace Interaction.presentation
 {
@@ -19,6 +20,8 @@ namespace Interaction.presentation
 
         public virtual IObservable<bool> IsInteractableFlow() => onCooldown.Select(_ => !_ && !(interactOnce && firstInteraction));
 
+        protected virtual  void Awake() => OnSelectedStateChanged(NotSelected);
+
         public void Interact()
         {
             StartCoroutine(CooldownCoroutine());
@@ -28,6 +31,10 @@ namespace Interaction.presentation
         protected virtual void Interaction()
         {
             firstInteraction = true;
+        }
+        
+        public virtual void OnSelectedStateChanged(IInteractable.SelectedState state)
+        {
             //do nothing
         }
 

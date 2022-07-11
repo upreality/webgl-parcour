@@ -5,14 +5,11 @@ using Zenject;
 
 namespace Ads.presentation.InterstitialAdNavigator.decorators
 {
-    public class InterstitialAdNavigatorLockLookDecorator : MonoBehaviour, IInterstitalAdNavigator
+    public class InterstitialAdNavigatorLockLookDecorator : MonoBehaviour, IInterstitialAdNavigator
     {
+        [SerializeField] private GameObject menuUI;
         [Inject] private FirstPersonLook look;
-        [Inject] private IInterstitalAdNavigator Target;
-
-        private bool uiShownState = false;
-
-        public void SetUIShownState(bool shown) => uiShownState = shown;
+        [Inject] private IInterstitialAdNavigator Target;
 
         public IObservable<ShowInterstitialResult> ShowAd()
         {
@@ -29,7 +26,7 @@ namespace Ads.presentation.InterstitialAdNavigator.decorators
             if (locked)
                 look.SetEnabledState(false);
             
-            if (!locked && !uiShownState) 
+            if (!locked && !menuUI.activeSelf) 
                 look.SetEnabledState(true);
 
             Time.timeScale = locked ? 0f : 1f;

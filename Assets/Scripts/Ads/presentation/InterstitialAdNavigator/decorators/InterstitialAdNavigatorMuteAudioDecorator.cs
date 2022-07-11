@@ -7,9 +7,9 @@ using Zenject;
 
 namespace Ads.presentation.InterstitialAdNavigator.decorators
 {
-    public class InterstitialAdNavigatorMuteAudioDecorator : MonoBehaviour, IInterstitalAdNavigator
+    public class InterstitialAdNavigatorMuteAudioDecorator : MonoBehaviour, IInterstitialAdNavigator
     {
-        [Inject] private IInterstitalAdNavigator target;
+        [Inject] private IInterstitialAdNavigator target;
         [Inject] private ISoundPrefsRepository soundPrefsRepository;
         [SerializeField] private AudioMixer mixer;
 

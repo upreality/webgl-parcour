@@ -7,5 +7,13 @@ namespace Interaction.domain
         public IObservable<bool> IsInteractableFlow();
         public void Interact();
         public InteractableData GetData();
+        public void OnSelectedStateChanged(SelectedState state);
+        
+        public enum SelectedState
+        {
+            NotSelected,
+            Selected,
+            SelectedInteractable,
+        }
     }
 }

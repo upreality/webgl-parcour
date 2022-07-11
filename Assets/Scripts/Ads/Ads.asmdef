@@ -1,0 +1,24 @@
+{
+    "name": "Ads",
+    "rootNamespace": "",
+    "references": [
+        "GUID:92d1b4f2a86273345acaa78fb73e3e9f",
+        "GUID:0d8beb7f090555447a6cf5ce9e54dbb4",
+        "GUID:f8d664da001035c4a97516992f68a3ea",
+        "GUID:560b04d1a97f54a4e82edc0cbbb69285",
+        "GUID:d9facc1055f319d4f8cbc2e30aa3dfdd",
+        "GUID:5cba6f9ebaadce344811b2b794fd6821",
+        "GUID:37beea5931e01934b90b033c1cfd3996",
+        "GUID:ef32a706b9ed4968b95720322a08ce7f",
+        "GUID:dc92ac45f4a7f2140beca3105198c072"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

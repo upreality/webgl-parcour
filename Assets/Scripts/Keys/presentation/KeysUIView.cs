@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using Doozy.Engine.UI;
-using Gameplay.Keys.domain;
+using Keys.domain;
 using UniRx;
 using UnityEngine;
 using Zenject;

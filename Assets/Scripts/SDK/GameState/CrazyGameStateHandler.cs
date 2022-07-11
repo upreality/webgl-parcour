@@ -8,7 +8,7 @@ namespace SDK.GameState
 {
     public class CrazyGameStateHandler : MonoBehaviour
     {
-        [Inject] private IGameStateNavigator gameStateNavigator;
+        [Inject] private GameStateNavigator gameStateNavigator;
 
 #if CRAZY_SDK
         private void Start() => gameStateNavigator.GetGameState().Subscribe(HandleGameState).AddTo(this);

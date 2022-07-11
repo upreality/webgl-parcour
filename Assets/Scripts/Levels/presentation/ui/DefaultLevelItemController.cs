@@ -5,13 +5,13 @@ namespace Levels.presentation.ui
 {
     public class DefaultLevelItemController : LevelItem.ILevelItemController
     {
-        [Inject] private LevelLoadingController levelLoadingController;
+        [Inject] private LevelLoadingNavigator levelLoadingNavigator;
         [Inject] private ICurrentLevelRepository currentLevelRepository;
 
         public void OnItemClick(long levelId)
         {
             currentLevelRepository.SetCurrentLevel(levelId);
-            levelLoadingController.LoadLevel(levelId);
+            levelLoadingNavigator.LoadLevel(levelId);
         }
     }
 }

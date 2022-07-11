@@ -1,5 +1,6 @@
 ﻿using Sound.data;
 using Sound.domain;
+using Sound.presentation;
 using UnityEngine;
 using Zenject;
 
@@ -11,6 +12,8 @@ namespace Sound._di
         public override void InstallBindings()
         {
             Container.Bind<ISoundPrefsRepository>().To<PlayerPrefsSoundPrefsRepository>().FromNew().AsSingle();
+            var playSoundNavigator = FindObjectOfType<PlaySoundNavigator>();
+            Container.BindInstance(playSoundNavigator).AsSingle();
         }
     }
 }

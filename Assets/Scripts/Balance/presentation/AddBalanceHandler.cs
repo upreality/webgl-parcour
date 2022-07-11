@@ -9,11 +9,12 @@ namespace Balance.presentation
     {
         [SerializeField] private int amount;
         [SerializeField] private CurrencyType currencyType = CurrencyType.Primary;
-        [Inject] private IBalanceRepository balanceRepository;
+        [Inject] private AddBalanceNavigator balanceNavigator;
 
         public void AddBalance()
         {
-            if (balanceRepository != null) balanceRepository.Add(amount, currencyType);
+            if (balanceNavigator != null)
+                balanceNavigator.AddBalance(amount, currencyType);
         }
     }
 }

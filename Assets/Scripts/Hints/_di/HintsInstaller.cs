@@ -1,5 +1,6 @@
 ﻿using Hints.data;
 using Hints.domain;
+using Hints.presentation;
 using UnityEngine;
 using Zenject;
 
@@ -12,6 +13,9 @@ namespace Hints._di
         {
             //Repositories
             Container.Bind<ICurrentHintRepository>().To<CurrentHintInMemoryRepository>().AsSingle();
+
+            var navigator = FindObjectOfType<HintsNavigator>();
+            Container.BindInstance(navigator).AsSingle();
         }
     }
 }

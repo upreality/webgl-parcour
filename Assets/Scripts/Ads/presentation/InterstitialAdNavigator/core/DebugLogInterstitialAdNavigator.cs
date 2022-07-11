@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Ads.presentation.InterstitialAdNavigator.core
 {
-    public class DebugLogInterstitialAdNavigator: IInterstitalAdNavigator
+    public class DebugLogInterstitialAdNavigator: IInterstitialAdNavigator
     {
         public IObservable<ShowInterstitialResult> ShowAd()
         {

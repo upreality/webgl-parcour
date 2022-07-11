@@ -139,7 +139,7 @@ PrefabInstance:
     - target: {fileID: 3041239533454672765, guid: a5e9587360bee6e448f47f74c1d47369,
         type: 3}
       propertyPath: m_Name
-      value: Key Variant
+      value: Key
       objectReference: {fileID: 0}
     - target: {fileID: 3041239534519679712, guid: a5e9587360bee6e448f47f74c1d47369,
         type: 3}
@@ -190,7 +190,7 @@ PrefabInstance:
         type: 3}
       propertyPath: triggerEvent.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
-      objectReference: {fileID: 6375494408216149241}
+      objectReference: {fileID: 0}
     - target: {fileID: 8576535968850968701, guid: a5e9587360bee6e448f47f74c1d47369,
         type: 3}
       propertyPath: triggerEvent.m_PersistentCalls.m_Calls.Array.data[3].m_Target
@@ -254,6 +254,7 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 123699935848554323, guid: a5e9587360bee6e448f47f74c1d47369, type: 3}
     - {fileID: 5452512786820510970, guid: a5e9587360bee6e448f47f74c1d47369, type: 3}
+    - {fileID: 8919049498233250657, guid: a5e9587360bee6e448f47f74c1d47369, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: a5e9587360bee6e448f47f74c1d47369, type: 3}
 --- !u!65 &4190170859802803797 stripped
 BoxCollider:
@@ -261,18 +262,30 @@ BoxCollider:
     type: 3}
   m_PrefabInstance: {fileID: 5647461598640002500}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &6375494408216149241 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1595855390114752829, guid: a5e9587360bee6e448f47f74c1d47369,
+--- !u!1 &7236008450737051321 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3041239533454672765, guid: a5e9587360bee6e448f47f74c1d47369,
     type: 3}
   m_PrefabInstance: {fileID: 5647461598640002500}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+--- !u!114 &2765301878891129077
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7236008450737051321}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16c3dda64f3c6734e8250bc13a68bfb8, type: 3}
+  m_Script: {fileID: 11500000, guid: 8b493c502a2c49d395cb4f8ddf3a14b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  triggerTag: Player
+  triggerOnce: 0
+  collectParticles: {fileID: 7840765951435851476}
+  animator: {fileID: 7236008451887050532}
+  triggerCollider: {fileID: 4190170859802803797}
+  trigger: collect
 --- !u!95 &7236008451887050532 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 3041239534519679712, guid: a5e9587360bee6e448f47f74c1d47369,
@@ -285,54 +298,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 5647461598640002500}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &7236008451887050534 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3041239534519679714, guid: a5e9587360bee6e448f47f74c1d47369,
-    type: 3}
-  m_PrefabInstance: {fileID: 5647461598640002500}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &7828894234124039462
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7236008451887050534}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8ea9f92203d31e240bc110ff7b26d05c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  DebugMode: 0
-  Event:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 7236008451887050532}
-        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
-        m_MethodName: Rebind
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 4190170859802803797}
-        m_TargetAssemblyTypeName: UnityEngine.Collider, UnityEngine
-        m_MethodName: set_enabled
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-  GameEvent: Restart
-  ListenForAllGameEvents: 0
 --- !u!198 &7840765951435851476 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 2490542752888460048, guid: a5e9587360bee6e448f47f74c1d47369,

@@ -77,5 +77,10 @@ PrefabInstance:
       propertyPath: currencyType
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 8919049498233250657, guid: a5e9587360bee6e448f47f74c1d47369,
+        type: 3}
+      propertyPath: currencyType
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a5e9587360bee6e448f47f74c1d47369, type: 3}

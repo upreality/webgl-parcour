@@ -1,15 +1,22 @@
 ﻿using System;
-using Gameplay.Keys.domain;
+using Keys.domain;
+using Levels.domain.repositories;
+using Levels.presentation.respawn;
 using UniRx;
 using UnityEngine;
+using Zenject;
 
 namespace Keys.data
 {
-    public class KeysSceneRepository : MonoBehaviour, IKeysRepository
+    public class KeysSceneRepository: MonoBehaviour, IKeysRepository
     {
+        [Inject] private IRespawnNavigator respawnNavigator;
+        
         private readonly IntReactiveProperty keysCount = new(0);
 
         public IObservable<int> GetCollectedKeysCountFlow() => keysCount;
+
+        private void Awake() => respawnNavigator.OnRespawn += DropKeysCounter;
 
         public void DropKeysCounter() => keysCount.Value = 0;
 
@@ -22,5 +29,7 @@ namespace Keys.data
 
             keysCount.Value -= 1;
         }
+
+        private void OnDestroy() => respawnNavigator.OnRespawn -= DropKeysCounter;
     }
 }
