@@ -17,6 +17,7 @@ namespace Gameplay._di
         public override void InstallBindings()
         {
             Container.Bind<LevelFailedAnalyticsEventUseCase>().AsSingle();
+            Container.Bind<IDeathCounterRepository>().To<DeathCounterDefaultRepository>().AsSingle();
             Container.Bind<DeathNavigator>().AsSingle();
             Container.BindInstance(fallSettings).AsSingle();
             Container.BindInstance(respawnNavigator).AsSingle();

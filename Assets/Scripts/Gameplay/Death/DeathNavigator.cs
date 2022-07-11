@@ -13,6 +13,7 @@ namespace Gameplay.Death
         [Inject(Id = IInterstitialAdNavigator.DefaultInstance)] private IInterstitialAdNavigator adNavigator;
 
         [Inject] private IRespawnNavigator respawnNavigator;
+        [Inject] private IDeathCounterRepository deathCounter;
         [Inject] private GameStateNavigator gameStateNavigator;
         [Inject] private LevelFailedAnalyticsEventUseCase levelFailedEventUseCase;
 
@@ -20,6 +21,7 @@ namespace Gameplay.Death
         {
             levelFailedEventUseCase.Send();
             gameStateNavigator.SetLevelPlayingState(false);
+            deathCounter.CountDeath();
             return adNavigator.ShowAd().Do(_ => respawnNavigator.Respawn()).Select(_ => Unit.Default);
         }
     }
