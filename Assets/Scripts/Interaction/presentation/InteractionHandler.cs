@@ -28,18 +28,23 @@ namespace Interaction.presentation
                 .Subscribe(_ =>
                 {
                     isInteractable = _;
-                    lastInteractable.OnSelectedStateChanged(isInteractable? SelectedInteractable : Selected);
+                    UpdateInteractable();
                 })
                 .AddTo(this);
             interactableRepository.GetHasInteractableFlow().Subscribe(_ =>
             {
-                hasInteractable = _; 
-                
-                if(hasInteractable)
-                    lastInteractable?.OnSelectedStateChanged(isInteractable? SelectedInteractable : Selected);
-                else
-                    lastInteractable?.OnSelectedStateChanged(NotSelected);
+                hasInteractable = _;
+
+                UpdateInteractable();
             }).AddTo(this);
+        }
+
+        private void UpdateInteractable()
+        {
+            if (hasInteractable)
+                lastInteractable?.OnSelectedStateChanged(isInteractable ? SelectedInteractable : Selected);
+            else
+                lastInteractable?.OnSelectedStateChanged(NotSelected);
         }
 
         private void Update()
