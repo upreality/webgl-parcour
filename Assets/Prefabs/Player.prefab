@@ -224,7 +224,7 @@ MonoBehaviour:
   look: {fileID: 4963157938584106549}
   dieFade: {fileID: 0}
   dieAnimator: {fileID: 8252314825089267692}
-  startFallSound: {fileID: 0}
+  startFallSound: {fileID: 8300000, guid: 64fb616dd0364fe4c81f58824d009153, type: 3}
   fallAnimatorTrigger: fall
 --- !u!95 &8252314825089267692
 Animator:
