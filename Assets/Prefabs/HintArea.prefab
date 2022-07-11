@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8677914524725444211}
   - component: {fileID: 2039644635867966654}
-  - component: {fileID: 339718065239175878}
   - component: {fileID: 4832374083242651991}
   - component: {fileID: 2206851693470582268}
   m_Layer: 0
@@ -47,39 +46,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0871f748c48352f4593c03df6c2009ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &339718065239175878
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8243117414599013627}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 09016bee19e911f4fbd0f92b795c5ebb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  triggerEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2206851693470582268}
-        m_TargetAssemblyTypeName: Hints.presentation.Hint, Assembly-CSharp
-        m_MethodName: Setup
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  exitTriggerEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  gameEvent: ShowHint
-  exitGameEvent: HideHint
-  triggerTag: Player
 --- !u!65 &4832374083242651991
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -105,5 +71,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b521f3989204f058c49a001bda02785, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  triggerTag: Player
+  triggerOnce: 0
   ru: 
   en: 

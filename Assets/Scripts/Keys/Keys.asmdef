@@ -1,0 +1,22 @@
+{
+    "name": "Keys",
+    "rootNamespace": "",
+    "references": [
+        "GUID:0d8beb7f090555447a6cf5ce9e54dbb4",
+        "GUID:560b04d1a97f54a4e82edc0cbbb69285",
+        "GUID:11626d1a009084d43ada56d493db520a",
+        "GUID:ef32a706b9ed4968b95720322a08ce7f",
+        "GUID:7c76de0ed70fd834a90d592e1e0acc39",
+        "GUID:caf5f571b8a96dc42ae8d85b247ec6dd",
+        "GUID:f8d664da001035c4a97516992f68a3ea"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

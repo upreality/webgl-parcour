@@ -4,7 +4,7 @@ using Zenject;
 
 namespace Ads.presentation.InterstitialAdNavigator.core
 {
-    public class YandexInterstitialAdNavigator : IInterstitalAdNavigator
+    public class YandexInterstitialAdNavigator : IInterstitialAdNavigator
     {
         [Inject] private Plugins.YSDK.YandexSDK instance;
         public IObservable<ShowInterstitialResult> ShowAd()

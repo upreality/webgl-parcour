@@ -39,11 +39,7 @@ public class SDKInstaller : ScriptableObjectInstaller
             .AsSingle();
     }
     
-    private void InstallGameStateNavigator()
-    {
-        var gameStateNavigator = FindObjectsOfType<MonoBehaviour>().OfType<IGameStateNavigator>().First(); 
-        Container.Bind<IGameStateNavigator>().FromInstance(gameStateNavigator).AsSingle();
-    }
+    private void InstallGameStateNavigator() => Container.Bind<GameStateNavigator>().AsSingle();
 
     private void InstallSDK()
     {

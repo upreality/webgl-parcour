@@ -11,7 +11,7 @@ namespace Balance.domain
         public void Collect(float multiplier = 1f)
         {
             var collected = (int) (rewardRepository.Get() * multiplier);
-            balanceRepository.Add(collected);
+            balanceRepository.Add(collected, CurrencyType.Primary);
             rewardRepository.Drop();
         }
     }

@@ -7,9 +7,9 @@ using Plugins.YSDK;
 
 namespace Ads.presentation.InterstitialAdNavigator.decorators
 {
-    public class YandexInterstitialNavigatorHitsDecorator : IInterstitalAdNavigator
+    public class YandexInterstitialNavigatorHitsDecorator : IInterstitialAdNavigator
     {
-        [Inject] private IInterstitalAdNavigator adNavigator;
+        [Inject] private IInterstitialAdNavigator adNavigator;
 #if YANDEX_SDK && !UNITY_EDITOR
         [Inject] private YandexSDK instance;
 #endif

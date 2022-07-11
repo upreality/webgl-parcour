@@ -3,7 +3,7 @@ using UniRx;
 
 namespace Ads.presentation.InterstitialAdNavigator.core
 {
-    public class PokiInterstitialAdNavigator : IInterstitalAdNavigator
+    public class PokiInterstitialAdNavigator : IInterstitialAdNavigator
     {
 #if POKI_SDK
         [Inject] private PokiUnitySDK sdk;

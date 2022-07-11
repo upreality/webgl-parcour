@@ -1,4 +1,5 @@
 ﻿using System;
+using Balance.domain;
 using Balance.domain.repositories;
 using UniRx;
 using UnityEngine;
@@ -11,6 +12,7 @@ namespace Balance.presentation.ui
     public class ReactiveBalanceText: MonoBehaviour
     {
         [SerializeField] private Text text;
+        [SerializeField] private CurrencyType currencyType = CurrencyType.Primary;
         [Inject] private IBalanceRepository balanceRepository;
         [SerializeField] private UnityEvent onUpdateText;
 
@@ -20,7 +22,7 @@ namespace Balance.presentation.ui
                 text = GetComponent<Text>();
         }
 
-        private void Start() => balanceRepository.GetBalance().Subscribe(UpdateBalance).AddTo(this);
+        private void Start() => balanceRepository.GetBalance(currencyType).Subscribe(UpdateBalance).AddTo(this);
 
         private void UpdateBalance(int balance)
         {

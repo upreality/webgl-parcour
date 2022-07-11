@@ -1,50 +1,51 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class PlateController : MonoBehaviour
+namespace Gameplay
 {
-    [SerializeField] private Animator target;
-    [SerializeField] private string param = "DestructionState";
-    [SerializeField] private float stepDuration = 1f;
-    private int destructionState = 0;
-
-    public void StartDestruction()
+    public class PlateController : MonoBehaviour
     {
-        StartCoroutine(Destruction());
-    }
+        [SerializeField] private Animator target;
+        [SerializeField] private string param = "DestructionState";
+        [SerializeField] private float stepDuration = 1f;
+        private int destructionState = 0;
 
-    private IEnumerator Destruction()
-    {
-        while (true)
+        public void StartDestruction()
         {
-            destructionState += 1;
-            target.SetInteger(param, destructionState);
-            yield return new WaitForSeconds(stepDuration);
+            StartCoroutine(Destruction());
         }
-    }
 
-    public void StopDestruction()
-    {
-        StopAllCoroutines();
-    }
-
-    public void DestroyMe()
-    {
-        foreach (Transform child in transform)
+        private IEnumerator Destruction()
         {
-            child.gameObject.SetActive(false);
+            while (true)
+            {
+                destructionState += 1;
+                target.SetInteger(param, destructionState);
+                yield return new WaitForSeconds(stepDuration);
+            }
         }
-    }
 
-    public void Reset()
-    {
-        StopDestruction();
-        foreach (Transform child in transform)
+        public void StopDestruction()
         {
-            child.gameObject.SetActive(true);
+            StopAllCoroutines();
         }
-        target.Rebind();
+
+        public void DestroyMe()
+        {
+            foreach (Transform child in transform)
+            {
+                child.gameObject.SetActive(false);
+            }
+        }
+
+        public void Reset()
+        {
+            StopDestruction();
+            foreach (Transform child in transform)
+            {
+                child.gameObject.SetActive(true);
+            }
+            target.Rebind();
+        }
     }
 }

@@ -9596,9 +9596,7 @@ GameObject:
   - component: {fileID: 3041239533454672764}
   - component: {fileID: 2781091648087243394}
   - component: {fileID: 8392926663891348369}
-  - component: {fileID: 8576535968850968701}
-  - component: {fileID: 5452512786820510970}
-  - component: {fileID: 1595855390114752829}
+  - component: {fileID: 8919049498233250657}
   m_Layer: 0
   m_Name: Coin
   m_TagString: Untagged
@@ -9647,7 +9645,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &8576535968850968701
+--- !u!114 &8919049498233250657
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9656,93 +9654,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 3041239533454672765}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 09016bee19e911f4fbd0f92b795c5ebb, type: 3}
+  m_Script: {fileID: 11500000, guid: 67396b62ea06c5d4caa2ce4e33b8c857, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  triggerEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 5452512786820510970}
-        m_TargetAssemblyTypeName: Balance.presentation.AddBalanceHandler, Assembly-CSharp
-        m_MethodName: AddBalance
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 3041239534519679712}
-        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
-        m_MethodName: SetTrigger
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: collect
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 2490542752888460048}
-        m_TargetAssemblyTypeName: UnityEngine.ParticleSystem, UnityEngine
-        m_MethodName: Play
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1595855390114752829}
-        m_TargetAssemblyTypeName: GameEventMessageEmitter, Assembly-CSharp
-        m_MethodName: Emit
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  exitTriggerEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  gameEvent: 
-  exitGameEvent: 
   triggerTag: Player
   triggerOnce: 1
---- !u!114 &5452512786820510970
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3041239533454672765}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e0954839b4758ea43b0636c731153b41, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  amount: 1
---- !u!114 &1595855390114752829
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3041239533454672765}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16c3dda64f3c6734e8250bc13a68bfb8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  message: CollectCoin
+  collectParticles: {fileID: 2490542752888460048}
+  animator: {fileID: 3041239534519679712}
+  trigger: collect
 --- !u!1 &3041239534519679714
 GameObject:
   m_ObjectHideFlags: 0
