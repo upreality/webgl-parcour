@@ -1,3 +1,4 @@
+using ExternalAssets.Mini_First_Person_Controller.Scripts;
 using Gameplay;
 using PlayerInput;
 using PlayerInput.FirstPersonLook;

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using ExternalAssets.Mini_First_Person_Controller.Scripts;
+using UnityEngine;
 using static UnityEngine.Input;
 
 namespace PlayerInput.Movement

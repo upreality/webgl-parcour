@@ -1,4 +1,5 @@
-﻿using Gameplay.Death;
+﻿using Gameplay.AttackAreas;
+using Gameplay.Death;
 using Gameplay.Fall.presentation;
 using Levels.presentation.analytics;
 using Respawn.presentation;
@@ -19,6 +20,7 @@ namespace Gameplay._di
             Container.Bind<LevelFailedAnalyticsEventUseCase>().AsSingle();
             Container.Bind<IDeathCounterRepository>().To<DeathCounterDefaultRepository>().AsSingle();
             Container.Bind<DeathNavigator>().AsSingle();
+            Container.Bind<AttackAreaNavigator>().AsSingle();
             Container.BindInstance(fallSettings).AsSingle();
             Container.BindInstance(respawnNavigator).AsSingle();
             Container.Bind<IFallNavigator>().FromInstance(fallNavigator).AsSingle();

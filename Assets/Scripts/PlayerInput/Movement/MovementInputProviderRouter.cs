@@ -1,4 +1,5 @@
-﻿using SDK.Platform.domain;
+﻿using ExternalAssets.Mini_First_Person_Controller.Scripts;
+using SDK.Platform.domain;
 using UnityEngine;
 using Zenject;
 

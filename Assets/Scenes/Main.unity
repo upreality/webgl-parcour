@@ -752,6 +752,18 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 905554093}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &905554095 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7005965103333444162, guid: 04c188d70605e7a4ba8ebc290357db88,
+    type: 3}
+  m_PrefabInstance: {fileID: 905554093}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 314affd16bceddb4c99fbaa07de901d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1021081136
 GameObject:
   m_ObjectHideFlags: 0
@@ -1365,6 +1377,41 @@ PrefabInstance:
       propertyPath: dieFade
       value: 
       objectReference: {fileID: 1453459738}
+    - target: {fileID: 4967360313056931199, guid: 0b5633ffafe83d14c972b01f08e08286,
+        type: 3}
+      propertyPath: onAffected.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4967360313056931199, guid: 0b5633ffafe83d14c972b01f08e08286,
+        type: 3}
+      propertyPath: onAffected.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4967360313056931199, guid: 0b5633ffafe83d14c972b01f08e08286,
+        type: 3}
+      propertyPath: onAffected.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 905554095}
+    - target: {fileID: 4967360313056931199, guid: 0b5633ffafe83d14c972b01f08e08286,
+        type: 3}
+      propertyPath: onAffected.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4967360313056931199, guid: 0b5633ffafe83d14c972b01f08e08286,
+        type: 3}
+      propertyPath: onAffected.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Show
+      objectReference: {fileID: 0}
+    - target: {fileID: 4967360313056931199, guid: 0b5633ffafe83d14c972b01f08e08286,
+        type: 3}
+      propertyPath: onAffected.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Doozy.Engine.UI.UIView, DoozyEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 4967360313056931199, guid: 0b5633ffafe83d14c972b01f08e08286,
+        type: 3}
+      propertyPath: onAffected.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 5003983515686702307, guid: 0b5633ffafe83d14c972b01f08e08286,
         type: 3}
       propertyPath: m_Name
