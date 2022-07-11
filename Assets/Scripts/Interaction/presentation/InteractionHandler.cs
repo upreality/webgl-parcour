@@ -31,7 +31,15 @@ namespace Interaction.presentation
                     lastInteractable.OnSelectedStateChanged(isInteractable? SelectedInteractable : Selected);
                 })
                 .AddTo(this);
-            interactableRepository.GetHasInteractableFlow().Subscribe(_ => hasInteractable = _).AddTo(this);
+            interactableRepository.GetHasInteractableFlow().Subscribe(_ =>
+            {
+                hasInteractable = _; 
+                
+                if(hasInteractable)
+                    lastInteractable?.OnSelectedStateChanged(isInteractable? SelectedInteractable : Selected);
+                else
+                    lastInteractable?.OnSelectedStateChanged(NotSelected);
+            }).AddTo(this);
         }
 
         private void Update()
