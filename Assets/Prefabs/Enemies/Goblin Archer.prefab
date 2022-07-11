@@ -1294,7 +1294,7 @@ MonoBehaviour:
   animator: {fileID: 4097005204000335566}
   shootTrigger: attack
   dieTrigger: death
-  shootDelay: 0.5
+  shootDelay: 0.85
   shootCooldown: 2.5
   attackDistance: 15
   deathEvent:
