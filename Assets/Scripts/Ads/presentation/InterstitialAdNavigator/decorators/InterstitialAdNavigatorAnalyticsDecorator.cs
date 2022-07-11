@@ -24,8 +24,8 @@ namespace Ads.presentation.InterstitialAdNavigator.decorators
 
         private void HandleShowResult(ShowInterstitialResult result)
         {
-            if (!result.isSuccess)
-                OnFailed(result.error);
+            if (!result.IsSuccess)
+                OnFailed(result.Error);
             else
                 OnShown();
         }

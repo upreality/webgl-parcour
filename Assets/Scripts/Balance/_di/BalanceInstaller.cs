@@ -1,6 +1,7 @@
 using Balance.data;
 using Balance.domain;
 using Balance.domain.repositories;
+using Balance.presentation;
 using UnityEngine;
 using Zenject;
 
@@ -23,6 +24,9 @@ namespace Balance._di
             Container.Bind<IRewardRepository>().To<RewardInMemoryRepository>().AsSingle();
             Container.Bind<DecreaseBalanceUseCase>().AsSingle();
             Container.Bind<CollectRewardUseCase>().AsSingle();
+            
+            var addBalanceNavigator = FindObjectOfType<AddBalanceNavigator>();
+            Container.BindInstance(addBalanceNavigator).AsSingle();
         }
     }
 }

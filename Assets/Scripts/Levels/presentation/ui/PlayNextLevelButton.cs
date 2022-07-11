@@ -9,14 +9,14 @@ namespace Levels.presentation.ui
     public class PlayNextLevelButton : MonoBehaviour
     {
         [Inject] private ICurrentLevelRepository currentLevelRepository;
-        [Inject] private LevelLoadingController levelLoadingController;
+        [Inject] private LevelLoadingNavigator levelLoadingNavigator;
 
         private void Start() => GetComponent<Button>().onClick.AddListener(OnClick);
 
         private void OnClick()
         {
             var currentLevel = currentLevelRepository.GetCurrentLevel();
-            levelLoadingController.LoadLevel(currentLevel.ID);
+            levelLoadingNavigator.LoadLevel(currentLevel.ID);
         }
     }
 }

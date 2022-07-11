@@ -1,6 +1,7 @@
 using System.Collections;
 using Doozy.Engine.UI;
 using Gameplay.Death;
+using Sound.presentation;
 using UniRx;
 using UnityEngine;
 using Zenject;
@@ -12,9 +13,11 @@ namespace Gameplay.Fall.presentation
         [SerializeField] private FirstPersonLook look;
         [SerializeField] private UIView dieFade;
         [SerializeField] private Animator dieAnimator;
+        [SerializeField] private AudioClip startFallSound;
         [SerializeField] private string fallAnimatorTrigger = "fall";
 
         [Inject] private FallSettings fallSettings;
+        [Inject] private PlaySoundNavigator playSoundNavigator;
         [Inject] private DeathNavigator deathNavigator;
 
         public void StartFall()
@@ -22,6 +25,7 @@ namespace Gameplay.Fall.presentation
             dieFade.Show();
             fallAnimatorTrigger = "fall";
             dieAnimator.SetTrigger(fallAnimatorTrigger);
+            playSoundNavigator.Play(startFallSound);
             StartCoroutine(FallCoroutine());
         }
 

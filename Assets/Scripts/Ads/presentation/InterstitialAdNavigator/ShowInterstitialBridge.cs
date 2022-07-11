@@ -1,26 +1,22 @@
 ﻿using Doozy.Engine;
 using UniRx;
 using UnityEngine;
+using Zenject;
 
 namespace Ads.presentation.InterstitialAdNavigator
 {
     public class ShowInterstitialBridge: MonoBehaviour
     {
-        private IInterstitialAdNavigator navigator;
+        [Inject(Id = IInterstitialAdNavigator.DefaultInstance)] private IInterstitialAdNavigator navigator;
         [SerializeField] private string onShownEvent;
         [SerializeField] private string onFailedEvent;
-
-        private void Awake()
-        {
-            navigator = GetComponent<IInterstitialAdNavigator>();
-        }
 
         public void TryShow()
         {
             navigator.ShowAd().Subscribe(
                 res =>
                 {
-                    var message = res.isSuccess ? onShownEvent : onFailedEvent;
+                    var message = res.IsSuccess ? onShownEvent : onFailedEvent;
                     GameEventMessage.SendEvent(message);
                 },
                 e => GameEventMessage.SendEvent(onFailedEvent)

@@ -1,9 +1,7 @@
-using Ads.data;
 using Ads.presentation.InterstitialAdNavigator;
 using Ads.presentation.InterstitialAdNavigator.core;
 using Ads.presentation.InterstitialAdNavigator.decorators;
 using UnityEngine;
-using UnityEngine.Serialization;
 using Zenject;
 
 namespace Ads._di
@@ -60,7 +58,9 @@ namespace Ads._di
 
             Container
                 .Bind<IInterstitialAdNavigator>()
-                .To<InterstitialAdNavigatorMuteAudioDecorator>();
+                .WithId(IInterstitialAdNavigator.DefaultInstance)
+                .To<InterstitialAdNavigatorCounterDecorator>()
+                .AsSingle();
         }
     }
 }
