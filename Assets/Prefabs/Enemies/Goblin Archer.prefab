@@ -1211,7 +1211,9 @@ GameObject:
   - component: {fileID: 4097005204007487864}
   - component: {fileID: 8400119800617847341}
   - component: {fileID: 4097005204000335566}
+  - component: {fileID: -5021107223593576296}
   - component: {fileID: 8400119800617847340}
+  - component: {fileID: 7243266434324973996}
   - component: {fileID: 8400119800617847343}
   m_Layer: 0
   m_Name: Goblin Archer
@@ -1274,6 +1276,51 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &-5021107223593576296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4097005204007589208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1dd0e8becb00bbe4fa32cb7407095cf5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  root: {fileID: 0}
+  playerTag: Player
+  detectDistance: 15
+  onPlayerEnter:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7243266434324973996}
+        m_TargetAssemblyTypeName: Gameplay.Enemies.ProjectileThrower, Assembly-CSharp
+        m_MethodName: SetAttackingState
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+  onPlayerExit:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7243266434324973996}
+        m_TargetAssemblyTypeName: Gameplay.Enemies.ProjectileThrower, Assembly-CSharp
+        m_MethodName: SetAttackingState
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &8400119800617847340
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1286,17 +1333,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c52f26e8da5bc7409142a4dc771836a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  root: {fileID: 4097005204007487864}
-  arrowPrefab: {fileID: 7427537315955926972, guid: 2b919c21ecf14584fafa8432defec511,
-    type: 3}
-  arrowPos: {fileID: 2196456413254948371}
   deathParticles: {fileID: 8526123246784464863}
   animator: {fileID: 4097005204000335566}
-  shootTrigger: attack
   dieTrigger: death
-  shootDelay: 0.85
-  shootCooldown: 2.5
-  attackDistance: 15
   deathEvent:
     m_PersistentCalls:
       m_Calls:
@@ -1312,6 +1351,49 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 7243266434324973996}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: -5021107223593576296}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &7243266434324973996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4097005204007589208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b580e3ccac6f7042b08be81071792f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  arrowPrefab: {fileID: 7427537315955926972, guid: 2b919c21ecf14584fafa8432defec511,
+    type: 3}
+  arrowPos: {fileID: 2196456413254948371}
+  animator: {fileID: 4097005204000335566}
+  shootTrigger: shoot
+  shootDelay: 1
+  shootCooldown: 3
 --- !u!114 &8400119800617847343
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1947,6 +2029,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2196456413254948371}
+  - component: {fileID: 5270166399092688011}
+  - component: {fileID: 4017789517344853871}
   m_Layer: 0
   m_Name: AroowRoot
   m_TagString: Untagged
@@ -1969,6 +2053,30 @@ Transform:
   m_Father: {fileID: 4097005204007487864}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: -0.001, y: -1.855, z: 89.968}
+--- !u!114 &5270166399092688011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5717001323107610943}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0871f748c48352f4593c03df6c2009ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4017789517344853871
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5717001323107610943}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab490db4375e465db63ee244061fb13e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &8400119799159206731
 PrefabInstance:
   m_ObjectHideFlags: 0

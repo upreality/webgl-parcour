@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Gameplay.Enemies
 {
-    public class Arrow : MonoBehaviour
+    public class Projectile : MonoBehaviour
     {
         [SerializeField] private Transform root;
         [SerializeField] private float punchForce = 10f;
