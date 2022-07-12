@@ -99,7 +99,13 @@ namespace ExternalAssets.Mini_First_Person_Controller.Scripts
         private IEnumerator StartAffectCoroutine(float duration, Vector3 force)
         {
             affected = true;
-            onAffected?.Invoke();
+            try
+            {
+                onAffected?.Invoke();
+            }
+            catch (Exception e)
+            {
+            }
             m_rigidbody.AddForce(force);
             yield return new WaitForSeconds(duration);
             affected = false;

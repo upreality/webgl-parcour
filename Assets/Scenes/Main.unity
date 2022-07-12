@@ -206,6 +206,50 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6ec0215dcf320e4d9e78c412e59b7f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &444618787
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 444618788}
+  - component: {fileID: 444618789}
+  m_Layer: 0
+  m_Name: LeverStatenavigator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &444618788
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 444618787}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1474724047}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &444618789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 444618787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02f48656a0c545c46a70b7fd0b2861ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &507371599 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5497028031546901867, guid: 0b5633ffafe83d14c972b01f08e08286,
@@ -1147,6 +1191,7 @@ MonoBehaviour:
   fallNavigator: {fileID: 413856190}
   respawnNavigator: {fileID: 1021081137}
   completeLevelNavigator: {fileID: 560747906}
+  leverStateNavigator: {fileID: 444618789}
 --- !u!114 &1425927136
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1212,6 +1257,7 @@ Transform:
   - {fileID: 2065643138}
   - {fileID: 843045356}
   - {fileID: 1325742181}
+  - {fileID: 444618788}
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

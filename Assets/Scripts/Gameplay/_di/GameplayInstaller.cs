@@ -1,6 +1,8 @@
 ﻿using Gameplay.AttackAreas;
 using Gameplay.Death;
+using Gameplay.Enemies;
 using Gameplay.Fall.presentation;
+using Gameplay.Lever;
 using Levels.presentation.analytics;
 using Respawn.presentation;
 using UnityEngine;
@@ -14,6 +16,7 @@ namespace Gameplay._di
         [SerializeField] private FallNavigator fallNavigator;
         [SerializeField] private RespawnNavigator respawnNavigator;
         [SerializeField] private CompleteLevelNavigator completeLevelNavigator;
+        [SerializeField] private LeverStateNavigator leverStateNavigator;
 
         public override void InstallBindings()
         {
@@ -25,6 +28,7 @@ namespace Gameplay._di
             Container.BindInstance(respawnNavigator).AsSingle();
             Container.Bind<IFallNavigator>().FromInstance(fallNavigator).AsSingle();
             Container.BindInstance(completeLevelNavigator).AsSingle();
+            Container.BindInstance(leverStateNavigator).AsSingle();
         }
     }
 }

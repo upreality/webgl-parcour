@@ -1,34 +1,39 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class RotateTowardsPlayer : MonoBehaviour
+namespace Enviroment
 {
-    //values that will be set in the Inspector
-    private Transform Target;
-    public float RotationSpeed;
-
-    //values for internal use
-    private Quaternion _lookRotation;
-    private Vector3 _direction;
-
-    private void Start()
+    public class RotateTowardsPlayer : MonoBehaviour
     {
-        Target = GameObject.FindWithTag("Player").transform;
-    }
+        public bool zRotEnabled = false;
 
-    // Update is called once per frame
-    void Update()
-    {
-        //find the vector pointing from our position to the target
-        _direction = (Target.position - transform.position).normalized;
-        _direction = new Vector3(_direction.x, 0, _direction.z);
+        //values that will be set in the Inspector
+        private Transform Target;
+        public float RotationSpeed;
+
+        //values for internal use
+        private Quaternion _lookRotation;
+        private Vector3 _direction;
         
-        //create the rotation we need to be in to look at the target
-        _lookRotation = Quaternion.LookRotation(_direction);
+        private float playerHeight = 1.2f;
 
-        //rotate us over time according to speed until we are in the required rotation
-        transform.rotation = Quaternion.Slerp(transform.rotation, _lookRotation, Time.deltaTime * RotationSpeed);
+        private void Start()
+        {
+            Target = GameObject.FindWithTag("Player").transform;
+        }
+
+        // Update is called once per frame
+        void Update()
+        {
+            //find the vector pointing from our position to the target
+            _direction = (Target.position + Vector3.up * playerHeight - transform.position).normalized;
+            if (!zRotEnabled)
+                _direction = new Vector3(_direction.x, 0, _direction.z);
+
+            //create the rotation we need to be in to look at the target
+            _lookRotation = Quaternion.LookRotation(_direction);
+
+            //rotate us over time according to speed until we are in the required rotation
+            transform.rotation = Quaternion.Slerp(transform.rotation, _lookRotation, Time.deltaTime * RotationSpeed);
+        }
     }
 }

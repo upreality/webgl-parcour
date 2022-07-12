@@ -1387,9 +1387,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b580e3ccac6f7042b08be81071792f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  arrowPrefab: {fileID: 7427537315955926972, guid: 2b919c21ecf14584fafa8432defec511,
+  throwablePrefab: {fileID: 7427537315955926972, guid: 2b919c21ecf14584fafa8432defec511,
     type: 3}
-  arrowPos: {fileID: 2196456413254948371}
+  throwablePos: {fileID: 2196456413254948371}
   animator: {fileID: 4097005204000335566}
   shootTrigger: shoot
   shootDelay: 1
@@ -1406,6 +1406,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8dbb7c4eaac8e443a848470ba309333, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  zRotEnabled: 0
   RotationSpeed: 5
 --- !u!1 &4097005204007589210
 GameObject:
