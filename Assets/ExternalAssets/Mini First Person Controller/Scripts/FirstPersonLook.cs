@@ -1,5 +1,5 @@
-﻿using ExternalAssets.Mini_First_Person_Controller.Scripts;
-using SDK.Platform.domain;
+﻿using Core.SDK.Platform.domain;
+using ExternalAssets.Mini_First_Person_Controller.Scripts;
 using UnityEngine;
 using Zenject;
 
