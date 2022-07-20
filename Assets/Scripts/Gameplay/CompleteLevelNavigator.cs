@@ -1,4 +1,5 @@
 ﻿using Ads.presentation.InterstitialAdNavigator;
+using Doozy.Engine;
 using Levels.domain;
 using Levels.presentation;
 using SDK.GameState;
@@ -14,6 +15,7 @@ namespace Gameplay
         [SerializeField] private FirstPersonLook look;
         [SerializeField] private FirstPersonMovement movement;
         [SerializeField] private AudioClip completeLevelSound;
+        [SerializeField] private string levelCompletedUIEvent = "LevelCompleted";
 
         [Inject] private CompleteCurrentLevelUseCase completeCurrentLevelUseCase;
         [Inject] private GameStateNavigator gameStateNavigator;
@@ -29,11 +31,13 @@ namespace Gameplay
 
             playSoundNavigator.Play(completeLevelSound);
             
+            Message.Send(levelCompletedUIEvent);
+            
             completeCurrentLevelUseCase.CompleteCurrentLevel();
             gameStateNavigator.SetLevelPlayingState(false);
             adNavigator.ShowAd().Subscribe(_ =>
             {
-                currentLevelLoadingNavigator.Load();
+                // currentLevelLoadingNavigator.Load();
                 movement.enabled = true;
                 look.enabled = true;
             }).AddTo(this);
