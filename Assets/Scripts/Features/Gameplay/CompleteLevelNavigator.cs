@@ -15,6 +15,7 @@ namespace Features.Gameplay
         [SerializeField] private FirstPersonLook look;
         [SerializeField] private FirstPersonMovement movement;
         [SerializeField] private AudioClip completeLevelSound;
+        [SerializeField] private string levelCompletedUIEvent = "LevelCompleted";
 
         [Inject] private CompleteCurrentLevelUseCase completeCurrentLevelUseCase;
         [Inject] private GameStateNavigator gameStateNavigator;
@@ -30,11 +31,13 @@ namespace Features.Gameplay
 
             playSoundNavigator.Play(completeLevelSound);
             
+            Message.Send(levelCompletedUIEvent);
+            
             completeCurrentLevelUseCase.CompleteCurrentLevel();
             gameStateNavigator.SetLevelPlayingState(false);
             adNavigator.ShowAd().Subscribe(_ =>
             {
-                currentLevelLoadingNavigator.Load();
+                // currentLevelLoadingNavigator.Load();
                 movement.enabled = true;
                 look.enabled = true;
             }).AddTo(this);
