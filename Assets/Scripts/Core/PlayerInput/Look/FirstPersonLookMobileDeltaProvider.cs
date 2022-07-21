@@ -1,10 +1,11 @@
 ﻿using System.Linq;
+using FPSController;
 using UnityEngine;
 using static UnityEngine.Input;
 
-namespace Core.PlayerInput.FirstPersonLook
+namespace Core.PlayerInput.Look
 {
-    public class FirstPersonLookMobileDeltaProvider : global::FirstPersonLook.ILookDeltaProvider
+    public class FirstPersonLookMobileDeltaProvider : FirstPersonLook.ILookDeltaProvider
     {
         private float multiplier = 0.2f;
         private int minX = Screen.width / 2;

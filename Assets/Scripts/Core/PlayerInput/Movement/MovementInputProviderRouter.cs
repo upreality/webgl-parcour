@@ -1,5 +1,5 @@
 ﻿using Core.SDK.Platform.domain;
-using ExternalAssets.Mini_First_Person_Controller.Scripts;
+using FPSController;
 using UnityEngine;
 using Zenject;
 
@@ -7,12 +7,16 @@ namespace Core.PlayerInput.Movement
 {
     public class MovementInputProviderRouter : FirstPersonMovement.IMovementInputProvider
     {
-        [Inject(Id = "DesktopMovementProvider")] private FirstPersonMovement.IMovementInputProvider desktopProvider;
-        [Inject(Id = "MobileMovementProvider")] private FirstPersonMovement.IMovementInputProvider mobileProvider;
+        [Inject(Id = "DesktopMovementProvider")]
+        private FirstPersonMovement.IMovementInputProvider desktopProvider;
+
+        [Inject(Id = "MobileMovementProvider")]
+        private FirstPersonMovement.IMovementInputProvider mobileProvider;
+
         [Inject] private IPlatformProvider platformProvider;
 
         private bool initialized = false;
-        
+
         private bool isOnDesktop = true;
 
         public Vector2 GetInput() => GetCurrentProvider().GetInput();

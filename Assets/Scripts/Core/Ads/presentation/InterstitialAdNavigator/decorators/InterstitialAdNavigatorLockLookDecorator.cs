@@ -8,7 +8,6 @@ namespace Core.Ads.presentation.InterstitialAdNavigator.decorators
     public class InterstitialAdNavigatorLockLookDecorator : MonoBehaviour, IInterstitialAdNavigator
     {
         [SerializeField] private GameObject menuUI;
-        [Inject] private FirstPersonLook look;
         [Inject] private IInterstitialAdNavigator Target;
 
         public IObservable<ShowInterstitialResult> ShowAd()
@@ -24,11 +23,17 @@ namespace Core.Ads.presentation.InterstitialAdNavigator.decorators
         {
             Debug.Log("SetLockedState: " + locked);
             if (locked)
-                look.SetEnabledState(false);
-            
-            if (!locked && !menuUI.activeSelf) 
-                look.SetEnabledState(true);
+            {
+                //TODO: reimplement look input controlling via GameStateNavigator
+                // look.SetEnabledState(false);
+            }
 
+            if (!locked && !menuUI.activeSelf)
+            {
+                //TODO: reimplement look input controlling via GameStateNavigator
+                // look.SetEnabledState(true);
+            }
+            
             Time.timeScale = locked ? 0f : 1f;
         }
     }

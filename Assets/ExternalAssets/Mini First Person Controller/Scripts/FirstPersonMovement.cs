@@ -7,7 +7,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using Zenject;
 
-namespace ExternalAssets.Mini_First_Person_Controller.Scripts
+namespace FPSController
 {
     public class FirstPersonMovement : MonoBehaviour
     {
@@ -29,13 +29,13 @@ namespace ExternalAssets.Mini_First_Person_Controller.Scripts
         /// <summary> Functions to override movement speed. Will use the last added override. </summary>
         public List<Func<float>> speedOverrides = new();
 
-        void Awake()
+        private void Awake()
         {
             // Get the rigidbody on this.
             m_rigidbody = GetComponent<Rigidbody>();
         }
 
-        void FixedUpdate()
+        private void FixedUpdate()
         {
             if (affected)
                 return;
@@ -88,6 +88,9 @@ namespace ExternalAssets.Mini_First_Person_Controller.Scripts
 
         public void ResetVelocity()
         {
+            if (m_rigidbody == null)
+                return;
+
             m_rigidbody.velocity = Vector3.zero;
             m_rigidbody.angularVelocity = Vector3.zero;
         }
@@ -106,6 +109,7 @@ namespace ExternalAssets.Mini_First_Person_Controller.Scripts
             catch (Exception e)
             {
             }
+
             m_rigidbody.AddForce(force);
             yield return new WaitForSeconds(duration);
             affected = false;

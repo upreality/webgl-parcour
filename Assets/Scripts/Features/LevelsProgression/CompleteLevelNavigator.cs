@@ -2,7 +2,6 @@
 using Core.SDK.GameState;
 using Core.Sound.presentation;
 using Doozy.Engine;
-using ExternalAssets.Mini_First_Person_Controller.Scripts;
 using Features.Levels.domain;
 using Features.Levels.presentation;
 using UniRx;
@@ -13,8 +12,6 @@ namespace Features.LevelsProgression
 {
     public class CompleteLevelNavigator : MonoBehaviour
     {
-        [SerializeField] private FirstPersonLook look;
-        [SerializeField] private FirstPersonMovement movement;
         [SerializeField] private AudioClip completeLevelSound;
         [SerializeField] private string levelCompletedUIEvent = "LevelCompleted";
 
@@ -26,10 +23,6 @@ namespace Features.LevelsProgression
 
         public void CompleteCurrentLevel()
         {
-            movement.ResetVelocity();
-            movement.enabled = false;
-            look.enabled = false;
-
             playSoundNavigator.Play(completeLevelSound);
             
             Message.Send(levelCompletedUIEvent);
@@ -38,9 +31,7 @@ namespace Features.LevelsProgression
             gameStateNavigator.SetLevelPlayingState(false);
             adNavigator.ShowAd().Subscribe(_ =>
             {
-                // currentLevelLoadingNavigator.Load();
-                movement.enabled = true;
-                look.enabled = true;
+                currentLevelLoadingNavigator.Load();
             }).AddTo(this);
         }
     }

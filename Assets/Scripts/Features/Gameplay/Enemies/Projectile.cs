@@ -1,5 +1,5 @@
 ﻿using System.Collections;
-using ExternalAssets.Mini_First_Person_Controller.Scripts;
+using FPSController;
 using UnityEngine;
 
 namespace Features.Gameplay.Enemies

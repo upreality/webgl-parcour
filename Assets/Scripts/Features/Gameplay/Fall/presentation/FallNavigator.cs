@@ -2,6 +2,7 @@ using System.Collections;
 using Core.Sound.presentation;
 using Doozy.Engine.UI;
 using Features.Gameplay.Death;
+using FPSController;
 using UniRx;
 using UnityEngine;
 using Zenject;

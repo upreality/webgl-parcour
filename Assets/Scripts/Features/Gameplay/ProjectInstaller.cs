@@ -1,8 +1,8 @@
 using Core.PlayerInput;
-using Core.PlayerInput.FirstPersonLook;
 using Core.PlayerInput.Jumping;
+using Core.PlayerInput.Look;
 using Core.PlayerInput.Movement;
-using ExternalAssets.Mini_First_Person_Controller.Scripts;
+using FPSController;
 using UnityEngine;
 using Zenject;
 

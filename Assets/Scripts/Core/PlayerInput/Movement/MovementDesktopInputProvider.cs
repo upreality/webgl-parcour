@@ -1,4 +1,4 @@
-﻿using ExternalAssets.Mini_First_Person_Controller.Scripts;
+﻿using FPSController;
 using UnityEngine;
 using static UnityEngine.Input;
 
