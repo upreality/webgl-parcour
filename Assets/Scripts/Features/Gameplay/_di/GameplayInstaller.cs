@@ -3,6 +3,7 @@ using Features.Gameplay.Death;
 using Features.Gameplay.Fall.presentation;
 using Features.Gameplay.Lever;
 using Features.Levels.presentation.analytics;
+using Features.LevelsProgression;
 using Features.Respawn.presentation;
 using UnityEngine;
 using Zenject;
