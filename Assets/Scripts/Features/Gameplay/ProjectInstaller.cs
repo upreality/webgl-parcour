@@ -11,10 +11,12 @@ namespace Features.Gameplay
     public class ProjectInstaller : MonoInstaller
     {
         [SerializeField] private FirstPersonLook look;
+        [SerializeField] private FirstPersonMovement movement;
 
         public override void InstallBindings()
         {
             Container.BindInstance(look).AsSingle();
+            Container.BindInstance(movement).AsSingle();
             Container.BindInterfacesAndSelfTo<InputHandler>().FromInstance(new InputHandler()).AsSingle();
             BindLookDeltaProvider();
             BindMovementInputProvider();

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Utils.Enviroment
+namespace Utils.Enviroment.Birds
 {
     public class BirdAI : MonoBehaviour
     {

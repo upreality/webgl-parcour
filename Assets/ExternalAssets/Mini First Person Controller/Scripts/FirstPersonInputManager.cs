@@ -9,7 +9,7 @@ namespace FPSController
     {
         [Inject] private GameStateNavigator gameStateNavigator;
         [Inject] private FirstPersonLook look;
-        [SerializeField] private FirstPersonMovement movement;
+        [Inject] private FirstPersonMovement movement;
 
         private void Start() => gameStateNavigator
             .GetGameState()

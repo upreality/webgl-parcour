@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Features.Gameplay
+namespace Utils.Misc
 {
     public class DestroyGameObject : MonoBehaviour
     {

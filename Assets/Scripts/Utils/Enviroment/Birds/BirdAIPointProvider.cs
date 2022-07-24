@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Utils.Enviroment
+namespace Utils.Enviroment.Birds
 {
     public class BirdAIPointProvider : MonoBehaviour
     {
