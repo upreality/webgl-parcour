@@ -17,7 +17,7 @@ namespace Features.Levels.presentation
         {
             var currentLevel = currentLevelRepository.GetCurrentLevel();
             levelLoadingNavigator.LoadLevel(currentLevel.ID);
-            Message.Send(levelLoadedUIEvent);
+            GameEventMessage.SendEvent(levelLoadedUIEvent);
         }
     }
 }

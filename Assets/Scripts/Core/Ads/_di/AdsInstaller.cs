@@ -8,7 +8,6 @@ namespace Core.Ads._di
 {
     public class AdsInstaller : MonoInstaller
     {
-        [SerializeField] private InterstitialAdNavigatorLockLookDecorator interstitialAdNavigatorLockLookDecorator;
         [SerializeField] private InterstitialAdNavigatorMuteAudioDecorator muteAudioInterstitialAdNavigatorDecorator;
 
         public override void InstallBindings()
@@ -45,7 +44,7 @@ namespace Core.Ads._di
             Container
                 .Bind<IInterstitialAdNavigator>()
                 .To<InterstitialAdNavigatorLockLookDecorator>()
-                .FromInstance(interstitialAdNavigatorLockLookDecorator)
+                .FromNew()
                 .AsSingle()
                 .WhenInjectedInto<InterstitialAdNavigatorMuteAudioDecorator>();
 

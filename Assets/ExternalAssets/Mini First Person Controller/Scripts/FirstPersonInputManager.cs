@@ -22,7 +22,7 @@ namespace FPSController
             if (!state)
                 movement.ResetVelocity();
 
-            look.enabled = state;
+            look.SetEnabledState(state);
             movement.enabled = state;
         }
     }
