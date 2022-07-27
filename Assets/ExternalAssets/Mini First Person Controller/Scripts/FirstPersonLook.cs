@@ -1,61 +1,64 @@
-﻿using ExternalAssets.Mini_First_Person_Controller.Scripts;
-using SDK.Platform.domain;
+﻿using Core.SDK.Platform.domain;
 using UnityEngine;
 using Zenject;
 
-public class FirstPersonLook : MonoBehaviour
+namespace FPSController
 {
-    [Inject] private ILookDeltaProvider deltaProvider;
-    [Inject] private IPlatformProvider platformProvider;
-    [SerializeField] Transform character;
-    public float sensitivity = 2;
-    public float smoothing = 1.5f;
-
-    Vector2 velocity;
-    Vector2 frameVelocity;
-
-    [SerializeField] private bool enabledState = true;
-
-    void Reset() => character = GetComponentInParent<FirstPersonMovement>().transform;
-
-    void Start()
+    public class FirstPersonLook : MonoBehaviour
     {
-        if (platformProvider.GetCurrentPlatform() == Platform.Mobile)
-            return;
-        Cursor.lockState = CursorLockMode.Locked;
-    }
+        [Inject] private ILookDeltaProvider deltaProvider;
+        [Inject] private IPlatformProvider platformProvider;
+        [SerializeField] Transform character;
+        public float sensitivity = 2;
+        public float smoothing = 1.5f;
 
-    void Update()
-    {
-        // Get smooth velocity.
-        var mouseDelta = enabledState ? deltaProvider.GetDelta() : Vector2.zero;
-        Vector2 rawFrameVelocity = Vector2.Scale(mouseDelta, Vector2.one * sensitivity);
-        frameVelocity = Vector2.Lerp(frameVelocity, rawFrameVelocity, 1 / smoothing);
-        velocity += frameVelocity;
-        velocity.y = Mathf.Clamp(velocity.y, -90, 90);
+        Vector2 velocity;
+        Vector2 frameVelocity;
 
-        // Rotate camera up-down and controller left-right from velocity.
-        transform.localRotation = Quaternion.AngleAxis(-velocity.y, Vector3.right);
-        character.localRotation = Quaternion.AngleAxis(velocity.x, Vector3.up);
-    }
+        [SerializeField] private bool enabledState = true;
 
-    public void SetEnabledState(bool enabled)
-    {
-        enabledState = enabled;
-        if (platformProvider.GetCurrentPlatform() == Platform.Mobile)
-            return;
-        Cursor.lockState = enabledState ? CursorLockMode.Locked : CursorLockMode.Confined;
-    }
+        private void Reset() => character = GetComponentInParent<FirstPersonMovement>().transform;
 
-    public void ResetLook()
-    {
-        velocity = Vector2.zero;
-        frameVelocity = Vector2.zero;
-        Input.ResetInputAxes();
-    }
+        private void Start()
+        {
+            if (platformProvider.GetCurrentPlatform() == Platform.Mobile)
+                return;
 
-    public interface ILookDeltaProvider
-    {
-        public Vector2 GetDelta();
+            Cursor.lockState = CursorLockMode.Locked;
+        }
+
+        private void Update()
+        {
+            // Get smooth velocity.
+            var mouseDelta = enabledState ? deltaProvider.GetDelta() : Vector2.zero;
+            var rawFrameVelocity = Vector2.Scale(mouseDelta, Vector2.one * sensitivity);
+            frameVelocity = Vector2.Lerp(frameVelocity, rawFrameVelocity, 1 / smoothing);
+            velocity += frameVelocity;
+            velocity.y = Mathf.Clamp(velocity.y, -90, 90);
+
+            // Rotate camera up-down and controller left-right from velocity.
+            transform.localRotation = Quaternion.AngleAxis(-velocity.y, Vector3.right);
+            character.localRotation = Quaternion.AngleAxis(velocity.x, Vector3.up);
+        }
+
+        public void SetEnabledState(bool enabled)
+        {
+            enabledState = enabled;
+            if (platformProvider.GetCurrentPlatform() == Platform.Mobile)
+                return;
+            Cursor.lockState = enabledState ? CursorLockMode.Locked : CursorLockMode.Confined;
+        }
+
+        public void ResetLook()
+        {
+            velocity = Vector2.zero;
+            frameVelocity = Vector2.zero;
+            Input.ResetInputAxes();
+        }
+
+        public interface ILookDeltaProvider
+        {
+            public Vector2 GetDelta();
+        }
     }
 }

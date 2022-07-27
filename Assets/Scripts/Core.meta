@@ -1,0 +1,12 @@
+fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Prefabs/Levels/Examples.meta
+guid: befe14584badec94ea48d9e82fe4f7b2
+========
+guid: 9abe9c196e84c2d4696a10f6eb35797a
+>>>>>>>> develop:Assets/Scripts/Core.meta
+folderAsset: yes
+DefaultImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

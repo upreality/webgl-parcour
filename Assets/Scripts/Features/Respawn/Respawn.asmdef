@@ -1,0 +1,20 @@
+{
+    "name": "Respawn",
+    "rootNamespace": "",
+    "references": [
+        "GUID:0d8beb7f090555447a6cf5ce9e54dbb4",
+        "GUID:26e49315e2a59f441898fd21897eecc2",
+        "GUID:46b31e9af44946549a17ec2fcc9d2056",
+        "GUID:dc92ac45f4a7f2140beca3105198c072",
+        "GUID:caf5f571b8a96dc42ae8d85b247ec6dd"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

@@ -317,6 +317,7 @@ GameObject:
   - component: {fileID: 8944095746651991210}
   - component: {fileID: 8944095746651991209}
   - component: {fileID: 8935026343382899967}
+  - component: {fileID: 4536462301566614846}
   m_Layer: 0
   m_Name: Trigger
   m_TagString: Untagged
@@ -376,6 +377,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09016bee19e911f4fbd0f92b795c5ebb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  triggerTag: Player
+  triggerOnce: 0
   triggerEvent:
     m_PersistentCalls:
       m_Calls:
@@ -403,13 +406,22 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 4536462301566614846}
+        m_TargetAssemblyTypeName: Features.LevelsProgression.CompleteLevelHandler,
+          LevelsProgression
+        m_MethodName: CompleteCurrentLevel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   exitTriggerEvent:
     m_PersistentCalls:
       m_Calls: []
-  gameEvent: CompleteLevel
-  exitGameEvent: 
-  triggerTag: Player
-  triggerOnce: 0
 --- !u!114 &8935026343382899967
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -420,6 +432,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 73760691e8b72574e866c8a768280f94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4536462301566614846
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8944095746651991220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48f2fdac19c94a9f8f1d9b525ae75936, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &5333480745129600452

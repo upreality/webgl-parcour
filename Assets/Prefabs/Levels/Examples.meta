@@ -1,5 +1,9 @@
 fileFormatVersion: 2
-guid: 92616c51f016d714a91cef0a857e12ff
+<<<<<<<< HEAD:Assets/Prefabs/Levels/Examples.meta
+guid: f3dea35a360109443a7e508584a07522
+========
+guid: 9abe9c196e84c2d4696a10f6eb35797a
+>>>>>>>> develop:Assets/Scripts/Core.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

@@ -39,7 +39,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 644712076}
-  m_IndirectSpecularColor: {r: 0.5685536, g: 0.82241535, b: 0.85033023, a: 1}
+  m_IndirectSpecularColor: {r: 0.5685536, g: 0.82241523, b: 0.8503299, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -250,18 +250,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02f48656a0c545c46a70b7fd0b2861ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &507371599 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5497028031546901867, guid: 0b5633ffafe83d14c972b01f08e08286,
-    type: 3}
-  m_PrefabInstance: {fileID: 1651423022}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a1417151114f6e44b83cb2cea5d3f387, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &560747901
 GameObject:
   m_ObjectHideFlags: 0
@@ -321,9 +309,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12a5bb584138482681aba9bc79f8734a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  look: {fileID: 0}
-  movement: {fileID: 0}
   completeLevelSound: {fileID: 8300000, guid: eead3e94f70970b48a5f635696b12072, type: 3}
+  levelCompletedUIEvent: LevelCompleted
 --- !u!114 &560747907
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -336,6 +323,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b28bcf9c5562a35488ba06c8fe31b7ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levelLoadedUIEvent: LevelLoaded
 --- !u!1 &566049974
 GameObject:
   m_ObjectHideFlags: 0
@@ -920,6 +908,18 @@ Rigidbody:
     type: 3}
   m_PrefabInstance: {fileID: 1651423022}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1073346350 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4967360313056931199, guid: 0b5633ffafe83d14c972b01f08e08286,
+    type: 3}
+  m_PrefabInstance: {fileID: 1651423022}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97fca36bd81de7c4cafce7bbf02ca611, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1114869300 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5978549586110143547, guid: f1935759df9af8e43ad56713544adc20,
@@ -1131,6 +1131,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   look: {fileID: 1576318228}
+  movement: {fileID: 1073346350}
 --- !u!114 &1425927132
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1143,7 +1144,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eaf6ca9531eaed846bcef83e3c5bff76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interstitialAdNavigatorLockLookDecorator: {fileID: 507371599}
   muteAudioInterstitialAdNavigatorDecorator: {fileID: 566049976}
 --- !u!114 &1425927133
 MonoBehaviour:

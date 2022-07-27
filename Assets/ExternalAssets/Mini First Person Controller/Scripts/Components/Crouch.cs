@@ -1,30 +1,30 @@
-using ExternalAssets.Mini_First_Person_Controller.Scripts;
+using System;
+using FPSController;
 using UnityEngine;
 
 public class Crouch : MonoBehaviour
 {
     public KeyCode key = KeyCode.LeftControl;
 
-    [Header("Slow Movement")]
-    [Tooltip("Movement to slow down when crouched.")]
+    [Header("Slow Movement")] [Tooltip("Movement to slow down when crouched.")]
     public FirstPersonMovement movement;
+
     [Tooltip("Movement speed when crouched.")]
     public float movementSpeed = 2;
 
-    [Header("Low Head")]
-    [Tooltip("Head to lower when crouched.")]
+    [Header("Low Head")] [Tooltip("Head to lower when crouched.")]
     public Transform headToLower;
-    [HideInInspector]
-    public float? defaultHeadYLocalPosition;
+
+    [HideInInspector] public float? defaultHeadYLocalPosition;
     public float crouchYHeadPosition = 1;
-    
+
     [Tooltip("Collider to lower when crouched.")]
     public CapsuleCollider colliderToLower;
-    [HideInInspector]
-    public float? defaultColliderHeight;
+
+    [HideInInspector] public float? defaultColliderHeight;
 
     public bool IsCrouched { get; private set; }
-    public event System.Action CrouchStart, CrouchEnd;
+    public event Action CrouchStart, CrouchEnd;
 
 
     void Reset()
@@ -49,7 +49,8 @@ public class Crouch : MonoBehaviour
                 }
 
                 // Lower the head.
-                headToLower.localPosition = new Vector3(headToLower.localPosition.x, crouchYHeadPosition, headToLower.localPosition.z);
+                headToLower.localPosition = new Vector3(headToLower.localPosition.x, crouchYHeadPosition,
+                    headToLower.localPosition.z);
             }
 
             // Enforce a low colliderToLower.
@@ -63,7 +64,7 @@ public class Crouch : MonoBehaviour
 
                 // Get lowering amount.
                 float loweringAmount;
-                if(defaultHeadYLocalPosition.HasValue)
+                if (defaultHeadYLocalPosition.HasValue)
                 {
                     loweringAmount = defaultHeadYLocalPosition.Value - crouchYHeadPosition;
                 }
@@ -92,7 +93,8 @@ public class Crouch : MonoBehaviour
                 // Rise the head back up.
                 if (headToLower)
                 {
-                    headToLower.localPosition = new Vector3(headToLower.localPosition.x, defaultHeadYLocalPosition.Value, headToLower.localPosition.z);
+                    headToLower.localPosition = new Vector3(headToLower.localPosition.x,
+                        defaultHeadYLocalPosition.Value, headToLower.localPosition.z);
                 }
 
                 // Reset the colliderToLower's height.
@@ -112,10 +114,11 @@ public class Crouch : MonoBehaviour
 
 
     #region Speed override.
+
     void SetSpeedOverrideActive(bool state)
     {
         // Stop if there is no movement component.
-        if(!movement)
+        if (!movement)
         {
             return;
         }
@@ -140,5 +143,6 @@ public class Crouch : MonoBehaviour
     }
 
     float SpeedOverride() => movementSpeed;
+
     #endregion
 }
