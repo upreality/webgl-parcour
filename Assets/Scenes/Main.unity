@@ -250,18 +250,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02f48656a0c545c46a70b7fd0b2861ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &507371599 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5497028031546901867, guid: 0b5633ffafe83d14c972b01f08e08286,
-    type: 3}
-  m_PrefabInstance: {fileID: 1651423022}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a1417151114f6e44b83cb2cea5d3f387, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &560747901
 GameObject:
   m_ObjectHideFlags: 0
@@ -614,26 +602,6 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1433837459922878337, guid: 04c188d70605e7a4ba8ebc290357db88,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1609668771705178802, guid: 04c188d70605e7a4ba8ebc290357db88,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1609668771705178802, guid: 04c188d70605e7a4ba8ebc290357db88,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2596041639876085289, guid: 04c188d70605e7a4ba8ebc290357db88,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2596041639876085289, guid: 04c188d70605e7a4ba8ebc290357db88,
         type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
@@ -1144,7 +1112,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eaf6ca9531eaed846bcef83e3c5bff76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interstitialAdNavigatorLockLookDecorator: {fileID: 507371599}
   muteAudioInterstitialAdNavigatorDecorator: {fileID: 566049976}
 --- !u!114 &1425927133
 MonoBehaviour:
