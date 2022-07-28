@@ -10,31 +10,33 @@ namespace Features.Respawn.presentation
 {
     public class RespawnNavigator : MonoBehaviour, IRespawnNavigator
     {
-        [SerializeField] private Transform spawn;
         [SerializeField] private Rigidbody playerRigidbody;
         [SerializeField] private Transform camTransform;
+        [Inject] private SpawnNavigator spawnNavigator;
         [Inject] private InputHandler handler;
         [Inject] private GameStateNavigator gameStateNavigator;
 
         private Action onRespawn;
 
-        public Action OnRespawn
-        {
-            get => onRespawn;
-            set => onRespawn = value;
-        }
+        void IRespawnNavigator.RespawnPlayer() => spawnNavigator.ActivateSpawnPoint(RespawnPlayerAtPoint);
 
-        void IRespawnNavigator.Respawn()
+        public void RespawnPlayerAtPoint(Transform spawnPoint)
         {
             playerRigidbody.velocity = Vector3.zero;
             var playerObject = playerRigidbody.transform;
-            playerObject.position = spawn.position;
-            playerObject.rotation = spawn.rotation;
+            playerObject.position = spawnPoint.position;
+            playerObject.rotation = spawnPoint.rotation;
             camTransform.localRotation = Quaternion.identity;
             camTransform.GetComponent<FirstPersonLook>().ResetLook();
             handler.Reset();
             gameStateNavigator.SetLevelPlayingState(true);
             onRespawn?.Invoke();
+        }
+
+        public Action OnRespawn
+        {
+            get => onRespawn;
+            set => onRespawn = value;
         }
     }
 }

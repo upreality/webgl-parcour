@@ -3,7 +3,7 @@ using UniRx;
 using UnityEngine;
 using Zenject;
 
-namespace Features.Gameplay.Death
+namespace Features.Death
 {
     public class DeathCountText : MonoBehaviour
     {

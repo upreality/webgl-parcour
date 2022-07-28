@@ -20,7 +20,7 @@ namespace Features.Interaction.presentation
 
         public virtual IObservable<bool> IsInteractableFlow() => onCooldown.Select(_ => !_ && !(interactOnce && firstInteraction));
 
-        protected virtual  void Awake() => OnSelectedStateChanged(NotSelected);
+        protected virtual void Awake() => OnSelectedStateChanged(NotSelected);
 
         public void Interact()
         {

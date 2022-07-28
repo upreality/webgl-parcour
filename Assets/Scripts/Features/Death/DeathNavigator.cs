@@ -6,7 +6,7 @@ using Features.Levels.presentation.respawn;
 using UniRx;
 using Zenject;
 
-namespace Features.Gameplay.Death
+namespace Features.Death
 {
     public class DeathNavigator
     {
@@ -22,7 +22,7 @@ namespace Features.Gameplay.Death
             levelFailedEventUseCase.Send();
             gameStateNavigator.SetLevelPlayingState(false);
             deathCounter.CountDeath();
-            return adNavigator.ShowAd().Do(_ => respawnNavigator.Respawn()).Select(_ => Unit.Default);
+            return adNavigator.ShowAd().Do(_ => respawnNavigator.RespawnPlayer()).Select(_ => Unit.Default);
         }
     }
 }

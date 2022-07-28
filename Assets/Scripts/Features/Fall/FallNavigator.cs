@@ -1,13 +1,12 @@
 using System.Collections;
 using Core.Sound.presentation;
-using Doozy.Engine.UI;
-using Features.Gameplay.Death;
+using Features.Death;
 using FPSController;
 using UniRx;
 using UnityEngine;
 using Zenject;
 
-namespace Features.Gameplay.Fall.presentation
+namespace Features.Fall
 {
     public class FallNavigator : MonoBehaviour, IFallNavigator
     {

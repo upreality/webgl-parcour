@@ -1,6 +1,6 @@
 using System;
 
-namespace Features.Gameplay.Death
+namespace Features.Death
 {
     public interface IDeathCounterRepository
     {

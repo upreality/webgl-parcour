@@ -606,6 +606,26 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1609668771705178802, guid: 04c188d70605e7a4ba8ebc290357db88,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1609668771705178802, guid: 04c188d70605e7a4ba8ebc290357db88,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2596041639876085289, guid: 04c188d70605e7a4ba8ebc290357db88,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2596041639876085289, guid: 04c188d70605e7a4ba8ebc290357db88,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4356979245067225415, guid: 04c188d70605e7a4ba8ebc290357db88,
         type: 3}
       propertyPath: m_SizeDelta.y
@@ -786,6 +806,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1021081138}
   - component: {fileID: 1021081137}
+  - component: {fileID: 1021081139}
   m_Layer: 0
   m_Name: Respawn
   m_TagString: Untagged
@@ -805,7 +826,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bf2748975783ae46a69c9b20cc59a85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawn: {fileID: 1021081138}
   playerRigidbody: {fileID: 1073346344}
   camTransform: {fileID: 1576318223}
 --- !u!4 &1021081138
@@ -823,6 +843,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!114 &1021081139
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1021081136}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75fff16cb2304238ada82b82aeafed3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultSpawnPoint: {fileID: 1021081138}
 --- !u!1 &1039187584
 GameObject:
   m_ObjectHideFlags: 0
@@ -1157,7 +1190,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fallSettings: {fileID: 11400000, guid: 6aeb6118ec5eb4645bcdf2bede8c39fa, type: 2}
   fallNavigator: {fileID: 413856190}
-  respawnNavigator: {fileID: 1021081137}
   completeLevelNavigator: {fileID: 560747906}
   leverStateNavigator: {fileID: 444618789}
 --- !u!114 &1425927136
@@ -1173,6 +1205,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   respawnNavigator: {fileID: 1021081137}
+  spawnNavigator: {fileID: 0}
 --- !u!1 &1427165497 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7420332640132878559, guid: 04c188d70605e7a4ba8ebc290357db88,
