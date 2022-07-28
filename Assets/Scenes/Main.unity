@@ -1205,7 +1205,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   respawnNavigator: {fileID: 1021081137}
-  spawnNavigator: {fileID: 0}
+  spawnNavigator: {fileID: 1021081139}
 --- !u!1 &1427165497 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7420332640132878559, guid: 04c188d70605e7a4ba8ebc290357db88,

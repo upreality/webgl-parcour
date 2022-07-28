@@ -11,8 +11,8 @@ namespace Features.Respawn._di
 
         public override void InstallBindings()
         {
-            Container.BindInterfacesAndSelfTo<RespawnNavigator>().FromInstance(respawnNavigator).AsSingle();
             Container.Bind<SpawnNavigator>().FromInstance(spawnNavigator).AsSingle();
+            Container.BindInterfacesAndSelfTo<RespawnNavigator>().FromInstance(respawnNavigator).AsSingle();
         }
     }
 }
