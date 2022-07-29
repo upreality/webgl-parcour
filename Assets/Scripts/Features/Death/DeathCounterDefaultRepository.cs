@@ -2,7 +2,7 @@ using System;
 using Plugins.FileIO;
 using UniRx;
 
-namespace Features.Gameplay.Death
+namespace Features.Death
 {
     public class DeathCounterDefaultRepository : IDeathCounterRepository
     {

@@ -1,7 +1,7 @@
 ﻿using JetBrains.Annotations;
 using UnityEngine;
 
-namespace Features.Gameplay.AttackAreas
+namespace Features.Gameplay.Enemies.AttackAreas
 {
     public class AttackAreaNavigator
     {

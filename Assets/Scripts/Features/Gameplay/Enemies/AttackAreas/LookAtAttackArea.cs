@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using Zenject;
 
-namespace Features.Gameplay.AttackAreas
+namespace Features.Gameplay.Enemies.AttackAreas
 {
     public class LookAtAttackArea : MonoBehaviour
     {
