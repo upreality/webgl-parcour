@@ -1,6 +1,7 @@
 ﻿using Features.Death;
 using Features.Fall;
-using Features.Gameplay.AttackAreas;
+using Features.Fall.presentation;
+using Features.Gameplay.Enemies.AttackAreas;
 using Features.Gameplay.Lever;
 using Features.Levels.presentation.analytics;
 using Features.LevelsProgression;

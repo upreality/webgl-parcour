@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Features.Fall
+namespace Features.Fall.presentation
 {
     [CreateAssetMenu(menuName = "Settings/FallSettings")]
     public class FallSettings: ScriptableObject

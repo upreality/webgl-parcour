@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using JetBrains.Annotations;
 using UnityEngine;
 
-namespace Features.Gameplay
+namespace Features.Gameplay.Cages
 {
     public class RandomCageCharacter : MonoBehaviour
     {

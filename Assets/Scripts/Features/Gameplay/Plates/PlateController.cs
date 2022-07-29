@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-namespace Features.Gameplay
+namespace Features.Gameplay.Plates
 {
     public class PlateController : MonoBehaviour
     {

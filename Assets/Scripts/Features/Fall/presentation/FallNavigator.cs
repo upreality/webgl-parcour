@@ -6,7 +6,7 @@ using UniRx;
 using UnityEngine;
 using Zenject;
 
-namespace Features.Fall
+namespace Features.Fall.presentation
 {
     public class FallNavigator : MonoBehaviour, IFallNavigator
     {

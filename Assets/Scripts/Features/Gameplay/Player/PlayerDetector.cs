@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace Features.Gameplay.Enemies
+namespace Features.Gameplay.Player
 {
     public class PlayerDetector : MonoBehaviour
     {
