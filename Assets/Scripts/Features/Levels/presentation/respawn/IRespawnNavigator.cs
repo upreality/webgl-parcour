@@ -5,8 +5,9 @@ namespace Features.Levels.presentation.respawn
 {
     public interface IRespawnNavigator
     {
-        void RespawnPlayer();
-        void RespawnPlayerAtPoint(Transform spawnPoint);
+        void RespawnPlayer(bool resetSpawn = false);
+        void RespawnPlayerAtPoint(Transform spawnPoint, bool resetLook = false);
+
         public Action OnRespawn
         {
             get;

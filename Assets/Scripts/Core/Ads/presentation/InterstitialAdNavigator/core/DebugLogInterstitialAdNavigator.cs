@@ -5,19 +5,23 @@ using UnityEngine;
 
 namespace Core.Ads.presentation.InterstitialAdNavigator.core
 {
-    public class DebugLogInterstitialAdNavigator: IInterstitialAdNavigator
+    public class DebugLogInterstitialAdNavigator : IInterstitialAdNavigator
     {
+        private float delay = 0.5f;
+
         public IObservable<ShowInterstitialResult> ShowAd()
         {
             Debug.Log("Debug Show interstitial");
             return Observable
-                .FromCoroutine(() => WaitForRealSeconds(5))
+                .FromCoroutine(() => WaitForRealSeconds(delay))
                 .Select(_ => ShowInterstitialResult.Success);
         }
- 
-        IEnumerator WaitForRealSeconds (float seconds) {
-            float startTime = Time.realtimeSinceStartup;
-            while (Time.realtimeSinceStartup-startTime < seconds) {
+
+        private static IEnumerator WaitForRealSeconds(float seconds)
+        {
+            var startTime = Time.realtimeSinceStartup;
+            while (Time.realtimeSinceStartup - startTime < seconds)
+            {
                 yield return null;
             }
         }

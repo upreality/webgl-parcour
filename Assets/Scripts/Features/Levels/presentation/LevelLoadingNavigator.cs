@@ -15,9 +15,9 @@ namespace Features.Levels.presentation
         public void LoadLevel(long levelId)
         {
             Debug.Log("Load level " + levelId);
-            respawnNavigator.RespawnPlayer();
             var scene = repository.GetLevelScene(levelId);
             loader.LoadLevel(scene);
+            respawnNavigator.RespawnPlayer(true);
         }
     }
 }
