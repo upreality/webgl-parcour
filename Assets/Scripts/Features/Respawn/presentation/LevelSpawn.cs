@@ -13,7 +13,11 @@ namespace Features.Respawn.presentation
 
         private void Start()
         {
-            if (!initialSpawn) return;
+            if (!initialSpawn)
+            {
+                spawn.SetSelected(false);
+                return;
+            }
             spawnNavigator.UpdateSpawn(spawn);
         }
 

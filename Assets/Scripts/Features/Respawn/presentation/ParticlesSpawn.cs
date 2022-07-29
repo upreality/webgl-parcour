@@ -15,10 +15,11 @@ namespace Features.Respawn.presentation
 
         public void SetSelected(bool state)
         {
-            if (state) activeParticles.Play();
-            else activeParticles.Stop();
+            activeParticles.gameObject.SetActive(state);
+            // if (state) activeParticles.Play();
+            // else activeParticles.Stop();
             
-            mark.SetActive(state);
+            mark.SetActive(!state);
         }
 
         public void Activate() => burst.Play();
