@@ -23,7 +23,7 @@ namespace Core.User.data
             .Select(_ => UpdatePlayfabUserName(newName))
             .Switch();
 
-        private static IObservable<bool> UpdatePlayfabUserName(string newName) => Observable.Create(
+        private IObservable<bool> UpdatePlayfabUserName(string newName) => Observable.Create(
             (IObserver<bool> observer) =>
             {
                 var request = new UpdateUserDataRequest
@@ -37,6 +37,7 @@ namespace Core.User.data
                     request,
                     success =>
                     {
+                        userNameLocalDataSource.UpdateUserName(newName);
                         observer.OnNext(true);
                         observer.OnCompleted();
                     },

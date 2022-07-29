@@ -7,7 +7,7 @@ namespace Core.User.domain
     {
         private const int MINLength = 3;
         private const int MAXLength = 16;
-        private readonly Regex invalidCharsRegex = new Regex("[^A-Z0-9.$ ]$");
+        private readonly Regex validCharsRegex = new Regex("[^A-Z0-9.$ ]$");
         public UserNameValidState Validate(string name)
         {
             if (name.IsEmpty())
@@ -21,7 +21,7 @@ namespace Core.User.domain
                     return UserNameValidState.TooLong;
             }
 
-            if (invalidCharsRegex.IsMatch(name))
+            if (!validCharsRegex.IsMatch(name))
                 return UserNameValidState.ContainsInvalidCharacters;
 
             return UserNameValidState.Valid;

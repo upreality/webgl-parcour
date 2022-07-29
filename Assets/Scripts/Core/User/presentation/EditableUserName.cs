@@ -80,7 +80,7 @@ namespace Core.User.presentation
             errorText.text = errorTexts[state];
             var isValid = state == UserNameValidState.Valid;
             errorText.enabled = !isValid;
-            errorMark.SetActive(isValid);
+            errorMark.SetActive(!isValid);
             confirmButton.interactable = isValid;
         }
     }
