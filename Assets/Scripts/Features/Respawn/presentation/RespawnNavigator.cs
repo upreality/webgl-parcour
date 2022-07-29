@@ -2,6 +2,7 @@ using System;
 using Core.PlayerInput;
 using Core.SDK.GameState;
 using Features.Levels.presentation.respawn;
+using Features.Respawn.presentation.Spawns;
 using FPSController;
 using UnityEngine;
 using Zenject;

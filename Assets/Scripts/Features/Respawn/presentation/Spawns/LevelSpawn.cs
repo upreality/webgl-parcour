@@ -1,8 +1,7 @@
-﻿using Features.Interaction.presentation;
-using UnityEngine;
+﻿using UnityEngine;
 using Zenject;
 
-namespace Features.Respawn.presentation
+namespace Features.Respawn.presentation.Spawns
 {
     public class LevelSpawn : MonoBehaviour
     {

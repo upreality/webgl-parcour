@@ -13,8 +13,6 @@ namespace Features.Gameplay._di
 {
     public class GameplayInstaller : MonoInstaller
     {
-        [SerializeField] private FallSettings fallSettings;
-        [SerializeField] private FallNavigator fallNavigator;
         [SerializeField] private CompleteLevelNavigator completeLevelNavigator;
         [SerializeField] private LeverStateNavigator leverStateNavigator;
 
@@ -24,8 +22,6 @@ namespace Features.Gameplay._di
             Container.Bind<IDeathCounterRepository>().To<DeathCounterDefaultRepository>().AsSingle();
             Container.Bind<DeathNavigator>().AsSingle();
             Container.Bind<AttackAreaNavigator>().AsSingle();
-            Container.BindInstance(fallSettings).AsSingle();
-            Container.Bind<IFallNavigator>().FromInstance(fallNavigator).AsSingle();
             Container.BindInstance(completeLevelNavigator).AsSingle();
             Container.BindInstance(leverStateNavigator).AsSingle();
         }

@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Features.Respawn.presentation
+namespace Features.Respawn.presentation.Spawns
 {
     [Serializable]
     public class ParticlesSpawn : SpawnNavigator.ISpawn

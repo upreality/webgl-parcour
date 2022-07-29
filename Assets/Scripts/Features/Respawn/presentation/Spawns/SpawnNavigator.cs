@@ -2,10 +2,11 @@
 using JetBrains.Annotations;
 using UnityEngine;
 
-namespace Features.Respawn.presentation
+namespace Features.Respawn.presentation.Spawns
 {
     public class SpawnNavigator : MonoBehaviour
     {
+        [SerializeField] private Transform spawnMarker;
         [SerializeField] private Transform defaultSpawnPoint;
         [CanBeNull] private ISpawn currentSpawn = null;
 
@@ -20,6 +21,7 @@ namespace Features.Respawn.presentation
             currentSpawn?.SetSelected(false);
             currentSpawn = spawn;
             currentSpawn?.SetSelected(true);
+            spawnMarker.position = spawn.GetPoint().position;
         }
 
         public interface ISpawn
