@@ -24,6 +24,8 @@ namespace Features.Respawn.presentation.Spawns
             spawnMarker.position = spawn.GetPoint().position;
         }
 
+        public void DropCurrentSpawn() => currentSpawn = null;
+
         public interface ISpawn
         {
             Transform GetPoint();

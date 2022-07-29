@@ -19,16 +19,23 @@ namespace Features.Respawn.presentation
 
         private Action onRespawn;
 
-        void IRespawnNavigator.RespawnPlayer() => spawnNavigator.ActivateSpawnPoint(RespawnPlayerAtPoint);
+        void IRespawnNavigator.RespawnPlayer(bool resetSpawn)
+        {
+            if(resetSpawn) spawnNavigator.DropCurrentSpawn();
+            spawnNavigator.ActivateSpawnPoint(spawnPoint => RespawnPlayerAtPoint(spawnPoint, resetSpawn));
+        }
 
-        public void RespawnPlayerAtPoint(Transform spawnPoint)
+        public void RespawnPlayerAtPoint(Transform spawnPoint, bool resetLook)
         {
             playerRigidbody.velocity = Vector3.zero;
             var playerObject = playerRigidbody.transform;
             playerObject.position = spawnPoint.position;
-            playerObject.rotation = spawnPoint.rotation;
-            camTransform.localRotation = Quaternion.identity;
-            camTransform.GetComponent<FirstPersonLook>().ResetLook();
+            if (resetLook)
+            {
+                playerObject.rotation = spawnPoint.rotation;
+                camTransform.localRotation = Quaternion.identity;
+                camTransform.GetComponent<FirstPersonLook>().ResetLook();
+            }
             handler.Reset();
             gameStateNavigator.SetLevelPlayingState(true);
             onRespawn?.Invoke();
