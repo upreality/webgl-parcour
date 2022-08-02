@@ -47,6 +47,7 @@ namespace Features.Levels._di
             //UseCases
             Container.Bind<CompleteCurrentLevelUseCase>().ToSelf().AsSingle();
             Container.Bind<SetNextCurrentLevelUseCase>().ToSelf().AsSingle();
+            Container.Bind<LevelLeaderboardUseCase>().ToSelf().AsSingle();
             //Adapters
             Container
                 .Bind<CompleteCurrentLevelUseCase.IRewardHandler>()

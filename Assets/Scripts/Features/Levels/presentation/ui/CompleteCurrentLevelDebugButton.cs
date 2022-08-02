@@ -1,4 +1,5 @@
 ﻿using Features.Levels.domain;
+using UniRx;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
@@ -13,7 +14,7 @@ namespace Features.Levels.presentation.ui
         private void Start()
         {
             GetComponent<Button>().onClick.AddListener(
-                () => completeCurrentLevelUseCase.CompleteCurrentLevel()
+                () => completeCurrentLevelUseCase.CompleteCurrentLevel().Subscribe().AddTo(this)
             );
         }
     }

@@ -26,14 +26,11 @@ namespace Core.User.data
         private IObservable<bool> UpdatePlayfabUserName(string newName) => Observable.Create(
             (IObserver<bool> observer) =>
             {
-                var request = new UpdateUserDataRequest
+                var request = new UpdateUserTitleDisplayNameRequest
                 {
-                    Data = new Dictionary<string, string>
-                    {
-                        [UserFields.UserName.ToString()] = newName
-                    }
+                    DisplayName = newName
                 };
-                PlayFabClientAPI.UpdateUserData(
+                PlayFabClientAPI.UpdateUserTitleDisplayName(
                     request,
                     success =>
                     {

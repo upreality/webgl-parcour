@@ -21,15 +21,19 @@ namespace Features.LevelsProgression
         [Inject(Id = IInterstitialAdNavigator.DefaultInstance)]
         private IInterstitialAdNavigator adNavigator;
 
-        public void CompleteCurrentLevel()
+        public void CompleteCurrentLevel() => completeCurrentLevelUseCase
+            .CompleteCurrentLevel()
+            .Subscribe(_ => OnLevelCompleted())
+            .AddTo(this);
+
+        private void OnLevelCompleted()
         {
             playSoundNavigator.Play(completeLevelSound);
-            
-            completeCurrentLevelUseCase.CompleteCurrentLevel();
             gameStateNavigator.SetLevelPlayingState(false);
-            adNavigator.ShowAd().Subscribe(_ =>
-                GameEventMessage.SendEvent(levelCompletedUIEvent)
-            ).AddTo(this);
+            adNavigator
+                .ShowAd()
+                .Subscribe(_ => GameEventMessage.SendEvent(levelCompletedUIEvent))
+                .AddTo(this);
         }
     }
 }

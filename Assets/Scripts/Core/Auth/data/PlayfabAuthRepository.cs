@@ -11,7 +11,7 @@ namespace Core.Auth.data
     public class PlayfabAuthRepository : IAuthRepository
     {
         private readonly ReactiveProperty<bool> loggedInFlow = new(false);
-        private const string UserIDKey = "USER_ID_KEY";
+        private const string UserIDKey = "PLAYFAB_USER_ID_KEY"; 
 
         private static string LoginUserId
         {
@@ -29,9 +29,11 @@ namespace Core.Auth.data
             set => LocalStorageIO.SetString(UserIDKey, value);
         }
 
+        private string userId = "";
+
         public IObservable<bool> GetLoggedInFlow() => loggedInFlow.DistinctUntilChanged();
 
-        string IAuthRepository.LoginUserId => LoginUserId;
+        string IAuthRepository.LoginUserId => userId;
 
         void IAuthRepository.Login(Action onSuccess, Action onFailed)
         {
@@ -44,7 +46,7 @@ namespace Core.Auth.data
                 result =>
                 {
                     Debug.Log("Login completed.");
-                    LoginUserId = result.PlayFabId;
+                    userId = result.PlayFabId;
                     loggedInFlow.Value = true;
                     onSuccess();
                 },

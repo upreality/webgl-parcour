@@ -10,24 +10,15 @@ namespace Core.User.data
         private readonly ReactiveProperty<string> userNameFlow;
 
         private const string UserNameKey = "USER_NAME_KEY";
-        private string defaultUserName = "New Traveller";
 
         private string UserName
         {
-            get
-            {
-                if (LocalStorageIO.HasKey(UserNameKey))
-                    return LocalStorageIO.GetString(UserNameKey);
-
-                LocalStorageIO.SetString(UserNameKey, defaultUserName);
-                LocalStorageIO.Save();
-
-                return defaultUserName;
-            }
+            get => LocalStorageIO.HasKey(UserNameKey) ? LocalStorageIO.GetString(UserNameKey) : "";
             set
             {
                 LocalStorageIO.SetString(UserNameKey, value);
                 userNameFlow.Value = value;
+                LocalStorageIO.Save();
             }
         }
 
