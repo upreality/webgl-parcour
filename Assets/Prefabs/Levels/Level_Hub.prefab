@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8dbb7c4eaac8e443a848470ba309333, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  zRotEnabled: 0
   RotationSpeed: 20
 --- !u!1 &1357087422
 GameObject:
@@ -33149,17 +33150,17 @@ PrefabInstance:
     - target: {fileID: 2416813815654568619, guid: c92efc6a52f987e4281447ac3ab83285,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -28.733208
+      value: -28.8
       objectReference: {fileID: 0}
     - target: {fileID: 2416813815654568619, guid: c92efc6a52f987e4281447ac3ab83285,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.7263489
+      value: -1.92
       objectReference: {fileID: 0}
     - target: {fileID: 2416813815654568619, guid: c92efc6a52f987e4281447ac3ab83285,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 23.50473
+      value: 23.54
       objectReference: {fileID: 0}
     - target: {fileID: 2416813815654568619, guid: c92efc6a52f987e4281447ac3ab83285,
         type: 3}
