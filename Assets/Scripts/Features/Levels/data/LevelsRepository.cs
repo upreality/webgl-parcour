@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Features.Levels.data.model;
+using Data.LevelsData;
 using Features.Levels.domain.model;
 using Features.Levels.domain.repositories;
 using UnityEngine;
@@ -11,9 +11,9 @@ namespace Features.Levels.data
 {
     public class LevelsRepository : ILevelsRepository, ILevelSceneObjectRepository
     {
-        [Inject] private ILevelsDao levelsDao;
+        [Inject] private DefaultLevelsDao levelsDao;
 
-        public List<Level> GetLevels() => levelsDao.GetLevelEntities().Select(GetLevel).ToList();
+        public List<Level> GetLevels() => levelsDao.levels.Select(GetLevel).ToList();
 
         public Level GetLevel(long levelId)
         {
@@ -33,7 +33,7 @@ namespace Features.Levels.data
         private LevelEntity GetById(long levelId)
         {
             var index = Convert.ToInt32(levelId);
-            return levelsDao.GetLevelEntities()[index];
+            return levelsDao.levels[index];
         }
 
         public interface ILevelsDao

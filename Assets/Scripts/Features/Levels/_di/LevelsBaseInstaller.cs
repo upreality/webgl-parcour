@@ -1,4 +1,5 @@
 using Core.Analytics.session.domain;
+using Data.LevelsData;
 using Features.Levels.adapters;
 using Features.Levels.data;
 using Features.Levels.data.dao;
@@ -13,7 +14,6 @@ namespace Features.Levels._di
     [CreateAssetMenu(menuName = "Installers/LevelsBaseInstaller")]
     public class LevelsBaseInstaller : ScriptableObjectInstaller
     {
-        [SerializeField] private SimpleLevelsDao levelsDao;
 
         public override void InstallBindings()
         {
@@ -26,14 +26,11 @@ namespace Features.Levels._di
 #endif
                 .AsSingle();
 
-
-            Container.Bind<LevelsRepository.ILevelsDao>().FromInstance(levelsDao).AsSingle();
-
-            Container.Bind<CurrentLevelRepository.ICurrentLevelIdDao>()
+            Container.Bind<CurrentLevelRepository.ICurrentLevelIdDataSource>()
 #if PLAYER_PREFS_STORAGE
                 .To<PlayerPrefsCurrentLevelIdDao>()
 #else
-                .To<LocalStorageCurrentLevelIdDao>()
+                .To<LocalStorageCurrentLevelIdDataSource>()
 #endif
                 .AsSingle();
 

@@ -14,7 +14,7 @@ namespace Utils.PlayerTrigger
 
         private void OnTriggerEnter(Collider other)
         {
-            if(!other.CompareTag(triggerTag) || (triggerOnce && triggeredEnter))
+            if (!other.CompareTag(triggerTag) || (triggerOnce && triggeredEnter))
                 return;
 
             OnPlayerEntersTrigger();
@@ -24,13 +24,19 @@ namespace Utils.PlayerTrigger
 
         protected virtual void OnDestroy()
         {
-            if(activeState)
+            if (activeState)
+                ExitTrigger();
+        }
+
+        private void OnDisable()
+        {
+            if (activeState)
                 ExitTrigger();
         }
 
         private void OnTriggerExit(Collider other)
         {
-            if(!other.CompareTag(triggerTag) || (triggerOnce && triggeredExit))
+            if (!other.CompareTag(triggerTag) || (triggerOnce && triggeredExit))
                 return;
 
             ExitTrigger();

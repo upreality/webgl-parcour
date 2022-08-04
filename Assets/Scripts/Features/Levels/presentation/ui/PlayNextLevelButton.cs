@@ -11,6 +11,6 @@ namespace Features.Levels.presentation.ui
 
         private void Start() => GetComponent<Button>().onClick.AddListener(OnClick);
 
-        private void OnClick() => levelLoadingNavigator.Load();
+        private void OnClick() => levelLoadingNavigator.LoadCurrent();
     }
 }

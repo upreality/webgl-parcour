@@ -23,10 +23,7 @@ namespace Core.User.data
         }
 
         [Inject]
-        public UserNameLocalDataSource()
-        {
-            userNameFlow = new ReactiveProperty<string>(UserName);
-        }
+        public UserNameLocalDataSource() => userNameFlow = new ReactiveProperty<string>(UserName);
 
         public IObservable<string> GetUserNameFlow() => userNameFlow;
 

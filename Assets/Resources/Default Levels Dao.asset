@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62b2d9d68e624dabae053f63096faa11, type: 3}
+  m_Name: Default Levels Dao
+  m_EditorClassIdentifier: 
+  levels:
+  - reward: 0
+    maxScore: 0
+    scenePrefab: {fileID: 6431462036071146553, guid: ce2438aebb2f0d248a98817e2c562f4f,
+      type: 3}
+    rewards: []
+  - reward: 0
+    maxScore: 0
+    scenePrefab: {fileID: 1642184935270911569, guid: 18853c71ecbfd5e4babc0a1d3f87fcf0,
+      type: 3}
+    rewards: []
+  - reward: 0
+    maxScore: 0
+    scenePrefab: {fileID: 3634756615278807473, guid: ac7c06350b81d424bb24e1f0265399a1,
+      type: 3}
+    rewards: []
+  - reward: 0
+    maxScore: 0
+    scenePrefab: {fileID: 3370980745460418641, guid: f8e8f568973d8064c8c178983335c7b7,
+      type: 3}
+    rewards: []

@@ -9,41 +9,47 @@ namespace Features.Levels.data
     internal class CurrentLevelRepository : ICurrentLevelRepository
     {
         private ILevelsRepository levelsRepository;
-        private ICurrentLevelIdDao currentLevelIdDao;
+        private ICurrentLevelIdDataSource currentLevelIdDataSource;
         private IDefaultLevelIdDao defaultLevelIdDao;
 
         private BehaviorSubject<long> currentLevelIdSubject;
 
-        private long CurrentLevelId => currentLevelIdDao.HasCurrentLevelId()
-            ? currentLevelIdDao.GetCurrentLevelId()
+        private long CurrentLevelId => currentLevelIdDataSource.HasCurrentLevelId()
+            ? currentLevelIdDataSource.GetCurrentLevelId()
+            : defaultLevelIdDao.GetDefaultLevelId();
+        
+        private long PrevLevelId => currentLevelIdDataSource.HasCurrentLevelId()
+            ? currentLevelIdDataSource.GetPrevLevelId()
             : defaultLevelIdDao.GetDefaultLevelId();
 
         [Inject]
         public CurrentLevelRepository(
             ILevelsRepository levelsRepository,
-            ICurrentLevelIdDao currentLevelIdDao,
+            ICurrentLevelIdDataSource currentLevelIdDataSource,
             IDefaultLevelIdDao defaultLevelIdDao)
         {
             this.levelsRepository = levelsRepository;
-            this.currentLevelIdDao = currentLevelIdDao;
+            this.currentLevelIdDataSource = currentLevelIdDataSource;
             this.defaultLevelIdDao = defaultLevelIdDao;
             currentLevelIdSubject = new BehaviorSubject<long>(CurrentLevelId);
         }
 
         public void SetCurrentLevel(long levelId)
         {
-            currentLevelIdDao.SetCurrentLevelId(levelId);
+            currentLevelIdDataSource.SetCurrentLevelId(levelId);
             currentLevelIdSubject.OnNext(levelId);
         }
 
         public Level GetCurrentLevel() => levelsRepository.GetLevel(CurrentLevelId);
+        public Level GetPrevLevel() => levelsRepository.GetLevel(PrevLevelId);
 
         public IObservable<Level> GetCurrentLevelFlow() => currentLevelIdSubject.Select(levelsRepository.GetLevel);
 
-        public interface ICurrentLevelIdDao
+        public interface ICurrentLevelIdDataSource
         {
             public bool HasCurrentLevelId();
             public long GetCurrentLevelId();
+            public long GetPrevLevelId();
             public void SetCurrentLevelId(long id);
         }
 

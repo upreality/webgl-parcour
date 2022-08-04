@@ -1,5 +1,6 @@
 using Features.Levels.domain.repositories;
 using Doozy.Engine;
+using Features.Levels.domain.model;
 using UnityEngine;
 using Zenject;
 
@@ -11,12 +12,15 @@ namespace Features.Levels.presentation
         [Inject] private LevelLoadingNavigator levelLoadingNavigator;
         [SerializeField] private string levelLoadedUIEvent = "LevelLoaded";
 
-        private void Awake() => Load();
+        private void Awake() => LoadCurrent();
 
-        public void Load()
+        public void LoadCurrent() => LoadLevel(currentLevelRepository.GetCurrentLevel());
+
+        public void LoadPrevious() => LoadLevel(currentLevelRepository.GetPrevLevel());
+
+        private void LoadLevel(Level level)
         {
-            var currentLevel = currentLevelRepository.GetCurrentLevel();
-            levelLoadingNavigator.LoadLevel(currentLevel.ID);
+            levelLoadingNavigator.LoadLevel(level.ID);
             GameEventMessage.SendEvent(levelLoadedUIEvent);
         }
     }

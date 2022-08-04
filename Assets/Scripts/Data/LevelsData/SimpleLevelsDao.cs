@@ -1,12 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Features.Levels.data.model;
 using UnityEngine;
 
-namespace Features.Levels.data.dao
+namespace Data.LevelsData
 {
     [CreateAssetMenu(menuName = "Levels/LevelsDao/SimpleLevelsDao")]
-    public class SimpleLevelsDao : ScriptableObject, LevelsRepository.ILevelsDao
+    public class SimpleLevelsDao : ScriptableObject
     {
         [SerializeField] private int defaultReward = 100;
 
@@ -17,6 +16,6 @@ namespace Features.Levels.data.dao
             .Select(GetEntity)
             .ToList();
 
-        private LevelEntity GetEntity(int levelId) => new LevelEntity(defaultReward, scenePrefabs[levelId]);
+        private LevelEntity GetEntity(int levelId) => new(defaultReward, scenePrefabs[levelId]);
     }
 }

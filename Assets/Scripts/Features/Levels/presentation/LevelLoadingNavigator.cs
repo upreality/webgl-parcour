@@ -1,4 +1,5 @@
-﻿using Features.Levels.domain.repositories;
+﻿using System;
+using Features.Levels.domain.repositories;
 using Features.Levels.presentation.loader;
 using Features.Levels.presentation.respawn;
 using UnityEngine;
@@ -12,12 +13,15 @@ namespace Features.Levels.presentation
         [Inject] private ILevelSceneObjectRepository repository;
         [Inject] private LevelSceneLoader loader;
 
+        public Action OnLevelLoaded;
+
         public void LoadLevel(long levelId)
         {
             Debug.Log("Load level " + levelId);
             var scene = repository.GetLevelScene(levelId);
             loader.LoadLevel(scene);
             respawnNavigator.RespawnPlayer(true);
+            OnLevelLoaded?.Invoke();
         }
     }
 }

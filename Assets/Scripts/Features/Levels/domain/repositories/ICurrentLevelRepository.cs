@@ -7,6 +7,7 @@ namespace Features.Levels.domain.repositories
     {
         void SetCurrentLevel(long levelId);
         Level GetCurrentLevel();
+        Level GetPrevLevel();
         public IObservable<Level> GetCurrentLevelFlow();
     }
 }
