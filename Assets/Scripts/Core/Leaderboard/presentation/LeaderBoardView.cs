@@ -10,7 +10,7 @@ namespace Core.Leaderboard.presentation
 {
     public abstract class LeaderBoardView : MonoBehaviour
     {
-        [Inject] private LeaderBoardUseCase leaderBoardUseCase;
+        [Inject] private ILeaderBoardRepository leaderBoardRepository;
         [Inject] private IAuthRepository authRepository;
         [Inject] private LeaderBoardItemView.Factory itemFactory;
 

@@ -14,7 +14,6 @@ namespace Core.Leaderboard._di
             Container.BindInterfacesAndSelfTo<PlayfabLeaderBoardRemoteDataSource>().AsSingle();
             Container.BindInterfacesAndSelfTo<LeaderBoardPlayfabRepository>().AsSingle();
             Container.BindFactory<LeaderBoardItemView, LeaderBoardItemView.Factory>().FromComponentInNewPrefab(leaderBoardItemView);
-            Container.BindInterfacesAndSelfTo<LeaderBoardUseCase>().AsSingle();
         }
     }
-} 
+}
