@@ -53,3 +53,10 @@ sysinfo.txt
 
 # Crashlytics generated file
 crashlytics-build.properties
+Assets/GameAnalytics/Editor/*.cs.meta
+Assets/GameAnalytics/Editor/Playmaker.meta
+Assets/GameAnalytics/Plugins.meta
+Assets/GameAnalytics/GameAnalyticsInitializer.cs.meta
+Assets/PlayFabEditorExtensions/Editor/Resources/MostRecentPackage.unitypackage.meta
+Assets/PlayFabEditorExtensions/Editor/Resources/MostRecentPackage.unitypackage.meta
+Assets/Plugins/Zenject/Source/Zenject.csproj.meta
