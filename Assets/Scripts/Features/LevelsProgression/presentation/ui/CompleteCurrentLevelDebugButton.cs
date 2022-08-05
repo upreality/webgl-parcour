@@ -14,7 +14,7 @@ namespace Features.LevelsProgression.presentation.ui
         private void Start()
         {
             GetComponent<Button>().onClick.AddListener(
-                () => completeCurrentLevelUseCase.CompleteCurrentLevel()
+                () => completeCurrentLevelUseCase.CompleteCurrentLevel().Subscribe().AddTo(this)
             );
         }
     }

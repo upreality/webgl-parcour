@@ -12,7 +12,12 @@ namespace Features.LevelScore._di
         {
             Container.BindInterfacesAndSelfTo<LevelScoreLocalDataSource>().AsSingle();
             Container.BindInterfacesAndSelfTo<LevelScoreRepository>().AsSingle();
-            Container.BindInterfacesAndSelfTo<CurrentLevelScoreUseCase>().AsSingle();
+            Container.BindInterfacesAndSelfTo<LastLevelScoreUseCase>().AsSingle();
+            
+            Container.Bind<LevelLeaderboardUseCase>().ToSelf().AsSingle();
+            Container.Bind<LastLevelLeaderBoardUseCase>().ToSelf().AsSingle();
+            Container.Bind<CurrentScoreUseCase>().ToSelf().AsSingle();
+            Container.Bind<UpdateCurrentLevelScoreUseCase>().ToSelf().AsSingle();
         }
     }
 }

@@ -36,7 +36,7 @@ namespace Features.Levels.presentation.ui
         {
             levelId = level.ID;
             numberText.text = level.Number.ToString();
-            checkmark.SetActive(completedStateRepository.GetLevelCompletedStateValue(level.ID));
+            checkmark.SetActive(completedStateRepository.GetLevelCompletedState(level.ID));
         }
 
         public void HandleClick()

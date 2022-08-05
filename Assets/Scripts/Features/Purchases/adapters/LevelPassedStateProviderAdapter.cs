@@ -10,6 +10,6 @@ namespace Features.Purchases.adapters
         [Inject] private ILevelCompletedStateRepository completedStateRepository;
 
         public IObservable<bool> GetLevelPassedState(long levelId) => completedStateRepository
-            .GetLevelCompletedState(levelId);
+            .GetLevelCompletedStateFlow(levelId);
     }
 }

@@ -46,7 +46,7 @@ namespace Plugins.FileIO
 
         public static void SetInt(string key, int value) => SetString(key, value.ToString());
 
-        public static int GetInt(string key) => Convert.ToInt16(
+        public static int GetInt(string key) => Convert.ToInt32(
             GetString(key)
         );
 

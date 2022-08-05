@@ -25,11 +25,7 @@ namespace Features.LevelsProgression
         {
             playSoundNavigator.Play(completeLevelSound);
             gameStateNavigator.SetLevelPlayingState(false);
-            completeCurrentLevelUseCase.CompleteCurrentLevel();
-            adNavigator
-                .ShowAd()
-                .Subscribe(_ => GameEventMessage.SendEvent(levelCompletedUIEvent))
-                .AddTo(this);
+            completeCurrentLevelUseCase.CompleteCurrentLevel().Subscribe(_ => OnLevelCompleted()).AddTo(this);
         }
 
         private void OnLevelCompleted() => adNavigator

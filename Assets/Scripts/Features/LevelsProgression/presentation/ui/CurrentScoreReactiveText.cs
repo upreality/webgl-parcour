@@ -1,4 +1,5 @@
-﻿using Features.LevelsProgression.domain;
+﻿using Features.LevelScore.domain;
+using Features.LevelsProgression.domain;
 using UniRx;
 using UnityEngine;
 using UnityEngine.Events;

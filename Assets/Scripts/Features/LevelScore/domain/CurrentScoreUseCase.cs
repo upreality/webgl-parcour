@@ -3,7 +3,7 @@ using Features.LevelTime.domain;
 using UniRx;
 using Zenject;
 
-namespace Features.LevelsProgression.domain
+namespace Features.LevelScore.domain
 {
     public class CurrentScoreUseCase
     {

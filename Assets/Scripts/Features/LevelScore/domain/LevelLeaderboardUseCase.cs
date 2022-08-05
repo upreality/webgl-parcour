@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using Core.Leaderboard.domain;
 using Zenject;
 
-namespace Features.LevelsProgression.domain
+namespace Features.LevelScore.domain
 {
     public class LevelLeaderboardUseCase
     {
         [Inject] private ILeaderBoardRepository leaderBoardRepository;
-
+        
         public IObservable<List<LeaderBoardItem>> GetPositionsAroundPlayer(long levelId)
         {
             var leaderBoardName = GetLeaderBoardName(levelId);

@@ -4,17 +4,17 @@ using Core.Leaderboard.domain;
 using Features.Levels.domain.repositories;
 using Zenject;
 
-namespace Features.LevelsProgression.domain
+namespace Features.LevelScore.domain
 {
-    public class CurrentLevelLeaderBoardUseCase
+    public class LastLevelLeaderBoardUseCase
     {
         [Inject] private ICurrentLevelRepository currentLevelRepository;
         [Inject] private LevelLeaderboardUseCase levelLeaderboardUseCase;
 
         public IObservable<List<LeaderBoardItem>> GetLeaderBoardResultsFlow()
         {
-            var currentLevel = currentLevelRepository.GetCurrentLevel().ID;
-            return levelLeaderboardUseCase.GetPositionsAroundPlayer(currentLevel);
+            var levelId = currentLevelRepository.GetPrevLevel().ID;
+            return levelLeaderboardUseCase.GetPositionsAroundPlayer(levelId);
         }
     }
 }

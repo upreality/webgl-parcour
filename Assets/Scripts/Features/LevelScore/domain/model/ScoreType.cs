@@ -3,7 +3,6 @@
     public enum ScoreType
     {
         Last,
-        Best,
-        Max
+        Best
     }
 }

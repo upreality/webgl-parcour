@@ -12,12 +12,12 @@ namespace Features.Levels.data
         
         private readonly Dictionary<long, ReactiveProperty<bool>> completedStateProcessors = new();
         
-        public IObservable<bool> GetLevelCompletedState(long levelId)
+        public IObservable<bool> GetLevelCompletedStateFlow(long levelId)
         {
             if (completedStateProcessors.ContainsKey(levelId))
                 return completedStateProcessors[levelId];
             
-            var completedState = GetLevelCompletedStateValue(levelId);
+            var completedState = GetLevelCompletedState(levelId);
             if(completedState)
                 return Observable.Return(true);
             
@@ -26,7 +26,7 @@ namespace Features.Levels.data
             return processor;
         }
 
-        public bool GetLevelCompletedStateValue(long levelId) => completedStateDao.IsCompleted(levelId);
+        public bool GetLevelCompletedState(long levelId) => completedStateDao.IsCompleted(levelId);
 
         public void SetLevelCompleted(long levelId)
         {

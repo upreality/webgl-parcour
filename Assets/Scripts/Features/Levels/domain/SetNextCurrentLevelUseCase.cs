@@ -29,9 +29,9 @@ namespace Features.Levels.domain
             if (nextLevels.Count == 0)
                 return currentLevel;
 
-            return nextLevels.All(level => сompletedStateRepository.GetLevelCompletedStateValue(level.ID))
+            return nextLevels.All(level => сompletedStateRepository.GetLevelCompletedState(level.ID))
                 ? nextLevels.First()
-                : nextLevels.First(level => !сompletedStateRepository.GetLevelCompletedStateValue(level.ID));
+                : nextLevels.First(level => !сompletedStateRepository.GetLevelCompletedState(level.ID));
         }
     }
 }
