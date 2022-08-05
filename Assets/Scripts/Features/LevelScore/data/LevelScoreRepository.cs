@@ -22,7 +22,7 @@ namespace Features.LevelScore.data
         public void UpdateScore(long levelId, int score)
         {
             var prevScore = levelScoreDataSource.GetLastScore(levelId);
-            levelScoreDataSource.SetLastScore(levelId, prevScore);
+            levelScoreDataSource.SetLastScore(levelId, score);
             if (score < prevScore) return;
             levelScoreDataSource.SetBestScore(levelId, score);
         }

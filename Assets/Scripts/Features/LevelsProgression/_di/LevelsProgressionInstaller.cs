@@ -12,6 +12,7 @@ namespace Features.LevelsProgression._di
         {
             Container.Bind<CompleteCurrentLevelUseCase>().ToSelf().AsSingle();
             Container.Bind<LevelLeaderboardUseCase>().ToSelf().AsSingle();
+            Container.Bind<CurrentLevelLeaderBoardUseCase>().ToSelf().AsSingle();
             Container.Bind<CurrentScoreUseCase>().ToSelf().AsSingle();
             Container.Bind<UpdateCurrentLevelScoreUseCase>().ToSelf().AsSingle();
             Container.BindInstance(completeLevelNavigator).AsSingle();

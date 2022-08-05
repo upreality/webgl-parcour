@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Core.Auth.domain;
 using Core.Leaderboard.domain;
 using UniRx;
@@ -15,16 +16,12 @@ namespace Core.Leaderboard.presentation
 
         [SerializeField] private RectTransform root;
 
-        protected abstract string GetLeaderBoardId();
+        protected abstract IObservable<List<LeaderBoardItem>> GetLeaderBoardResultsFlow();
 
         private void OnEnable()
         {
             foreach (Transform child in root) Destroy(child.gameObject);
-            var leaderBoardId = GetLeaderBoardId();
-            leaderBoardUseCase
-                .GetPositionsAroundPlayer(leaderBoardId)
-                .Subscribe(SpawnItems)
-                .AddTo(this);
+            GetLeaderBoardResultsFlow().Subscribe(SpawnItems).AddTo(this);
         }
 
         private void SpawnItems(List<LeaderBoardItem> items)

@@ -22,6 +22,7 @@ namespace Features.LevelsProgression.domain
         public void CompleteCurrentLevel()
         {
             timerRepository.StopTimer();
+            updateCurrentLevelScoreUseCase.UpdateScore();
             var currentLevel = currentLevelRepository.GetCurrentLevel();
             setNextCurrentLevelUseCase.SetNextCurrentLevel();
             levelsRepository.SetLevelCompleted(currentLevel.ID);
@@ -31,7 +32,6 @@ namespace Features.LevelsProgression.domain
                 balanceRepository.Add(currentLevel.Reward, CurrencyType.Primary);
             }
 
-            updateCurrentLevelScoreUseCase.UpdateScore();
             analytics.SendLevelEvent(new LevelPointer(currentLevel.ID), LevelEvent.Complete);
         }
     }
