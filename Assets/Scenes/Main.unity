@@ -39,7 +39,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 644712076}
-  m_IndirectSpecularColor: {r: 0.5685536, g: 0.82241535, b: 0.85033023, a: 1}
+  m_IndirectSpecularColor: {r: 0.5685536, g: 0.82241523, b: 0.8503299, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1538,6 +1538,7 @@ GameObject:
   - component: {fileID: 1425927138}
   - component: {fileID: 1425927139}
   - component: {fileID: 1425927140}
+  - component: {fileID: 1425927141}
   m_Layer: 0
   m_Name: SceneContext
   m_TagString: Untagged
@@ -1571,6 +1572,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 0638fc944d3e5fb4c81a122566dcec57, type: 2}
   - {fileID: 11400000, guid: 1b118e306440bfa4192f11b972574faa, type: 2}
   - {fileID: 11400000, guid: 5ac9c7040b261584c9edc16ae5ead9fd, type: 2}
+  - {fileID: 11400000, guid: d6b89e05fe2e5ca499d0709aa8a45bc2, type: 2}
   _monoInstallers:
   - {fileID: 1425927136}
   - {fileID: 1425927130}
@@ -1583,6 +1585,7 @@ MonoBehaviour:
   - {fileID: 1425927138}
   - {fileID: 1425927139}
   - {fileID: 1425927140}
+  - {fileID: 1425927141}
   _installerPrefabs: []
   _autoRun: 1
   OnPreInstall:
@@ -1700,7 +1703,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce8f4c8f5e50495cbb14d4655feae55d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  completeLevelNavigator: {fileID: 560747906}
   leverStateNavigator: {fileID: 444618789}
 --- !u!114 &1425927136
 MonoBehaviour:
@@ -1771,6 +1773,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelTimerSceneRepository: {fileID: 1688740708}
+--- !u!114 &1425927141
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1425927127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8caf9849dac4342afca409eb741921b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  completeLevelNavigator: {fileID: 560747906}
 --- !u!1 &1427165497 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7420332640132878559, guid: 04c188d70605e7a4ba8ebc290357db88,

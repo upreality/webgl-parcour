@@ -2,8 +2,7 @@
 using Core.SDK.GameState;
 using Core.Sound.presentation;
 using Doozy.Engine;
-using Features.Levels.domain;
-using Features.LevelsProgression.LevelTime.domain;
+using Features.LevelsProgression.domain;
 using UniRx;
 using UnityEngine;
 using Zenject;
@@ -21,26 +20,21 @@ namespace Features.LevelsProgression
 
         [Inject(Id = IInterstitialAdNavigator.DefaultInstance)]
         private IInterstitialAdNavigator adNavigator;
-        
-        [Inject] private ILevelTimerRepository levelTimerRepository;
 
         public void CompleteCurrentLevel()
         {
             playSoundNavigator.Play(completeLevelSound);
             gameStateNavigator.SetLevelPlayingState(false);
-            levelTimerRepository.StopTimer();
-            completeCurrentLevelUseCase
-                .CompleteCurrentLevel()
-                .Subscribe(_ => OnLevelCompleted())
-                .AddTo(this);
-        }
-
-        private void OnLevelCompleted()
-        {
+            completeCurrentLevelUseCase.CompleteCurrentLevel();
             adNavigator
                 .ShowAd()
                 .Subscribe(_ => GameEventMessage.SendEvent(levelCompletedUIEvent))
                 .AddTo(this);
         }
+
+        private void OnLevelCompleted() => adNavigator
+            .ShowAd()
+            .Subscribe(_ => GameEventMessage.SendEvent(levelCompletedUIEvent))
+            .AddTo(this);
     }
 }

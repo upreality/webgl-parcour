@@ -13,7 +13,6 @@ namespace Features.Gameplay._di
 {
     public class GameplayInstaller : MonoInstaller
     {
-        [SerializeField] private CompleteLevelNavigator completeLevelNavigator;
         [SerializeField] private LeverStateNavigator leverStateNavigator;
 
         public override void InstallBindings()
@@ -22,7 +21,6 @@ namespace Features.Gameplay._di
             Container.Bind<IDeathCounterRepository>().To<DeathCounterDefaultRepository>().AsSingle();
             Container.Bind<DeathNavigator>().AsSingle();
             Container.Bind<AttackAreaNavigator>().AsSingle();
-            Container.BindInstance(completeLevelNavigator).AsSingle();
             Container.BindInstance(leverStateNavigator).AsSingle();
         }
     }

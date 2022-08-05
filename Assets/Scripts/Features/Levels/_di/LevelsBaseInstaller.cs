@@ -1,6 +1,4 @@
 using Core.Analytics.session.domain;
-using Data.LevelsData;
-using Features.Levels.adapters;
 using Features.Levels.data;
 using Features.Levels.data.dao;
 using Features.Levels.domain;
@@ -14,7 +12,6 @@ namespace Features.Levels._di
     [CreateAssetMenu(menuName = "Installers/LevelsBaseInstaller")]
     public class LevelsBaseInstaller : ScriptableObjectInstaller
     {
-
         public override void InstallBindings()
         {
             //Daos
@@ -42,14 +39,8 @@ namespace Features.Levels._di
             Container.Bind<ICurrentLevelRepository>().To<CurrentLevelRepository>().AsSingle();
             Container.Bind<ILevelCompletedStateRepository>().To<LevelCompletedStateRepository>().AsSingle();
             //UseCases
-            Container.Bind<CompleteCurrentLevelUseCase>().ToSelf().AsSingle();
             Container.Bind<SetNextCurrentLevelUseCase>().ToSelf().AsSingle();
-            Container.Bind<LevelLeaderboardUseCase>().ToSelf().AsSingle();
             //Adapters
-            Container
-                .Bind<CompleteCurrentLevelUseCase.IRewardHandler>()
-                .To<StubLevelRewardHandlerAdapter>()
-                .AsSingle();
             Container
                 .Bind<ISessionEventLevelIdProvider>()
                 .To<SessionEventCurrentLevelIdProviderImpl>()

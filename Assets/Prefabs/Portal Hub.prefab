@@ -1,93 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1564090461552745325
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2560305451300856162}
-  - component: {fileID: 735972999583478481}
-  - component: {fileID: 174213449670355192}
-  - component: {fileID: 475458919881084058}
-  m_Layer: 0
-  m_Name: HappyTime
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2560305451300856162
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1564090461552745325}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 8621448245357342343}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &735972999583478481
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1564090461552745325}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0871f748c48352f4593c03df6c2009ee, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &174213449670355192
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1564090461552745325}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bafac9594616df1488c71c065f717d37, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  passEveryLevels: 5
-  onFilterPass:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 475458919881084058}
-        m_TargetAssemblyTypeName: SDK.HappyTime.HappyTime, SDK
-        m_MethodName: SetHappyTime
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &475458919881084058
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1564090461552745325}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ce40920725e16c49b18ee4570c0ed23, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  intensity: 0.5
-  cooldown: 0.5
 --- !u!1 &2033300587229616438
 GameObject:
   m_ObjectHideFlags: 0
@@ -208,7 +120,6 @@ Transform:
   - {fileID: 7044604323863282137}
   - {fileID: 5338294617217404892}
   - {fileID: 8944095746651991211}
-  - {fileID: 2560305451300856162}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -315,8 +226,6 @@ GameObject:
   - component: {fileID: 8944095746651991211}
   - component: {fileID: 6416700103724813849}
   - component: {fileID: 8944095746651991210}
-  - component: {fileID: 8944095746651991209}
-  - component: {fileID: 8935026343382899967}
   - component: {fileID: 4536462301566614846}
   m_Layer: 0
   m_Name: Trigger
@@ -365,75 +274,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 10.426498, z: 7.4181147}
   m_Center: {x: 2.842171e-14, y: 6.0673237, z: 0.44901705}
---- !u!114 &8944095746651991209
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8944095746651991220}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 09016bee19e911f4fbd0f92b795c5ebb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  triggerTag: Player
-  triggerOnce: 0
-  triggerEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 8935026343382899967}
-        m_TargetAssemblyTypeName: LevelCompletedGAEvent, Assembly-CSharp
-        m_MethodName: Send
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 174213449670355192}
-        m_TargetAssemblyTypeName: Levels.presentation.CurrentLevelFilter, LevelsAssembly
-        m_MethodName: PushEvent
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 4536462301566614846}
-        m_TargetAssemblyTypeName: Features.LevelsProgression.CompleteLevelHandler,
-          LevelsProgression
-        m_MethodName: CompleteCurrentLevel
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  exitTriggerEvent:
-    m_PersistentCalls:
-      m_Calls: []
---- !u!114 &8935026343382899967
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8944095746651991220}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 73760691e8b72574e866c8a768280f94, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &4536462301566614846
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -446,6 +286,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48f2fdac19c94a9f8f1d9b525ae75936, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  triggerTag: Player
+  triggerOnce: 0
 --- !u!1001 &5333480745129600452
 PrefabInstance:
   m_ObjectHideFlags: 0

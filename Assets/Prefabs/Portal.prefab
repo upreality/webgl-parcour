@@ -11,8 +11,6 @@ GameObject:
   - component: {fileID: 1918846000}
   - component: {fileID: 2671616505772484226}
   - component: {fileID: 1918846001}
-  - component: {fileID: 1918846002}
-  - component: {fileID: 567551063603885156}
   - component: {fileID: 7016725688899152176}
   m_Layer: 0
   m_Name: Trigger
@@ -61,74 +59,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 10.426498, z: 7.4181147}
   m_Center: {x: 2.842171e-14, y: 6.0673237, z: 0.44901705}
---- !u!114 &1918846002
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1918845999}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 09016bee19e911f4fbd0f92b795c5ebb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  triggerEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 567551063603885156}
-        m_TargetAssemblyTypeName: LevelCompletedGAEvent, Assembly-CSharp
-        m_MethodName: Send
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 9112226273830830179}
-        m_TargetAssemblyTypeName: Levels.presentation.CurrentLevelFilter, LevelsAssembly
-        m_MethodName: PushEvent
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 7016725688899152176}
-        m_TargetAssemblyTypeName: Gameplay.CompleteLevelHandler, Assembly-CSharp
-        m_MethodName: CompleteCurrentLevel
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  exitTriggerEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  triggerTag: Player
-  triggerOnce: 0
---- !u!114 &567551063603885156
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1918845999}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 73760691e8b72574e866c8a768280f94, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &7016725688899152176
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -141,6 +71,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48f2fdac19c94a9f8f1d9b525ae75936, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  triggerTag: Player
+  triggerOnce: 0
+  happyTimeIntensity: 0.5
 --- !u!1 &370976211665673304
 GameObject:
   m_ObjectHideFlags: 0
@@ -359,7 +292,6 @@ Transform:
   - {fileID: 2151799226459498818}
   - {fileID: 3894101962324895559}
   - {fileID: 1918846000}
-  - {fileID: 6888193575424739833}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -450,94 +382,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2, y: 8, z: 2}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!1 &7614193120111293430
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6888193575424739833}
-  - component: {fileID: 8514473162802125386}
-  - component: {fileID: 9112226273830830179}
-  - component: {fileID: 8828995837655049217}
-  m_Layer: 0
-  m_Name: HappyTime
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &6888193575424739833
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7614193120111293430}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 845065060042212892}
-  m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8514473162802125386
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7614193120111293430}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0871f748c48352f4593c03df6c2009ee, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &9112226273830830179
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7614193120111293430}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bafac9594616df1488c71c065f717d37, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  passEveryLevels: 5
-  onFilterPass:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 8828995837655049217}
-        m_TargetAssemblyTypeName: SDK.HappyTime.HappyTime, SDK
-        m_MethodName: SetHappyTime
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &8828995837655049217
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7614193120111293430}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ce40920725e16c49b18ee4570c0ed23, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  intensity: 0.5
-  cooldown: 0.5
 --- !u!1001 &1908983224
 PrefabInstance:
   m_ObjectHideFlags: 0
