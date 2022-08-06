@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using Features.LevelsProgression.LevelsScore.domain.model;
+using Features.LevelReward.data.model;
 
-namespace Features.LevelsProgression.LevelReward.domain
+namespace Features.LevelReward.domain
 {
     public interface ILevelRewardRepository
     {

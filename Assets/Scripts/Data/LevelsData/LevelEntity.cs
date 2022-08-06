@@ -7,14 +7,15 @@ namespace Data.LevelsData
     [Serializable]
     public class LevelEntity
     {
-        public int reward = 0;
-        public int maxScore = 0;
+        public int completionReward = 0;
+        public int maxScore = 100;
+        public int maxTimeSeconds = 60;
         public GameObject scenePrefab;
         public List<ScoreRewardData> rewards;
 
-        public LevelEntity(int reward, GameObject scenePrefab)
+        public LevelEntity(int completionReward, GameObject scenePrefab)
         {
-            this.reward = reward;
+            this.completionReward = completionReward;
             this.scenePrefab = scenePrefab;
         }
 

@@ -7,6 +7,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 using Zenject;
+using static Core.User.domain.ICurrentUserNameRepository;
 using static Core.User.domain.ValidateUserNameUseCase;
 
 namespace Core.User.presentation
@@ -25,6 +26,8 @@ namespace Core.User.presentation
         [CanBeNull] private IDisposable setupDisposable;
 
         private string unableToSetUsernameErrorText = "Error while updating name :(";
+        private string unableToSetUsernameNotAvailableText = "Username not available, try another one";
+
         private Dictionary<UserNameValidState, string> errorTexts = new()
         {
             [UserNameValidState.Valid] = "",
@@ -55,22 +58,25 @@ namespace Core.User.presentation
         private void SubmitUserName()
         {
             var userName = editNameField.text;
-            if(validateUserNameUseCase.Validate(userName) != UserNameValidState.Valid)
+            if (validateUserNameUseCase.Validate(userName) != UserNameValidState.Valid)
                 return;
 
             confirmButton.interactable = false;
             currentUserNameRepository.UpdateUserName(userName).Subscribe(OnUsernameUpdated).AddTo(this);
         }
 
-        private void OnUsernameUpdated(bool success)
+        private void OnUsernameUpdated(UpdateUserNameResult result)
         {
-            if (!success)
+            if (result != UpdateUserNameResult.Success)
             {
-                errorText.text = unableToSetUsernameErrorText;
+                errorText.text = result == UpdateUserNameResult.NotAvailable
+                    ? unableToSetUsernameNotAvailableText
+                    : unableToSetUsernameErrorText;
                 errorMark.SetActive(true);
+                errorText.enabled = true;
                 return;
             }
-            
+
             onSuccessfulChangeUserName?.Invoke();
         }
 

@@ -5,7 +5,7 @@ using UnityEngine;
 namespace Data.LevelsData
 {
     [CreateAssetMenu(menuName = "Levels/LevelsDao/SimpleLevelsDao")]
-    public class SimpleLevelsDao : ScriptableObject
+    internal class SimpleLevelsDao : ScriptableObject
     {
         [SerializeField] private int defaultReward = 100;
 

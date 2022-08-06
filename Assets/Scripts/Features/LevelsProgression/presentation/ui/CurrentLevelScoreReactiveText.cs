@@ -7,9 +7,9 @@ using Zenject;
 
 namespace Features.LevelsProgression.presentation.ui
 {
-    public class CurrentScoreReactiveText : MonoBehaviour
+    public class CurrentLevelScoreReactiveText : MonoBehaviour
     {
-        [Inject] private CurrentScoreUseCase currentScoreUseCase;
+        [Inject] private CurrentLevelScoreUseCase currentLevelScoreUseCase;
 
         [SerializeField] private Text text;
         [SerializeField] private UnityEvent onUpdateText;
@@ -20,7 +20,7 @@ namespace Features.LevelsProgression.presentation.ui
                 text = GetComponent<Text>();
         }
 
-        private void Start() => currentScoreUseCase.GetCurrentScoreFlow().Subscribe(UpdateScore).AddTo(this);
+        private void Start() => currentLevelScoreUseCase.GetCurrentScoreFlow().Subscribe(UpdateScore).AddTo(this);
 
         private void UpdateScore(int score)
         {

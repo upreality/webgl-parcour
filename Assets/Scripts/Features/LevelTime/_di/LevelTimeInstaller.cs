@@ -10,6 +10,7 @@ namespace Features.LevelTime._di
         public override void InstallBindings()
         {
             Container.BindInterfacesAndSelfTo<LevelTimerSceneRepository>().FromInstance(levelTimerSceneRepository).AsSingle();
+            Container.BindInterfacesAndSelfTo<LevelTimeRepository>().AsSingle();
         }
     }
 }

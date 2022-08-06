@@ -40,6 +40,7 @@ namespace Features.Levels._di
             Container.Bind<ILevelCompletedStateRepository>().To<LevelCompletedStateRepository>().AsSingle();
             //UseCases
             Container.Bind<SetNextCurrentLevelUseCase>().ToSelf().AsSingle();
+            Container.Bind<GetCompletedLevelsUseCase>().ToSelf().AsSingle();
             //Adapters
             Container
                 .Bind<ISessionEventLevelIdProvider>()

@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using Data.LevelsData;
 using Features.Balance.domain;
-using Features.LevelsProgression.LevelReward.domain;
-using Features.LevelsProgression.LevelsScore.domain.model;
+using Features.LevelReward.data.model;
+using Features.LevelReward.domain;
 using Zenject;
 
-namespace Features.LevelsProgression.LevelReward.data
+namespace Features.LevelReward.data
 {
     public class LevelRewardRepository : ILevelRewardRepository
     {

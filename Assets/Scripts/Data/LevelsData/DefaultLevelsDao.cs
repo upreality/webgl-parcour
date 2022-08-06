@@ -6,7 +6,7 @@ using UnityEngine;
 namespace Data.LevelsData
 {
     [CreateAssetMenu(menuName = "Levels/LevelsDao/DefaultLevelsDao")]
-    public class DefaultLevelsDao : ScriptableObject, ILevelsDao
+    internal class DefaultLevelsDao : ScriptableObject, ILevelsDao
     {
         [SerializeField] private List<LevelEntity> levels;
 

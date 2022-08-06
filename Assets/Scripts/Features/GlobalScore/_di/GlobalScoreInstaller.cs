@@ -10,6 +10,8 @@ namespace Features.GlobalScore._di
         {
             Container.BindInterfacesAndSelfTo<GlobalScoreLocalDataSource>().AsSingle();
             Container.Bind<IGlobalScoreRepository>().To<PlayfabGlobalScoreRepository>().AsSingle();
+            Container.BindInterfacesAndSelfTo<CalculateGlobalScoreUseCase>().AsSingle();
+            Container.BindInterfacesAndSelfTo<UpdateGlobalScoreUseCase>().AsSingle();
         }
     }
 }

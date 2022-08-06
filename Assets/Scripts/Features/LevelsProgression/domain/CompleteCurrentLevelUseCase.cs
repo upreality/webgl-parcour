@@ -3,9 +3,11 @@ using Core.Analytics.adapter;
 using Core.Analytics.levels;
 using Features.Balance.domain;
 using Features.Balance.domain.repositories;
+using Features.GlobalScore.domain;
 using Features.Levels.domain;
 using Features.Levels.domain.repositories;
 using Features.LevelScore.domain;
+using UniRx;
 using Zenject;
 
 namespace Features.LevelsProgression.domain
@@ -18,6 +20,7 @@ namespace Features.LevelsProgression.domain
         [Inject] private IBalanceRepository balanceRepository;
         [Inject] private SetNextCurrentLevelUseCase setNextCurrentLevelUseCase;
         [Inject] private UpdateCurrentLevelScoreUseCase updateCurrentLevelScoreUseCase;
+        [Inject] private UpdateGlobalScoreUseCase updateGlobalScoreUseCase;
 
         public IObservable<bool> CompleteCurrentLevel()
         {
@@ -26,7 +29,9 @@ namespace Features.LevelsProgression.domain
             setNextCurrentLevelUseCase.SetNextCurrentLevel();
             if (currentLevel.Reward > 0) balanceRepository.Add(currentLevel.Reward, CurrencyType.Primary);
             analytics.SendLevelEvent(new LevelPointer(currentLevel.ID), LevelEvent.Complete);
-            return updateCurrentLevelScoreUseCase.UpdateScore();
+            return updateCurrentLevelScoreUseCase.UpdateScore().Select(levelRes =>
+                updateGlobalScoreUseCase.UpdateGlobalScore().Select(globalRes => levelRes && globalRes)
+            ).Switch();
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿using Features.Balance.domain;
 
-namespace Features.LevelsProgression.LevelsScore.domain.model
+namespace Features.LevelReward.data.model
 {
 
     public class LevelScoreReward

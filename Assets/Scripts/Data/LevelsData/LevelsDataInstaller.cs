@@ -1,11 +1,10 @@
-﻿using Data.LevelsData;
-using UnityEngine;
+﻿using UnityEngine;
 using Zenject;
 
-namespace Data
+namespace Data.LevelsData
 {
-    [CreateAssetMenu(menuName = "Installers/DataInstaller")]
-    public class DataInstaller: ScriptableObjectInstaller
+    [CreateAssetMenu(menuName = "Installers/LevelsDataInstaller")]
+    public class LevelsDataInstaller: ScriptableObjectInstaller
     {
         [SerializeField] private DefaultLevelsDao levelsDao;
     

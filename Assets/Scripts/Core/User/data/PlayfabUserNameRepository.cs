@@ -1,11 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
 using Core.Auth.domain;
 using Core.User.domain;
 using PlayFab;
 using PlayFab.ClientModels;
 using UniRx;
 using Zenject;
+using static Core.User.domain.ICurrentUserNameRepository;
 
 namespace Core.User.data
 {
@@ -16,15 +16,15 @@ namespace Core.User.data
 
         public IObservable<string> GetUserNameFlow() => userNameLocalDataSource.GetUserNameFlow();
 
-        public IObservable<bool> UpdateUserName(string newName) => authRepository
+        public IObservable<UpdateUserNameResult> UpdateUserName(string newName) => authRepository
             .GetLoggedInFlow()
             .Where(loggedIn => loggedIn)
             .First()
             .Select(_ => UpdatePlayfabUserName(newName))
             .Switch();
 
-        private IObservable<bool> UpdatePlayfabUserName(string newName) => Observable.Create(
-            (IObserver<bool> observer) =>
+        private IObservable<UpdateUserNameResult> UpdatePlayfabUserName(string newName) => Observable.Create(
+            (IObserver<UpdateUserNameResult> observer) =>
             {
                 var request = new UpdateUserTitleDisplayNameRequest
                 {
@@ -35,12 +35,15 @@ namespace Core.User.data
                     success =>
                     {
                         userNameLocalDataSource.UpdateUserName(newName);
-                        observer.OnNext(true);
+                        observer.OnNext(UpdateUserNameResult.Success);
                         observer.OnCompleted();
                     },
                     error =>
                     {
-                        observer.OnNext(false);
+                        var result = error.Error == PlayFabErrorCode.NameNotAvailable
+                            ? UpdateUserNameResult.NotAvailable
+                            : UpdateUserNameResult.Error;
+                        observer.OnNext(result);
                         observer.OnCompleted();
                     }
                 );

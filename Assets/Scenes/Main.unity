@@ -723,21 +723,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 165394118}
     m_Modifications:
-    - target: {fileID: 219205158875719981, guid: 04c188d70605e7a4ba8ebc290357db88,
-        type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 219205158875719981, guid: 04c188d70605e7a4ba8ebc290357db88,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 219205158875719981, guid: 04c188d70605e7a4ba8ebc290357db88,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1433837459922878337, guid: 04c188d70605e7a4ba8ebc290357db88,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -772,16 +757,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3983272287712812592, guid: 04c188d70605e7a4ba8ebc290357db88,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3983272287712812592, guid: 04c188d70605e7a4ba8ebc290357db88,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -0.00025689867
       objectReference: {fileID: 0}
     - target: {fileID: 4356979245067225415, guid: 04c188d70605e7a4ba8ebc290357db88,
         type: 3}
@@ -1428,13 +1403,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b297442c95e4a6099bd9ea795a80ae2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultUserNames:
-  - NewTraveller
-  - BlueMage
-  - ForestArcher
-  - AwesomeGoblin
-  - FlyingWarrior
-  - BrilliantJumper
+  defaultUserNamePrefixes: []
+  maxRetryTimes: 3
 --- !u!1 &1325742180
 GameObject:
   m_ObjectHideFlags: 0
@@ -1616,7 +1586,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1343810545}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -50, z: 0}
+  m_LocalPosition: {x: 0, y: 100, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1646,6 +1616,7 @@ GameObject:
   - component: {fileID: 1425927139}
   - component: {fileID: 1425927140}
   - component: {fileID: 1425927141}
+  - component: {fileID: 1425927142}
   m_Layer: 0
   m_Name: SceneContext
   m_TagString: Untagged
@@ -1692,6 +1663,7 @@ MonoBehaviour:
   - {fileID: 1425927138}
   - {fileID: 1425927139}
   - {fileID: 1425927140}
+  - {fileID: 1425927142}
   - {fileID: 1425927141}
   _installerPrefabs: []
   _autoRun: 1
@@ -1893,6 +1865,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   completeLevelNavigator: {fileID: 560747906}
+--- !u!114 &1425927142
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1425927127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38366e9b95884887af8fbe1d4abd23dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1427165497 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7420332640132878559, guid: 04c188d70605e7a4ba8ebc290357db88,

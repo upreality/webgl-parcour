@@ -16,7 +16,8 @@ namespace Features.Death
 
         private void UpdateText(int deathCount)
         {
-            text.text = textTemplate.Replace("$", deathCount.ToString());
+            var countText = deathCount > 999 ? "999+" : deathCount.ToString();
+            text.text = textTemplate.Replace("$", countText);
         }
     }
 }

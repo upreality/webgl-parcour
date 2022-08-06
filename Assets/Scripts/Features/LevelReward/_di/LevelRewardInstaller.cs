@@ -1,8 +1,8 @@
-﻿using Features.LevelsProgression.LevelReward.data;
+﻿using Features.LevelReward.data;
 using UnityEngine;
 using Zenject;
 
-namespace Features.LevelsProgression.LevelReward._di
+namespace Features.LevelReward._di
 {
     [CreateAssetMenu(menuName = "Installers/LevelRewardInstaller")]
     public class LevelRewardInstaller: ScriptableObjectInstaller

@@ -12,12 +12,10 @@ namespace Core.Leaderboard.data
         [Inject] private IAuthRepository authRepository;
         [Inject] private ILeaderBoardRemoteDataSource leaderBoardRemoteDataSource;
 
-        private const int MAX_RESULTS_COUNT = 10;
-
-        public IObservable<List<LeaderBoardItem>> GetPositionsAroundPlayer(string leaderBoardId) => authRepository
+        public IObservable<List<LeaderBoardItem>> GetPositionsAroundPlayer(string leaderBoardId, int resultsCount) => authRepository
             .GetLoggedInFlow()
             .Where(loggedIn => loggedIn)
-            .Select(_ => leaderBoardRemoteDataSource.GetPositionsAroundPlayer(leaderBoardId, MAX_RESULTS_COUNT))
+            .Select(_ => leaderBoardRemoteDataSource.GetPositionsAroundPlayer(leaderBoardId, resultsCount))
             .Switch();
 
         public IObservable<bool> SendResult(string leaderBoardId, int score) => authRepository

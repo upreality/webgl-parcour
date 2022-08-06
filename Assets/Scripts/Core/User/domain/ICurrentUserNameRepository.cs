@@ -5,6 +5,13 @@ namespace Core.User.domain
     public interface ICurrentUserNameRepository
     {
         IObservable<string> GetUserNameFlow();
-        IObservable<bool> UpdateUserName(string newName);
+        IObservable<UpdateUserNameResult> UpdateUserName(string newName);
+        
+        public enum UpdateUserNameResult
+        {
+            Success,
+            NotAvailable,
+            Error
+        }
     }
 }

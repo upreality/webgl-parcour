@@ -30,7 +30,7 @@ namespace Features.Levels.data
         private static Level GetLevel(LevelEntity entity, long index)
         {
             var number = Convert.ToInt32(index) + 1;
-            return new Level(index, number, entity.reward);
+            return new Level(index, number, entity.completionReward);
         }
     }
 }

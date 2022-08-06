@@ -1,6 +1,7 @@
 ﻿using System;
 using Core.Leaderboard.domain;
 using Features.GlobalScore.domain;
+using Features.GlobalScore.domain.model;
 using Zenject;
 
 namespace Features.GlobalScore.data
@@ -12,7 +13,8 @@ namespace Features.GlobalScore.data
 
         private const string LEADER_BOARD_NAME = "GlobalScore";
 
-        public IObservable<int> GetScore() => localDataSource.GetScore();
+        public IObservable<int> GetScoreFlow(GlobalScoreType type) => localDataSource.GetScoreFlow(type);
+        public int GetScore(GlobalScoreType type) => localDataSource.GetScore(type);
 
         public IObservable<bool> SendScore(int score)
         {

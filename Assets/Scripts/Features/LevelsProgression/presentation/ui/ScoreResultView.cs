@@ -6,7 +6,7 @@ using Zenject;
 
 namespace Features.LevelsProgression.presentation.ui
 {
-    public class ScoreResult : MonoBehaviour
+    public class ScoreResultView : MonoBehaviour
     {
         [SerializeField] private GameObject bestScoreLabel;
         [SerializeField] private GameObject newBestScoreLabel;
@@ -21,8 +21,8 @@ namespace Features.LevelsProgression.presentation.ui
 
         private void Awake()
         {
-            if (valueText == null)
-                valueText = GetComponent<Text>();
+            if (valueText != null) return;
+            valueText = GetComponent<Text>();
         }
 
         private void OnEnable()
