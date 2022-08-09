@@ -11,11 +11,15 @@ namespace Core.Analytics.Editor
             { AnalyticsType.None, "" },
             { AnalyticsType.Debug, "DEBUG_ANALYTICS" },
             { AnalyticsType.GameAnalytics, "GAME_ANALYTICS" },
+            { AnalyticsType.Playfab, "PLAYFAB_ANALYTICS" },
         };
 
         [MenuItem("AnalyticsSDK/Set Game Analytics", false)]
         public static void SetGameAnalytics() => SetSDKType(AnalyticsType.GameAnalytics);
         
+        [MenuItem("AnalyticsSDK/Set Playfab Analytics", false)]
+        public static void SetPlayfabAnalytics() => SetSDKType(AnalyticsType.Playfab); 
+
         [MenuItem("AnalyticsSDK/Set Debug", false)]
         public static void SetDebug() => SetSDKType(AnalyticsType.Debug);
 

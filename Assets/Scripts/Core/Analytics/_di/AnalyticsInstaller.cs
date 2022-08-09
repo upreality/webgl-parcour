@@ -19,6 +19,8 @@ namespace Core.Analytics._di
                 .Bind<AnalyticsAdapter>()
 #if GAME_ANALYTICS
                 .To<GameAnalyticsAdapter>()
+#elif PLAYFAB_ANALYTICS
+                .To<PlayfabAnalyticsAdapter>()
 #elif DEBUG_ANALYTICS
                 .FromInstance(new DebugLogAnalyticsAdapter(true))
 #else

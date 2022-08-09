@@ -3,6 +3,7 @@
     public enum AnalyticsType
     {
         GameAnalytics,
+        Playfab,
         Debug,
         None
     }

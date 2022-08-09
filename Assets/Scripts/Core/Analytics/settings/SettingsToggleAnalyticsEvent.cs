@@ -12,6 +12,8 @@ namespace Core.Analytics.settings
         [SerializeField] private SettingType type = SettingType.SoundToggle;
         
         private void Start() => GetComponent<Toggle>().onValueChanged.AddListener(Toggle);
-        private void Toggle(bool state) => analytics.SendSettingsEvent(type, state.ToString());
+        
+        //TODO replace with string/object state
+        private void Toggle(bool state) => analytics.SendSettingsEvent(type, state);
     }
 }

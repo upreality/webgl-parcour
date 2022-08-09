@@ -9,7 +9,7 @@ namespace Core.Analytics.adapter
     public abstract class AnalyticsAdapter
     {
         public abstract void SendAdEvent(AdAction action, AdType type, AdProvider provider, IAdPlacement placement);
-        public abstract void SendSettingsEvent(SettingType type, string val);
+        public abstract void SendSettingsEvent(SettingType type, bool state);
         public abstract void SendScreenEvent(string screenName, ScreenAction action);
         public abstract void SendLevelEvent(LevelPointer levelPointer, LevelEvent levelEvent);
         public abstract void SendSessionEvent(SessionEvent sessionEvent, LevelPointer currentLevelPointer);

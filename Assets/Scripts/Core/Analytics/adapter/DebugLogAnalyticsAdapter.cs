@@ -21,7 +21,7 @@ namespace Core.Analytics.adapter
             Log(" SendAdEvent: " + action + ' ' + type);
         }
 
-        public override void SendSettingsEvent(SettingType type, string val)
+        public override void SendSettingsEvent(SettingType type, bool val)
         {
             Log("SendSettingsEvent: " + type + ' ' + val);
         }

@@ -1,10 +1,12 @@
-﻿using Core.Analytics.ads;
+﻿using System.Collections.Generic;
+using Core.Analytics.ads;
 using Core.Analytics.levels;
 using Core.Analytics.screens;
 using Core.Analytics.session.domain;
 using Core.Analytics.settings;
 using PlayFab;
 using PlayFab.ClientModels;
+using PlayFab.EventsModels;
 using UnityEngine;
 
 namespace Core.Analytics.adapter
@@ -13,7 +15,7 @@ namespace Core.Analytics.adapter
     {
         public override void SendAdEvent(AdAction action, AdType type, AdProvider provider, IAdPlacement placement)
         {
-            if(action!=AdAction.Show)
+            if (action != AdAction.Show)
                 return;
 
             PlayFabClientAPI.ReportAdActivity(
@@ -27,60 +29,140 @@ namespace Core.Analytics.adapter
             );
         }
 
-        public override void SendSettingsEvent(SettingType type, string val)
+        public override void SendSettingsEvent(SettingType type, bool val)
         {
-            PlayFabClientAPI.
+            PlayFabClientAPI.UpdatePlayerStatistics(
+                new UpdatePlayerStatisticsRequest
+                {
+                    Statistics = new List<StatisticUpdate>()
+                    {
+                        new()
+                        {
+                            StatisticName = "Settings_" + type,
+                            Value = val ? 1 : 0
+                        }
+                    }
+                },
+                _ => { },
+                _ => { }
+            );
+            PlayFabEventsAPI.WriteEvents(
+                new WriteEventsRequest
+                {
+                    Events = new List<EventContents>()
+                    {
+                        new()
+                        {
+                            EventNamespace = "custom.Settings",
+                            Name = "SetSettings",
+                            Payload = val
+                        }
+                    }
+                },
+                _ => { },
+                _ => { }
+            );
         }
 
         public override void SendScreenEvent(string screenName, ScreenAction action)
         {
-            Log("SendScreenEvent: " + screenName + ' ' + action);
+            PlayFabEventsAPI.WriteEvents(
+                new WriteEventsRequest
+                {
+                    Events = new List<EventContents>()
+                    {
+                        new()
+                        {
+                            EventNamespace = "custom.Navigation",
+                            Name = "ScreenEvent",
+                            Payload = screenName + ", " + action
+                        }
+                    }
+                },
+                _ => { },
+                _ => { }
+            );
         }
 
         public override void SendLevelEvent(LevelPointer levelPointer, LevelEvent levelEvent)
         {
-            Log("SendLevelEvent: " + levelPointer.LevelId + ' ' + levelEvent);
+            Debug.Log("Analytics SendLevelEvent" );
+            PlayFabEventsAPI.WriteEvents(
+                new WriteEventsRequest
+                {
+                    Events = new List<EventContents>()
+                    {
+                        new()
+                        {
+                            EventNamespace = "custom.Levels",
+                            Name = levelEvent.ToString(),
+                            Payload = "level: " + levelPointer.LevelId
+                        }
+                    }
+                },
+                _ =>
+                {
+                    Debug.Log("Analytics SendLevelEvent res" );
+                },
+                _ =>
+                {
+                    Debug.Log("Analytics SendLevelEvent err" );
+                }
+            );
         }
 
         public override void SendSessionEvent(SessionEvent sessionEvent, LevelPointer currentLevelPointer)
         {
-            Log("SendSessionEvent: " + sessionEvent);
+            //Skip
+            //TODO: remove if unused
         }
 
         public override void SendErrorEvent(string error)
         {
-            Log("SendErrorEvent: " + error);
+            //Skip
+            //TODO: remove if unused
         }
 
         public override void SetPlayerId(string id)
         {
-            Log("Set player id: " + id);
+            //Skip
+            //TODO: remove if unused
         }
 
         public override void InitializeWithoutPlayerId()
         {
-            Log("Initialize Analytics Without PlayerId");
+            //Skip
+            //TODO: remove if unused
         }
 
         public override void SendFirstOpenEvent()
         {
-            Log("First Open");
+            //TODO: remove if unused
         }
 
         public override void SendPurchasedEvent(long purchaseId)
         {
-            Debug.Log("SendPurchasedEvent");
+            PlayFabEventsAPI.WriteEvents(
+                new WriteEventsRequest
+                {
+                    Events = new List<EventContents>()
+                    {
+                        new()
+                        {
+                            EventNamespace = "custom.Economy",
+                            Name = "Purchase",
+                            Payload = "purchaseId: " + purchaseId
+                        }
+                    }
+                },
+                _ => { },
+                _ => { }
+            );
         }
 
         public override void SendBalanceAddedEvent(int amount)
         {
-            Debug.Log("SendBalanceAddedEvent");
-        }
-
-        private void Log(string text)
-        {
-            if (!loggingEnabled) return;
-            Debug.Log("Debug Analytics Event: " + text);
+            //TODO
         }
     }
 }
