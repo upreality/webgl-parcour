@@ -758,6 +758,11 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3983272287712812592, guid: 04c188d70605e7a4ba8ebc290357db88,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4356979245067225415, guid: 04c188d70605e7a4ba8ebc290357db88,
         type: 3}
       propertyPath: m_SizeDelta.y
@@ -1617,6 +1622,7 @@ GameObject:
   - component: {fileID: 1425927140}
   - component: {fileID: 1425927141}
   - component: {fileID: 1425927142}
+  - component: {fileID: 1425927143}
   m_Layer: 0
   m_Name: SceneContext
   m_TagString: Untagged
@@ -1665,6 +1671,7 @@ MonoBehaviour:
   - {fileID: 1425927140}
   - {fileID: 1425927142}
   - {fileID: 1425927141}
+  - {fileID: 1425927143}
   _installerPrefabs: []
   _autoRun: 1
   OnPreInstall:
@@ -1875,6 +1882,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 38366e9b95884887af8fbe1d4abd23dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1425927143
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1425927127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56b7b16b5339496a9c58373c12b86522, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1427165497 stripped

@@ -224,6 +224,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Coin (16)
       objectReference: {fileID: 0}
+    - target: {fileID: 8919049498233250657, guid: 116cb1f67f3b17541bea267d93afdf38,
+        type: 3}
+      propertyPath: collectableId
+      value: 0cadfe8b-c256-405b-8519-87e335ee83cf
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 116cb1f67f3b17541bea267d93afdf38, type: 3}
 --- !u!4 &1437617173040057458 stripped
@@ -493,6 +498,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Coin (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8919049498233250657, guid: 116cb1f67f3b17541bea267d93afdf38,
+        type: 3}
+      propertyPath: collectableId
+      value: 4ed15b42-a386-4ece-ad50-5dade93e3bd9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 116cb1f67f3b17541bea267d93afdf38, type: 3}
@@ -943,6 +953,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Coin (14)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8919049498233250657, guid: 116cb1f67f3b17541bea267d93afdf38,
+        type: 3}
+      propertyPath: collectableId
+      value: 42e4e556-c7da-4d26-a80d-1cb599b1d4db
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 116cb1f67f3b17541bea267d93afdf38, type: 3}
@@ -1534,6 +1549,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Coin (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 8919049498233250657, guid: 116cb1f67f3b17541bea267d93afdf38,
+        type: 3}
+      propertyPath: collectableId
+      value: a4eaac00-7504-4e82-bf65-1a42f1bc234f
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 116cb1f67f3b17541bea267d93afdf38, type: 3}
 --- !u!4 &5397180027420737769 stripped
@@ -1623,6 +1643,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Coin (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8919049498233250657, guid: 116cb1f67f3b17541bea267d93afdf38,
+        type: 3}
+      propertyPath: collectableId
+      value: 43774020-a529-48db-bc5b-33be976db8f8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 116cb1f67f3b17541bea267d93afdf38, type: 3}
@@ -1804,6 +1829,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Coin (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 8919049498233250657, guid: 116cb1f67f3b17541bea267d93afdf38,
+        type: 3}
+      propertyPath: collectableId
+      value: d0651666-6538-48c0-ac67-abe651d453ee
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 116cb1f67f3b17541bea267d93afdf38, type: 3}
 --- !u!4 &5397180027214481871 stripped
@@ -1894,6 +1924,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Coin (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 8919049498233250657, guid: 116cb1f67f3b17541bea267d93afdf38,
+        type: 3}
+      propertyPath: collectableId
+      value: 38749f92-bf37-4f2e-8a61-9f62f87e411e
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 116cb1f67f3b17541bea267d93afdf38, type: 3}
 --- !u!4 &5397180027153040285 stripped
@@ -1983,6 +2018,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Coin (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8919049498233250657, guid: 116cb1f67f3b17541bea267d93afdf38,
+        type: 3}
+      propertyPath: collectableId
+      value: 1916ea34-7cd2-4225-bab7-2a5b25801ede
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 116cb1f67f3b17541bea267d93afdf38, type: 3}
@@ -2369,6 +2409,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Coin (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 8919049498233250657, guid: 116cb1f67f3b17541bea267d93afdf38,
+        type: 3}
+      propertyPath: collectableId
+      value: e2ec0a55-d471-4c11-8aba-6d797bcb0e37
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 116cb1f67f3b17541bea267d93afdf38, type: 3}
 --- !u!4 &5397180027332350631 stripped
@@ -2639,6 +2684,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Coin (15)
       objectReference: {fileID: 0}
+    - target: {fileID: 8919049498233250657, guid: 116cb1f67f3b17541bea267d93afdf38,
+        type: 3}
+      propertyPath: collectableId
+      value: 93ddead3-8682-4aae-8d65-7d3fa95392b5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 116cb1f67f3b17541bea267d93afdf38, type: 3}
 --- !u!4 &5397180027907095399 stripped
@@ -2819,6 +2869,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Coin (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 8919049498233250657, guid: 116cb1f67f3b17541bea267d93afdf38,
+        type: 3}
+      propertyPath: collectableId
+      value: c3d54b8e-b9d9-4304-9c28-b1117feef91d
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 116cb1f67f3b17541bea267d93afdf38, type: 3}
 --- !u!4 &5397180027704952004 stripped
@@ -2908,6 +2963,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Coin
+      objectReference: {fileID: 0}
+    - target: {fileID: 8919049498233250657, guid: 116cb1f67f3b17541bea267d93afdf38,
+        type: 3}
+      propertyPath: collectableId
+      value: 4c35e2a8-1dd4-4151-8c48-a28bc5f30cbc
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 116cb1f67f3b17541bea267d93afdf38, type: 3}
@@ -3289,6 +3349,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Coin (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 8919049498233250657, guid: 116cb1f67f3b17541bea267d93afdf38,
+        type: 3}
+      propertyPath: collectableId
+      value: 7b8f0946-b8ce-41f7-b4c9-e3e52a7bbef0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 116cb1f67f3b17541bea267d93afdf38, type: 3}
 --- !u!4 &5397180028542405819 stripped
@@ -3378,6 +3443,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Coin (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8919049498233250657, guid: 116cb1f67f3b17541bea267d93afdf38,
+        type: 3}
+      propertyPath: collectableId
+      value: 3035f6ed-43d8-477b-b9e8-992f079c183f
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 116cb1f67f3b17541bea267d93afdf38, type: 3}
@@ -3673,6 +3743,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Coin (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8919049498233250657, guid: 116cb1f67f3b17541bea267d93afdf38,
+        type: 3}
+      propertyPath: collectableId
+      value: f89a5917-085a-4405-8b6f-f89175abd994
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 116cb1f67f3b17541bea267d93afdf38, type: 3}
@@ -4214,6 +4289,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Coin (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 8919049498233250657, guid: 116cb1f67f3b17541bea267d93afdf38,
+        type: 3}
+      propertyPath: collectableId
+      value: 93972988-7864-4650-abbd-e451065d2f22
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 116cb1f67f3b17541bea267d93afdf38, type: 3}
 --- !u!4 &5397180028399086409 stripped
@@ -4508,6 +4588,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Coin (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8919049498233250657, guid: 116cb1f67f3b17541bea267d93afdf38,
+        type: 3}
+      propertyPath: collectableId
+      value: 4e6c98ee-082d-42dc-b0c5-d69eafe27ed4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 116cb1f67f3b17541bea267d93afdf38, type: 3}

@@ -4,7 +4,7 @@ using Zenject;
 
 namespace Features.Coins._di
 {
-    public class CoinsInstaller: MonoInstaller
+    public class CollectablesInstaller: MonoInstaller
     {
         public override void InstallBindings()
         {

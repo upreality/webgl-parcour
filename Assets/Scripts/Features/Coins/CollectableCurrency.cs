@@ -3,6 +3,7 @@ using Features.Balance.domain;
 using Features.Balance.presentation;
 using Features.Coins.domain;
 using ModestTree;
+using UnityEditor;
 using UnityEngine;
 using Utils.PlayerTrigger;
 using Zenject;
@@ -25,6 +26,15 @@ namespace Features.Coins
             if (collectableId.IsEmpty()) collectableId = Guid.NewGuid().ToString();
             if (target == null) target = gameObject;
         }
+
+#if UNITY_EDITOR
+        [ContextMenu("Generate Id")]
+        void GenerateId()
+        {
+            collectableId = Guid.NewGuid().ToString();
+            EditorUtility.SetDirty(this);
+        }
+#endif
 
         private void Start()
         {
