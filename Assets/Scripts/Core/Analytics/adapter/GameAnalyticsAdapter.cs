@@ -33,15 +33,15 @@ namespace Core.Analytics.adapter
             GameAnalytics.NewAdEvent(gAAction, gAType, provider.ToString(), placement.GetName());
         }
 
-        public override void SendSettingsEvent(SettingType type, string val)
+        public override void SendSettingsEvent(SettingType type, bool state)
         {
-            Debug.Log("SendSettingsEvent: " + type + ' ' + val);
+            Debug.Log("SendSettingsEvent: " + type + ' ' + state);
             var eventName = "Setting_" + type switch
             {
                 SettingType.SoundToggle => "Sound",
                 _ => defaultPostfix
             };
-            var param = new Dictionary<string, object> { { "value", val } };
+            var param = new Dictionary<string, object> { { "value", state } };
             GameAnalytics.NewDesignEvent(eventName, param);
         }
 
@@ -140,7 +140,7 @@ namespace Core.Analytics.adapter
             );
         }
 
-        private void SendLoadLevelEvent(LevelPointer levelPointer)
+        private static void SendLoadLevelEvent(LevelPointer levelPointer)
         {
             var param = new Dictionary<string, object> { { "levelId", levelPointer.LevelId } };
             GameAnalytics.NewDesignEvent("ManualLoadLevel", param);

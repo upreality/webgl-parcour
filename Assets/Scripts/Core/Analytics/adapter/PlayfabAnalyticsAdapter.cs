@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿#if PLAYFAB_ANALYTICS
+using System.Collections.Generic;
 using Core.Analytics.ads;
 using Core.Analytics.levels;
 using Core.Analytics.screens;
@@ -86,7 +87,7 @@ namespace Core.Analytics.adapter
 
         public override void SendLevelEvent(LevelPointer levelPointer, LevelEvent levelEvent)
         {
-            Debug.Log("Analytics SendLevelEvent" );
+            Debug.Log("Analytics SendLevelEvent");
             PlayFabEventsAPI.WriteEvents(
                 new WriteEventsRequest
                 {
@@ -100,14 +101,8 @@ namespace Core.Analytics.adapter
                         }
                     }
                 },
-                _ =>
-                {
-                    Debug.Log("Analytics SendLevelEvent res" );
-                },
-                _ =>
-                {
-                    Debug.Log("Analytics SendLevelEvent err" );
-                }
+                _ => { Debug.Log("Analytics SendLevelEvent res"); },
+                _ => { Debug.Log("Analytics SendLevelEvent err"); }
             );
         }
 
@@ -166,3 +161,4 @@ namespace Core.Analytics.adapter
         }
     }
 }
+#endif
