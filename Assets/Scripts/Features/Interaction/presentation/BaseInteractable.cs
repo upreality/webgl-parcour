@@ -15,12 +15,14 @@ namespace Features.Interaction.presentation
         [SerializeField] private float cooldown = 1f;
 
         private readonly ReactiveProperty<bool> onCooldown = new(false);
-        
+
         private bool firstInteraction = false;
 
-        public virtual IObservable<bool> IsInteractableFlow() => onCooldown.Select(_ => !_ && !(interactOnce && firstInteraction));
+        public virtual IObservable<bool> IsInteractableFlow() => onCooldown.Select(GetIsInteractable);
+        protected bool IsInteractable => GetIsInteractable(onCooldown.Value);
 
         protected virtual void Awake() => OnSelectedStateChanged(NotSelected);
+
 
         public void Interact()
         {
@@ -28,15 +30,16 @@ namespace Features.Interaction.presentation
             Interaction();
         }
 
-        protected virtual void Interaction()
-        {
-            firstInteraction = true;
-        }
-        
+        protected virtual void Interaction() => firstInteraction = true;
+
         public virtual void OnSelectedStateChanged(IInteractable.SelectedState state)
         {
             //do nothing
         }
+
+        public InteractableData GetData() => data;
+
+        private bool GetIsInteractable(bool isOnCooldown) => !isOnCooldown && !(interactOnce && firstInteraction);
 
         private IEnumerator CooldownCoroutine()
         {
@@ -44,7 +47,5 @@ namespace Features.Interaction.presentation
             yield return new WaitForSeconds(cooldown);
             onCooldown.Value = false;
         }
-
-        public InteractableData GetData() => data;
     }
 }

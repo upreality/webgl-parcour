@@ -6,7 +6,7 @@ using Zenject;
 
 namespace Features.Keys.presentation
 {
-    public class KeyInteractable : UnityEventInteractable
+    public class KeyInteractable : UnityEventOutlineInteractable
     {
         [Inject] private IKeysRepository keysRepository;
 

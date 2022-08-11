@@ -1,6 +1,6 @@
-using Features.Levels.domain.repositories;
 using Doozy.Engine;
 using Features.Levels.domain.model;
+using Features.Levels.domain.repositories;
 using UnityEngine;
 using Zenject;
 
@@ -9,10 +9,24 @@ namespace Features.Levels.presentation
     public class CurrentLevelLoadingNavigator : MonoBehaviour
     {
         [Inject] private ICurrentLevelRepository currentLevelRepository;
+        [Inject] private ILevelsRepository levelsRepository;
         [Inject] private LevelLoadingNavigator levelLoadingNavigator;
         [SerializeField] private string levelLoadedUIEvent = "LevelLoaded";
 
-        private void Awake() => LoadCurrent();
+        [SerializeField] private bool loadCurrentLevel = false;
+        [SerializeField] private long initialLevelId = 0;
+
+        private void Awake()
+        {
+            if (loadCurrentLevel)
+            {
+                LoadCurrent();
+                return;
+            }
+
+            var initialLevel = levelsRepository.GetLevel(initialLevelId);
+            LoadLevel(initialLevel);
+        }
 
         public void LoadCurrent() => LoadLevel(currentLevelRepository.GetCurrentLevel());
 

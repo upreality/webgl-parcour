@@ -8,7 +8,7 @@ using UnityEngine;
 using Utils.PlayerTrigger;
 using Zenject;
 
-namespace Features.Coins
+namespace Features.Collectables.presentation
 {
     public class CollectableCurrency : PlayerTriggerBase
     {
