@@ -112,12 +112,6 @@ namespace Core.Analytics.adapter
             //TODO: remove if unused
         }
 
-        public override void SendErrorEvent(string error)
-        {
-            //Skip
-            //TODO: remove if unused
-        }
-
         public override void SetPlayerId(string id)
         {
             //Skip
@@ -133,31 +127,6 @@ namespace Core.Analytics.adapter
         public override void SendFirstOpenEvent()
         {
             //TODO: remove if unused
-        }
-
-        public override void SendPurchasedEvent(long purchaseId)
-        {
-            PlayFabEventsAPI.WriteEvents(
-                new WriteEventsRequest
-                {
-                    Events = new List<EventContents>()
-                    {
-                        new()
-                        {
-                            EventNamespace = "custom.Economy",
-                            Name = "Purchase",
-                            Payload = "purchaseId: " + purchaseId
-                        }
-                    }
-                },
-                _ => { },
-                _ => { }
-            );
-        }
-
-        public override void SendBalanceAddedEvent(int amount)
-        {
-            //TODO
         }
     }
 }

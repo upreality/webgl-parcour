@@ -1,5 +1,4 @@
 ﻿using System;
-using Core.Analytics.adapter;
 using Features.Purchases.domain;
 using Features.Purchases.domain.model;
 using Features.Purchases.domain.repositories;
@@ -11,7 +10,7 @@ namespace Features.Purchases.presentation.ui
 {
     public class DefaultPurchaseItemController : MonoBehaviour, PurchaseItem.IPurchaseItemController
     {
-        [Inject] private AnalyticsAdapter analytics;
+        [Inject] private IPurchaseAnalyticsRepository analytics;
         [Inject] private PurchasedStateUseCase purchasedStateUseCase;
         [Inject] private CurrencyPurchaseUseCase currencyPurchaseUseCase;
         [Inject] private PurchaseAvailableUseCase purchaseAvailableUseCase;

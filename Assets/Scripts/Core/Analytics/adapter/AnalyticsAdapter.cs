@@ -13,11 +13,8 @@ namespace Core.Analytics.adapter
         public abstract void SendScreenEvent(string screenName, ScreenAction action);
         public abstract void SendLevelEvent(LevelPointer levelPointer, LevelEvent levelEvent);
         public abstract void SendSessionEvent(SessionEvent sessionEvent, LevelPointer currentLevelPointer);
-        public abstract void SendErrorEvent(string error);
         public abstract void SetPlayerId(string id);
         public abstract void InitializeWithoutPlayerId();
         public abstract void SendFirstOpenEvent();
-        public abstract void SendPurchasedEvent(long purchaseId);
-        public abstract void SendBalanceAddedEvent(int amount);
     }
 }

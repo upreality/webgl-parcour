@@ -41,11 +41,6 @@ namespace Core.Analytics.adapter
             Log("SendSessionEvent: " + sessionEvent);
         }
 
-        public override void SendErrorEvent(string error)
-        {
-            Log("SendErrorEvent: " + error);
-        }
-
         public override void SetPlayerId(string id)
         {
             Log("Set player id: " + id);
@@ -59,16 +54,6 @@ namespace Core.Analytics.adapter
         public override void SendFirstOpenEvent()
         {
             Log("First Open");
-        }
-
-        public override void SendPurchasedEvent(long purchaseId)
-        {
-            Debug.Log("SendPurchasedEvent");
-        }
-
-        public override void SendBalanceAddedEvent(int amount)
-        {
-            Debug.Log("SendBalanceAddedEvent");
         }
 
         private void Log(string text)
