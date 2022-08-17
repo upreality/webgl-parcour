@@ -6,7 +6,7 @@ namespace Core.Ads.presentation.InterstitialAdNavigator
     {
         IObservable<ShowInterstitialResult> ShowAd();
 
-        public const string DefaultInstance = "DefInstance";
+        public const string DefaultInstance = "DefIInterstitialAdNavigatorInstance";
     }
 
     public class ShowInterstitialResult

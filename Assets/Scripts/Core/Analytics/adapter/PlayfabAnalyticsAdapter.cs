@@ -19,88 +19,77 @@ namespace Core.Analytics.adapter
             if (action != AdAction.Show)
                 return;
 
-            PlayFabClientAPI.ReportAdActivity(
-                new ReportAdActivityRequest
-                {
-                    Activity = AdActivity.Start,
-                    PlacementId = placement.GetName()
-                },
-                _ => { },
-                _ => { }
-            );
+            var request = new ReportAdActivityRequest
+            {
+                Activity = AdActivity.Start,
+                PlacementId = placement.GetName()
+            };
+            PlayFabClientAPI.ReportAdActivity(request, _ => { }, _ => { });
         }
 
         public override void SendSettingsEvent(SettingType type, bool val)
         {
-            PlayFabClientAPI.UpdatePlayerStatistics(
-                new UpdatePlayerStatisticsRequest
+            var statisticsRequest = new UpdatePlayerStatisticsRequest
+            {
+                Statistics = new List<StatisticUpdate>()
                 {
-                    Statistics = new List<StatisticUpdate>()
+                    new()
                     {
-                        new()
-                        {
-                            StatisticName = "Settings_" + type,
-                            Value = val ? 1 : 0
-                        }
+                        StatisticName = "Settings_" + type,
+                        Value = val ? 1 : 0
                     }
-                },
-                _ => { },
-                _ => { }
-            );
-            PlayFabEventsAPI.WriteEvents(
-                new WriteEventsRequest
+                }
+            };
+            PlayFabClientAPI.UpdatePlayerStatistics(statisticsRequest, _ => { }, _ => { });
+            var eventsRequest = new WriteEventsRequest
+            {
+                Events = new List<EventContents>()
                 {
-                    Events = new List<EventContents>()
+                    new()
                     {
-                        new()
-                        {
-                            EventNamespace = "custom.Settings",
-                            Name = "SetSettings",
-                            Payload = val
-                        }
+                        EventNamespace = "custom.Settings",
+                        Name = "SetSettings",
+                        Payload = val
                     }
-                },
-                _ => { },
-                _ => { }
-            );
+                }
+            };
+            PlayFabEventsAPI.WriteEvents(eventsRequest, _ => { }, _ => { });
         }
 
         public override void SendScreenEvent(string screenName, ScreenAction action)
         {
-            PlayFabEventsAPI.WriteEvents(
-                new WriteEventsRequest
+            var request = new WriteEventsRequest
+            {
+                Events = new List<EventContents>()
                 {
-                    Events = new List<EventContents>()
+                    new()
                     {
-                        new()
-                        {
-                            EventNamespace = "custom.Navigation",
-                            Name = "ScreenEvent",
-                            Payload = screenName + ", " + action
-                        }
+                        EventNamespace = "custom.Navigation",
+                        Name = "ScreenEvent",
+                        Payload = screenName + ", " + action
                     }
-                },
-                _ => { },
-                _ => { }
-            );
+                }
+            };
+            PlayFabEventsAPI.WriteEvents(request, _ => { }, _ => { });
         }
 
         public override void SendLevelEvent(LevelPointer levelPointer, LevelEvent levelEvent)
         {
             Debug.Log("Analytics SendLevelEvent");
-            PlayFabEventsAPI.WriteEvents(
-                new WriteEventsRequest
+            var request = new WriteEventsRequest
+            {
+                Events = new List<EventContents>()
                 {
-                    Events = new List<EventContents>()
+                    new()
                     {
-                        new()
-                        {
-                            EventNamespace = "custom.Levels",
-                            Name = levelEvent.ToString(),
-                            Payload = "level: " + levelPointer.LevelId
-                        }
+                        EventNamespace = "custom.Levels",
+                        Name = levelEvent.ToString(),
+                        Payload = "level: " + levelPointer.LevelId
                     }
-                },
+                }
+            };
+            PlayFabEventsAPI.WriteEvents(
+                request,
                 _ => { Debug.Log("Analytics SendLevelEvent res"); },
                 _ => { Debug.Log("Analytics SendLevelEvent err"); }
             );
