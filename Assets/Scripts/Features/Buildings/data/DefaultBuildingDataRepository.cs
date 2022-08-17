@@ -25,7 +25,7 @@ namespace Features.Buildings.data
                 Description = isRu ? entity.ruDesc : entity.enDesc,
                 Name = isRu ? entity.ruName : entity.enName,
                 Image = entity.image,
-                MaxLevel = entity.levelsCount
+                MaxLevel = entity.skillLevels.Count
             };
         }
     }

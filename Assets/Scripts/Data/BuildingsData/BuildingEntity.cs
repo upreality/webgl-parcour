@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 namespace Data.BuildingsData
 {
@@ -13,7 +14,7 @@ namespace Data.BuildingsData
         [TextArea(1, 5)] public string enDesc;
 
         [Header("Progression")]
-        public int defaultLevel = 1;
-        public int levelsCount = 10;
+        public int defaultLevel = 0;
+        public List<SkillEntity> skillLevels = new();
     }
 }

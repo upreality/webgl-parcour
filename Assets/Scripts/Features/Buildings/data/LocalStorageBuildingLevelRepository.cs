@@ -24,7 +24,7 @@ namespace Features.Buildings.data
 
         public IncrementLevelResult IncrementLevel(int buildingId)
         {
-            var maxLevel = GetBuildingEntity(buildingId).levelsCount;
+            var maxLevel = GetBuildingEntity(buildingId).skillLevels.Count;
             var currentLevel = GetLevel(buildingId);
             if (currentLevel >= maxLevel)
                 return IncrementLevelResult.MaxLevelReached;

@@ -2,10 +2,10 @@
 {
     public class Purchase
     {
-        public long Id;
-        public string Name;
-        public string Description;
-        public PurchaseType Type;
+        public readonly long Id;
+        public readonly string Name;
+        public readonly string Description;
+        public readonly PurchaseType Type;
 
         public Purchase(long id, string name, PurchaseType type, string description)
         {

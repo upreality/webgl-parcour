@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using Features.Purchases.data.model;
+using UnityEngine;
 
 namespace Features.Buildings.domain.model
 {
@@ -8,5 +10,7 @@ namespace Features.Buildings.domain.model
         public string Description;
         public Sprite Image;
         public int MaxLevel;
+
+        public List<PurchaseEntity> LevelPurchaseIds;
     }
 }

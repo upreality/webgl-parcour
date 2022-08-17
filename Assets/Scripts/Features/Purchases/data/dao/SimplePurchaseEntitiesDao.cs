@@ -9,7 +9,7 @@ namespace Features.Purchases.data.dao
     public class SimplePurchaseEntitiesDao: ScriptableObject, IPurchaseEntitiesDao
     {
         [SerializeField]
-        private List<PurchaseEntity> entities = new List<PurchaseEntity>();
+        private List<PurchaseEntity> entities = new();
 
         public List<PurchaseEntity> GetLevelEntities() => entities;
         
