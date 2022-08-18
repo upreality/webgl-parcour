@@ -13,7 +13,7 @@ namespace Features.Buildings.data
 
         public BuildingData GetBuilding(string buildingId)
         {
-            var buildingType = buildingId.BuildingTypeFromId();
+            var buildingType = buildingId.ToBuildingType();
             var entity = buildingsDao.GetBuilding(buildingType);
             return ToBuildingData(entity, buildingId);
         }
