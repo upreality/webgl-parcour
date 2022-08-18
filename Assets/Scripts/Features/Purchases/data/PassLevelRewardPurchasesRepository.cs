@@ -15,7 +15,7 @@ namespace Features.Purchases.data
             return entitiesDao.GetLevelEntities().Any(entity => entity.passRewardLevelId == levelId);
         }
 
-        public long GetLevelId(long purchaseId)
+        public long GetLevelId(string purchaseId)
         {
             return entitiesDao.FindById(purchaseId).passRewardLevelId;
         }
@@ -24,7 +24,7 @@ namespace Features.Purchases.data
         {
             var entity = entitiesDao
                 .GetLevelEntities()
-                .Where(entity => entity.Type == PurchaseType.PassLevelReward)
+                .Where(entity => entity.type == PurchaseType.PassLevelReward)
                 .First(entity => entity.passRewardLevelId == levelId);
 
             return converter.GetPurchaseFromEntity(entity);

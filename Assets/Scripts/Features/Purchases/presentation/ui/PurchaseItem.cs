@@ -1,5 +1,6 @@
 ﻿using System;
 using Features.Purchases.domain.model;
+using JetBrains.Annotations;
 using UniRx;
 using UnityEngine;
 using UnityEngine.Events;
@@ -11,19 +12,17 @@ namespace Features.Purchases.presentation.ui
     public class PurchaseItem : MonoBehaviour
     {
         [Inject] private IPurchaseItemController itemController;
-        public UnityEvent<long> setupEvent = new();
         
-        [SerializeField] private GameObject unavaliableStub;
-        [SerializeField] private GameObject avaliableStub;
+        [SerializeField] private GameObject unavailableStub;
+        [SerializeField] private GameObject availableStub;
         [SerializeField] private Text itemName;
         [SerializeField] private Text description;
 
-        private long? purchaseID;
+        [CanBeNull] private string purchaseID;
 
         public void Setup(Purchase purchase)
         {
             purchaseID = purchase.Id;
-            setupEvent.Invoke(purchase.Id);
 
             if (itemName != null)
                 itemName.text = purchase.Name;
@@ -38,24 +37,24 @@ namespace Features.Purchases.presentation.ui
                 ).AddTo(this);
         }
 
-        protected virtual void Setup(long purchaseId, bool purchasedState)
+        protected virtual void Setup(string purchaseId, bool purchasedState)
         {
-            if(unavaliableStub!=null)
-                unavaliableStub.SetActive(!purchasedState);
-            if(avaliableStub!=null)
-                avaliableStub.SetActive(purchasedState);
+            if(unavailableStub!=null)
+                unavailableStub.SetActive(!purchasedState);
+            if(availableStub!=null)
+                availableStub.SetActive(purchasedState);
         }
 
         public void Click()
         {
-            if (!purchaseID.HasValue) return;
-            itemController.OnItemClick(purchaseID.Value);
+            if (purchaseID == null) return;
+            itemController.OnItemClick(purchaseID);
         }
 
         public interface IPurchaseItemController
         {
-            void OnItemClick(long purchaseId);
-            IObservable<bool> GetPurchasedState(long purchaseId);
+            void OnItemClick(string purchaseId);
+            IObservable<bool> GetPurchasedState(string purchaseId);
         }
     }
 }

@@ -10,7 +10,7 @@ namespace Features.Purchases.adapters
         [Inject] private IPassLevelRewardPurchasesRepository passLevelRewardPurchasesRepository;
         [Inject] private ILevelsRepository levelsRepository;
 
-        public int GetLevelNumber(long purchaseId)
+        public int GetLevelNumber(string purchaseId)
         {
             var targetLevelId = passLevelRewardPurchasesRepository.GetLevelId(purchaseId);
             return levelsRepository.GetLevel(targetLevelId).Number;

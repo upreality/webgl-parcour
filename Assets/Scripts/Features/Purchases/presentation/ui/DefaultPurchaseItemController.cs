@@ -19,21 +19,21 @@ namespace Features.Purchases.presentation.ui
 
         [Inject] private IPurchaseItemSelectionAdapter selectionAdapter;
 
-        public void OnItemClick(long purchaseId) => purchasedStateUseCase
+        public void OnItemClick(string purchaseId) => purchasedStateUseCase
             .GetPurchasedState(purchaseId)
             .Subscribe(purchasedState =>
                 HandleItemClick(purchasedState, purchaseId)
             ).AddTo(this);
 
-        public IObservable<bool> GetPurchasedState(long purchaseId) => purchasedStateUseCase
+        public IObservable<bool> GetPurchasedState(string purchaseId) => purchasedStateUseCase
             .GetPurchasedState(purchaseId);
 
-        private void TryRewardedVideoPurchase(long purchaseId) => rewardedVideoPurchaseUseCase
+        private void TryRewardedVideoPurchase(string purchaseId) => rewardedVideoPurchaseUseCase
             .LaunchRewardedVideo(purchaseId)
             .Subscribe() //Ignore result
             .AddTo(this);
 
-        private void TryCoinsPurchase(long purchaseId) => purchaseAvailableUseCase
+        private void TryCoinsPurchase(string purchaseId) => purchaseAvailableUseCase
             .GetPurchaseAvailable(purchaseId)
             .Take(1)
             .Where(available => available)
@@ -43,7 +43,7 @@ namespace Features.Purchases.presentation.ui
             }) //Ignore result
             .AddTo(this);
 
-        private void HandleItemClick(bool purchasedState, long purchaseId)
+        private void HandleItemClick(bool purchasedState, string purchaseId)
         {
             if (purchasedState)
             {
@@ -70,7 +70,7 @@ namespace Features.Purchases.presentation.ui
 
         public interface IPurchaseItemSelectionAdapter
         {
-            public void SelectItem(long purchaseId);
+            public void SelectItem(string purchaseId);
         }
     }
 }

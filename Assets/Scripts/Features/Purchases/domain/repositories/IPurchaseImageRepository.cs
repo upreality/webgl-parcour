@@ -4,6 +4,6 @@ namespace Features.Purchases.domain.repositories
 {
     public interface IPurchaseImageRepository
     {
-        public Sprite GetImage(long purchaseId);
+        public Sprite GetImage(string purchaseId);
     }
 }

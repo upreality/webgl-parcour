@@ -2,7 +2,7 @@
 {
     public interface ISavedPurchasedStateDao
     {
-        bool GetPurchasedState(long purchaseId);
-        void SetPurchasedState(long purchaseId);
+        bool GetPurchasedState(string purchaseId);
+        void SetPurchasedState(string purchaseId);
     }
 }

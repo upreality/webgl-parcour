@@ -13,6 +13,6 @@ namespace Features.Purchases.data.dao
 
         public List<PurchaseEntity> GetLevelEntities() => entities;
         
-        public PurchaseEntity FindById(long id) => entities.First(entity => entity.Id == id);
+        public PurchaseEntity FindById(string id) => entities.First(entity => entity.id == id);
     }
 }

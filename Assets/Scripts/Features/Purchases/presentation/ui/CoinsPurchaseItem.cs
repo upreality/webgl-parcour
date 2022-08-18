@@ -12,7 +12,7 @@ namespace Features.Purchases.presentation.ui
         [SerializeField] private GameObject cost;
         [SerializeField] private Text costText;
 
-        protected override void Setup(long purchaseId, bool purchasedState)
+        protected override void Setup(string purchaseId, bool purchasedState)
         {
             base.Setup(purchaseId, purchasedState);
             costText.text = currencyPurchaseRepository.GetCost(purchaseId).ToString();

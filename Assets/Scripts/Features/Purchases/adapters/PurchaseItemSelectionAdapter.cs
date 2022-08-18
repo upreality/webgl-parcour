@@ -5,7 +5,7 @@ namespace Features.Purchases.adapters
 {
     public class PurchaseItemSelectionAdapter: DefaultPurchaseItemController.IPurchaseItemSelectionAdapter
     {
-        public void SelectItem(long purchaseId)
+        public void SelectItem(string purchaseId)
         {
             Debug.Log($"item selected: {purchaseId.ToString()}");
         }

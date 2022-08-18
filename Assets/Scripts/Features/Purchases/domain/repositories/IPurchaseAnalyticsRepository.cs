@@ -2,6 +2,6 @@
 {
     public interface IPurchaseAnalyticsRepository
     {
-        public void SendPurchasedEvent(long purchaseId);
+        public void SendPurchasedEvent(string purchaseId);
     }
 }

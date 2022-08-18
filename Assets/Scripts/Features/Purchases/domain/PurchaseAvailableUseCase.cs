@@ -14,13 +14,13 @@ namespace Features.Purchases.domain
         [Inject] private ICurrencyPurchaseRepository currencyPurchaseRepository;
         [Inject] private IRewardedVideoPurchaseRepository videoPurchaseRepository;
 
-        public IObservable<bool> GetPurchaseAvailable(long purchaseId) => purchasedStateUseCase
+        public IObservable<bool> GetPurchaseAvailable(string purchaseId) => purchasedStateUseCase
             .GetPurchasedState(purchaseId)
             .SelectMany(state =>
                 state ? Observable.Return(false) : GetPurchaseAvailableState(purchaseId)
             );
 
-        private IObservable<bool> GetPurchaseAvailableState(long purchaseId)
+        private IObservable<bool> GetPurchaseAvailableState(string purchaseId)
         {
             var purchase = repository.GetById(purchaseId);
             switch (purchase.Type)

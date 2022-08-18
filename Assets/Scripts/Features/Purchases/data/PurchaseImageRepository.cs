@@ -8,6 +8,6 @@ namespace Features.Purchases.data
     {
         [Inject] private IPurchaseEntitiesDao entitiesDao;
         
-        public Sprite GetImage(long purchaseId) => entitiesDao.FindById(purchaseId).image;
+        public Sprite GetImage(string purchaseId) => entitiesDao.FindById(purchaseId).image;
     }
 }

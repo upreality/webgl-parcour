@@ -27,7 +27,7 @@ namespace Features.Buildings.data
 
         public Purchase GetById(long id)
         {
-            var purchaseEntity = GetPurchaseEntities().First(entity => entity.Id == id);
+            var purchaseEntity = GetPurchaseEntities().First(entity => entity.id == id);
             return purchaseEntityConverter.GetPurchaseFromEntity(purchaseEntity);
         }
     }

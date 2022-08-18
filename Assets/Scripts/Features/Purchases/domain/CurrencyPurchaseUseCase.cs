@@ -11,14 +11,14 @@ namespace Features.Purchases.domain
         [Inject] private ICurrencyPurchaseRepository currencyPurchaseRepository;
         [Inject] private IBalanceAccessProvider balanceAccessProvider;
 
-        public IObservable<CurrencyPurchaseResult> ExecutePurchase(long purchaseId) => currencyPurchaseRepository
+        public IObservable<CurrencyPurchaseResult> ExecutePurchase(string purchaseId) => currencyPurchaseRepository
             .GetPurchasedState(purchaseId)
             .Take(1)
             .SelectMany(state =>
                 state ? Observable.Return(CurrencyPurchaseResult.AlreadyPurchased) : ExecuteNewPurchase(purchaseId)
             );
 
-        private IObservable<CurrencyPurchaseResult> ExecuteNewPurchase(long purchaseId)
+        private IObservable<CurrencyPurchaseResult> ExecuteNewPurchase(string purchaseId)
         {
             var cost = currencyPurchaseRepository.GetCost(purchaseId);
             var type = purchaseRepository.GetById(purchaseId).Type;

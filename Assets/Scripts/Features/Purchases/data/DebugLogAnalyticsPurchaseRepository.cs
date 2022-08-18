@@ -5,7 +5,7 @@ namespace Features.Purchases.data
 {
     public class DebugLogAnalyticsPurchaseRepository: IPurchaseAnalyticsRepository
     {
-        public void SendPurchasedEvent(long purchaseId)
+        public void SendPurchasedEvent(string purchaseId)
         {
             Debug.Log("Debug purchased analytics event: " + purchaseId);
         }

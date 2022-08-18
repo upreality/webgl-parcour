@@ -11,13 +11,13 @@ namespace Features.Purchases.domain
         [Inject] private IRewardedVideoPurchaseRepository rewardedVideoPurchaseRepository;
         [Inject] private PurchasedStateUseCase purchasedStateUseCase;
 
-        public IObservable<ShowRewardedVideoResult> LaunchRewardedVideo(long purchaseId) => adapter
+        public IObservable<ShowRewardedVideoResult> LaunchRewardedVideo(string purchaseId) => adapter
             ?.ShowRewarded()
             .SelectMany(result =>
                 GetPurchaseShowVideoResult(result, purchaseId)
             );
 
-        private IObservable<ShowRewardedVideoResult> GetPurchaseShowVideoResult(bool videoShown, long purchaseId)
+        private IObservable<ShowRewardedVideoResult> GetPurchaseShowVideoResult(bool videoShown, string purchaseId)
         {
             if (!videoShown)
                 return Observable.Return(ShowRewardedVideoResult.Failure);

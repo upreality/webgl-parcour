@@ -10,6 +10,6 @@ namespace Features.Purchases.presentation.ui
         [Inject] private IPurchaseImageRepository imageRepository;
         [SerializeField] private Image target;
 
-        public void Setup(long purchaseId) => target.sprite = imageRepository.GetImage(purchaseId);
+        public void Setup(string purchaseId) => target.sprite = imageRepository.GetImage(purchaseId);
     }
 }

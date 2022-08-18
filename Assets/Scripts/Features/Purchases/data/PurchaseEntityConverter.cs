@@ -23,10 +23,10 @@ namespace Features.Purchases.data
         {
             var en = Language == Language.English;
             return new Purchase(
-                entity.Id,
-                en ? entity.EnName : entity.RuName,
-                entity.Type,
-                en ? entity.EnDescription : entity.RuDescription
+                entity.id,
+                en ? entity.enName : entity.ruName,
+                entity.type,
+                en ? entity.enDescription : entity.ruDescription
             );
         }
     }

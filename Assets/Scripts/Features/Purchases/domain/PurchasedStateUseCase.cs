@@ -14,7 +14,7 @@ namespace Features.Purchases.domain
         [Inject] private IPassLevelRewardPurchasesRepository passLevelPurchaseRepository;
         [Inject] private ILevelPassedStateProvider levelPassedStateProvider;
 
-        public IObservable<Boolean> GetPurchasedState(long purchaseId)
+        public IObservable<Boolean> GetPurchasedState(string purchaseId)
         {
             var type = repository.GetById(purchaseId).Type;
             switch (type)

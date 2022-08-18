@@ -5,7 +5,7 @@ namespace Features.Purchases.domain.repositories
     public interface IPassLevelRewardPurchasesRepository
     {
         public bool HasForLevel(long levelId);
-        long GetLevelId(long purchaseId);
+        long GetLevelId(string purchaseId);
         public Purchase GetForLevel(long levelId);
     }
 }

@@ -7,6 +7,6 @@ namespace Features.Purchases.data
     {
         public List<PurchaseEntity> GetLevelEntities();
 
-        public PurchaseEntity FindById(long id);
+        public PurchaseEntity FindById(string id);
     }
 }

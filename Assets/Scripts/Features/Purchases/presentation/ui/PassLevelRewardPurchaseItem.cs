@@ -10,7 +10,7 @@ namespace Features.Purchases.presentation.ui
 
         [SerializeField] private GameObject labelRoot;
         [SerializeField] private Text levelText;
-        protected override void Setup(long purchaseId, bool purchasedState)
+        protected override void Setup(string purchaseId, bool purchasedState)
         {
             base.Setup(purchaseId, purchasedState);
             levelText.text = "LVL " + levelNumberProvider.GetLevelNumber(purchaseId);
@@ -21,7 +21,7 @@ namespace Features.Purchases.presentation.ui
         
         public interface ILevelNumberProvider
         {
-            int GetLevelNumber(long purchaseId);
+            int GetLevelNumber(string purchaseId);
         }
     }
 }

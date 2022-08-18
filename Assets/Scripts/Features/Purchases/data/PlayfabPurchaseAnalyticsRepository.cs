@@ -7,7 +7,7 @@ namespace Features.Purchases.data
 {
     public class PlayfabPurchaseAnalyticsRepository : IPurchaseAnalyticsRepository
     {
-        public void SendPurchasedEvent(long purchaseId)
+        public void SendPurchasedEvent(string purchaseId)
         {
             PlayFabEventsAPI.WriteEvents(
                 new WriteEventsRequest

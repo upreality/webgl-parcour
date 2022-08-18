@@ -11,11 +11,11 @@ namespace Features.Purchases.data
         [Inject] private IRewardedVideoWatchDao watchDao;
         [Inject] private IPurchaseEntitiesDao entitiesDao;
 
-        private readonly Dictionary<long, ReactiveProperty<int>> watchesCountProcessors = new();
+        private readonly Dictionary<string, ReactiveProperty<int>> watchesCountProcessors = new();
 
-        public void AddRewardedVideoWatch(long id) => watchDao.AddWatch(id);
+        public void AddRewardedVideoWatch(string id) => watchDao.AddWatch(id);
 
-        public IObservable<int> GetRewardedVideoCurrentWatchesCount(long id)
+        public IObservable<int> GetRewardedVideoCurrentWatchesCount(string id)
         {
             if (watchesCountProcessors.ContainsKey(id))
                 return watchesCountProcessors[id];
@@ -26,12 +26,12 @@ namespace Features.Purchases.data
             return processor;
         }
 
-        public int GetRewardedVideoWatchesCount(long id) => entitiesDao.FindById(id).rewardedVideoCount;
+        public int GetRewardedVideoWatchesCount(string id) => entitiesDao.FindById(id).rewardedVideoCount;
 
         public interface IRewardedVideoWatchDao
         {
-            void AddWatch(long id);
-            int GetWatches(long id);
+            void AddWatch(string id);
+            int GetWatches(string id);
         }
     }
 }

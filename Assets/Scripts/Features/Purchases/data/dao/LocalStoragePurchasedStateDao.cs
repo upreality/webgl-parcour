@@ -6,18 +6,18 @@ namespace Features.Purchases.data.dao
     {
         private const string PrefsKeyPrefix = "RewardedVideoWatches";
 
-        public bool GetPurchasedState(long purchaseId)
+        public bool GetPurchasedState(string purchaseId)
         {
             var prefKey = GetPrefKey(purchaseId);
             return LocalStorageIO.GetInt(prefKey, 0) > 0;
         }
 
-        public void SetPurchasedState(long purchaseId)
+        public void SetPurchasedState(string purchaseId)
         {
             var prefKey = GetPrefKey(purchaseId);
             LocalStorageIO.SetInt(prefKey, 1);
         }
 
-        private static string GetPrefKey(long purchaseId) => $"{PrefsKeyPrefix}_{purchaseId}";
+        private static string GetPrefKey(string purchaseId) => $"{PrefsKeyPrefix}_{purchaseId}";
     }
 }

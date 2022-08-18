@@ -8,12 +8,11 @@ namespace Features.Purchases.presentation
 {
     public class PurchasedStateListener : MonoBehaviour
     {
-        [SerializeField] private long purchaseID = DEFAULT_PURCHASE_ID;
+        [SerializeField] private string purchaseID;
         [SerializeField] private UnityEvent onPurchased = new();
         [SerializeField] private UnityEvent onNotPurchased = new();
 
         [Inject] private PurchasedStateUseCase purchasedStateUseCase;
-        private const long DEFAULT_PURCHASE_ID = -1;
 
         private void Start() => purchasedStateUseCase
             .GetPurchasedState(purchaseID)

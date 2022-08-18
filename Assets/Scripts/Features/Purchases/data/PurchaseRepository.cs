@@ -16,11 +16,11 @@ namespace Features.Purchases.data
             .Select(converter.GetPurchaseFromEntity)
             .ToList();
 
-        public Purchase GetById(long id)
+        public Purchase GetById(string id)
         {
             var purchaseEntity = entitiesDao
                 .GetLevelEntities()
-                .First(entity => entity.Id == id);
+                .First(entity => entity.id == id);
             
             return converter.GetPurchaseFromEntity(purchaseEntity);
         }
