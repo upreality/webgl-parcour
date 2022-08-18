@@ -12,11 +12,11 @@ namespace Features.Buildings.data
     {
         [Inject] private IBuildingLevelRepository target;
 
-        public int GetLevel(int buildingId) => target.GetLevel(buildingId);
+        public int GetLevel(string buildingId) => target.GetLevel(buildingId);
 
-        public IObservable<int> GetLevelFlow(int buildingId) => target.GetLevelFlow(buildingId);
+        public IObservable<int> GetLevelFlow(string buildingId) => target.GetLevelFlow(buildingId);
 
-        public IBuildingLevelRepository.IncrementLevelResult IncrementLevel(int buildingId)
+        public IBuildingLevelRepository.IncrementLevelResult IncrementLevel(string buildingId)
         {
             var result = target.IncrementLevel(buildingId);
             if (result != IBuildingLevelRepository.IncrementLevelResult.Success)

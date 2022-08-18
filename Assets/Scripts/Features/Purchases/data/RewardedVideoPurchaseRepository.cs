@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using Data.PurchasesData;
+using Features.Purchases.data.dao;
 using Features.Purchases.domain.repositories;
 using UniRx;
 using Zenject;

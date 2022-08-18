@@ -1,11 +1,10 @@
 ﻿using System.Collections.Generic;
-using Features.Purchases.data.model;
 
-namespace Features.Purchases.data
+namespace Data.PurchasesData
 {
     public interface IPurchaseEntitiesDao
     {
-        public List<PurchaseEntity> GetLevelEntities();
+        public List<PurchaseEntity> GetEntities(string categoryId);
 
         public PurchaseEntity FindById(string id);
     }

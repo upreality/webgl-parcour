@@ -4,6 +4,6 @@ namespace Features.Buildings.domain
 {
     public interface IBuildingDataRepository
     {
-        public BuildingData GetBuilding(int buildingId);
+        public BuildingData GetBuilding(string buildingId);
     }
 }

@@ -16,13 +16,13 @@ namespace Features.Buildings.data
 
         private const string BuildingLevelKeyPrefix = "BuildingLevel_";
 
-        public int GetLevel(int buildingId)
+        public int GetLevel(string buildingId)
         {
             var key = GetBuildingLevelKey(buildingId);
             return LocalStorageIO.HasKey(key) ? LocalStorageIO.GetInt(key) : GetBuildingEntity(buildingId).defaultLevel;
         }
 
-        public IncrementLevelResult IncrementLevel(int buildingId)
+        public IncrementLevelResult IncrementLevel(string buildingId)
         {
             var maxLevel = GetBuildingEntity(buildingId).skillLevels.Count;
             var currentLevel = GetLevel(buildingId);
@@ -41,7 +41,7 @@ namespace Features.Buildings.data
             return IncrementLevelResult.Success;
         }
 
-        public IObservable<int> GetLevelFlow(int buildingId)
+        public IObservable<int> GetLevelFlow(string buildingId)
         {
             var initialLevel = GetLevel(buildingId);
             return updates
@@ -50,17 +50,17 @@ namespace Features.Buildings.data
                 .StartWith(initialLevel);
         }
 
-        private BuildingEntity GetBuildingEntity(int buildingId)
+        private BuildingEntity GetBuildingEntity(string buildingId)
         {
             var type = buildingId.BuildingTypeFromId();
             return buildingsDao.GetBuilding(type);
         }
 
-        private static string GetBuildingLevelKey(int buildingId) => BuildingLevelKeyPrefix + buildingId;
+        private static string GetBuildingLevelKey(string buildingId) => BuildingLevelKeyPrefix + buildingId;
 
         private struct BuildingLevelUpdate
         {
-            public int BuildingId;
+            public string BuildingId;
             public int Level;
         }
     }

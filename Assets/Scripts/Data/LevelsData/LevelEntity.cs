@@ -29,7 +29,7 @@ namespace Data.LevelsData
         public enum CurrencyType
         {
             Coins,
-            Civilians,
+            Prisoners,
         }
     }
 }

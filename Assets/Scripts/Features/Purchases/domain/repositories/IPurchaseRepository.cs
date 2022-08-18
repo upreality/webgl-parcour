@@ -5,7 +5,7 @@ namespace Features.Purchases.domain.repositories
 {
     public interface IPurchaseRepository
     {
-        public List<Purchase> GetPurchases();
+        public List<Purchase> GetPurchases(string categoryId);
         public Purchase GetById(string id);
     }
 }

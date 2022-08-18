@@ -12,7 +12,7 @@ namespace Features.Buildings.domain
 
         [Inject] private IBuildingDataRepository dataRepository;
 
-        public BuildingProgressState GetState(int buildingId)
+        public BuildingProgressState GetState(string buildingId)
         {
             var currentLevel = levelRepository.GetLevel(buildingId);
             var progress = GetProgress(buildingId, currentLevel);
@@ -23,7 +23,7 @@ namespace Features.Buildings.domain
             };
         }
 
-        public IObservable<BuildingProgressState> GetStateFlow(int buildingId) => levelRepository
+        public IObservable<BuildingProgressState> GetStateFlow(string buildingId) => levelRepository
             .GetLevelFlow(buildingId)
             .Select(level => new BuildingProgressState
             {
@@ -31,7 +31,7 @@ namespace Features.Buildings.domain
                 Level = level
             });
 
-        private BuildingProgress GetProgress(int buildingId, int currentLevel)
+        private BuildingProgress GetProgress(string buildingId, int currentLevel)
         {
             if (currentLevel < 1)
                 return NotBuilt;

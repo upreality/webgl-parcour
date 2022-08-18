@@ -1,4 +1,5 @@
-﻿using Features.Purchases.domain.model;
+﻿using Data.PurchasesData;
+using Features.Purchases.domain.model;
 using Features.Purchases.domain.repositories;
 using UnityEngine;
 using Zenject;
@@ -16,7 +17,7 @@ namespace Features.Purchases.presentation.ui
             if (listRoot == null)
                 listRoot = transform;
 
-            purchasesRepository.GetPurchases().ForEach(CreateItem);
+            purchasesRepository.GetPurchases(PurchaseCategories.DefaultCategory).ForEach(CreateItem);
         }
 
         private void CreateItem(Purchase purchase)

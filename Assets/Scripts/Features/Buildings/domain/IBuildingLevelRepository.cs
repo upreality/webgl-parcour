@@ -7,10 +7,10 @@ namespace Features.Buildings.domain
         
         public const string DefaultInstance = "DefIBuildingLevelRepositoryInstance";
         
-        public int GetLevel(int buildingId);
+        public int GetLevel(string buildingId);
         
-        public IncrementLevelResult IncrementLevel(int buildingId);
-        public IObservable<int> GetLevelFlow(int buildingId);
+        public IncrementLevelResult IncrementLevel(string buildingId);
+        public IObservable<int> GetLevelFlow(string buildingId);
         
         public enum IncrementLevelResult
         {

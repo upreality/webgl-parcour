@@ -30,7 +30,7 @@ namespace Features.Purchases.domain
                     return balance.CanRemove(coins, PurchaseType.Coins);
                 case PurchaseType.Prisoners:
                     var prisoners = currencyPurchaseRepository.GetCost(purchaseId);
-                    return balance.CanRemove(prisoners, PurchaseType.Coins);
+                    return balance.CanRemove(prisoners, PurchaseType.Prisoners);
                 case PurchaseType.RewardedVideo:
                     var currentWatchesFlow = videoPurchaseRepository.GetRewardedVideoCurrentWatchesCount(purchaseId);
                     var requiredWatches = videoPurchaseRepository.GetRewardedVideoWatchesCount(purchaseId);

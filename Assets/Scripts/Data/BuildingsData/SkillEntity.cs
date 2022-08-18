@@ -1,6 +1,5 @@
 ﻿using System;
-using Features.Balance.domain;
-using Features.Purchases.data.model;
+using Data.PurchasesData;
 using UnityEngine;
 
 namespace Data.BuildingsData

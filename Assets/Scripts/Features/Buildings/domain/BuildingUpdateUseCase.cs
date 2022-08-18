@@ -16,7 +16,7 @@ namespace Features.Buildings.domain
         [Inject] private IBalanceRepository balanceRepository;
         [Inject] private IBuildingDataRepository dataRepository;
 
-        public UpdateResult UpdateBuilding(int buildingId)
+        public UpdateResult UpdateBuilding(string buildingId)
         {
             var progressState = progressStateUseCase.GetState(buildingId);
             return progressState.Progress != CompletelyUpgraded
@@ -24,7 +24,7 @@ namespace Features.Buildings.domain
                 : UpdateResult.MaxLevelReached;
         }
 
-        private UpdateResult Build(int buildingId, int levelId)
+        private UpdateResult Build(string buildingId, int levelId)
         {
             
         }

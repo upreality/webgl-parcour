@@ -1,5 +1,5 @@
 ﻿using Core.Localization;
-using Features.Purchases.data.model;
+using Data.PurchasesData;
 using Features.Purchases.domain.model;
 using Zenject;
 
@@ -25,7 +25,7 @@ namespace Features.Purchases.data
             return new Purchase(
                 entity.id,
                 en ? entity.enName : entity.ruName,
-                entity.type,
+                entity.GetPurchaseType(),
                 en ? entity.enDescription : entity.ruDescription
             );
         }

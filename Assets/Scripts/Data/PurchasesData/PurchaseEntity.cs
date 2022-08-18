@@ -1,23 +1,20 @@
 ﻿using System;
-using Features.Balance.domain;
-using Features.Purchases.domain.model;
 using UnityEngine;
 
-namespace Features.Purchases.data.model
+namespace Data.PurchasesData
 {
     [Serializable]
     public class PurchaseEntity
     {
-        public string id;
+        public string id = Guid.NewGuid().ToString();
         public string ruName;
         public string ruDescription;
         public string enName;
         public string enDescription;
         public long passRewardLevelId = -1;
-        public CurrencyType currency = CurrencyType.Primary;
         public int currencyCost = 0;
-        public int rewardedVideoCount = 1;
-        public PurchaseType type;
+        public bool forPrisoners = false;
+        public int rewardedVideoCount = 0;
         public Sprite image;
     }
 }

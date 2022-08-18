@@ -1,4 +1,6 @@
-﻿using Features.Purchases.domain.repositories;
+﻿using Data.PurchasesData;
+using Features.Purchases.data.dao;
+using Features.Purchases.domain.repositories;
 using UnityEngine;
 using Zenject;
 

@@ -24,7 +24,7 @@ namespace Features.Buildings.presentation
         [SerializeField] private Color levelTextUpdateableBackground;
         [SerializeField] private Color levelTextFullBackground;
 
-        private int BuildingId => buildingType.ToId();
+        private string BuildingId => buildingType.ToId();
 
         private void Start()
         {

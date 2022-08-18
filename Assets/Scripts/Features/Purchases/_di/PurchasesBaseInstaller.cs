@@ -12,14 +12,11 @@ namespace Features.Purchases._di
     [CreateAssetMenu(fileName = "PurchasesBaseInstaller", menuName = "Installers/PurchasesBaseInstaller")]
     public class PurchasesBaseInstaller : ScriptableObjectInstaller
     {
-        [SerializeField] private SimplePurchaseEntitiesDao purchaseEntitiesDao;
-
         public override void InstallBindings()
         {
             //Daos
             BindPurchasedStateDao();
             BindRewardedVideoWatchDao();
-            Container.Bind<IPurchaseEntitiesDao>().FromInstance(purchaseEntitiesDao).AsSingle();
             Container.Bind<PurchaseEntityConverter>().ToSelf().AsSingle();
             //Repositories
             Container.Bind<IPurchaseRepository>().To<PurchaseRepository>().AsSingle();
