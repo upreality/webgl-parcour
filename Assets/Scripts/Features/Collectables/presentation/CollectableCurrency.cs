@@ -1,10 +1,9 @@
-using System;
 using Features.Balance.domain;
 using Features.Balance.presentation;
 using Features.Coins.domain;
 using ModestTree;
-using UnityEditor;
 using UnityEngine;
+using Utils.AutoId;
 using Utils.PlayerTrigger;
 using Zenject;
 
@@ -19,22 +18,7 @@ namespace Features.Collectables.presentation
         [SerializeField] private Animator animator;
         [SerializeField] private CurrencyType currencyType = CurrencyType.Primary;
         [SerializeField] private string trigger = "collect";
-        [SerializeField] private string collectableId = "";
-
-        private void Reset()
-        {
-            if (collectableId.IsEmpty()) collectableId = Guid.NewGuid().ToString();
-            if (target == null) target = gameObject;
-        }
-
-#if UNITY_EDITOR
-        [ContextMenu("Generate Id")]
-        void GenerateId()
-        {
-            collectableId = Guid.NewGuid().ToString();
-            EditorUtility.SetDirty(this);
-        }
-#endif
+        [SerializeField, AutoId] private string collectableId = "";
 
         private void Start()
         {

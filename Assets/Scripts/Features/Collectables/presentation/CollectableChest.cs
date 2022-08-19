@@ -6,6 +6,7 @@ using Features.Coins.domain;
 using ModestTree;
 using UnityEditor;
 using UnityEngine;
+using Utils.AutoId;
 using Zenject;
 
 namespace Features.Collectables.presentation
@@ -28,28 +29,13 @@ namespace Features.Collectables.presentation
         [SerializeField] private float disappearDelay = 0.5f;
         [SerializeField] private float destroyDelay = 0.5f;
         
-        [SerializeField] private string collectableId = "";
+        [SerializeField, AutoId] private string collectableId = "";
 
         private void Awake()
         {
             if (!collectableRepository.IsCollected(collectableId)) return;
             gameObject.SetActive(false);
         }
-
-        private void Reset()
-        {
-            if (!collectableId.IsEmpty()) return;
-            collectableId = Guid.NewGuid().ToString();
-        }
-
-#if UNITY_EDITOR
-        [ContextMenu("Generate Id")]
-        void GenerateId()
-        {
-            collectableId = Guid.NewGuid().ToString();
-            EditorUtility.SetDirty(this);
-        }
-#endif
 
         public void Collect() => StartCoroutine(CollectCoroutine());
 
