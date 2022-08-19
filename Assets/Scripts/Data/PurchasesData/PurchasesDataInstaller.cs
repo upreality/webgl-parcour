@@ -10,7 +10,11 @@ namespace Data.PurchasesData
 
         public override void InstallBindings()
         {
-            Container.Bind<IPurchaseEntitiesDao>().FromInstance(defaultPurchaseEntitiesDao).AsSingle();
+            Container
+                .Bind<IPurchaseEntitiesDao>()
+                .WithId(IPurchaseEntitiesDao.DefaultInstance)
+                .FromInstance(defaultPurchaseEntitiesDao)
+                .AsSingle();
         }
     }
 }

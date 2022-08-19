@@ -4,7 +4,6 @@ using Features.Buildings.domain;
 using Plugins.FileIO;
 using UniRx;
 using Zenject;
-using static Features.Buildings.domain.IBuildingLevelRepository;
 
 namespace Features.Buildings.data
 {
@@ -22,23 +21,16 @@ namespace Features.Buildings.data
             return LocalStorageIO.HasKey(key) ? LocalStorageIO.GetInt(key) : GetBuildingEntity(buildingId).defaultLevel;
         }
 
-        public IncrementLevelResult IncrementLevel(string buildingId)
+        public void SetLevel(string buildingId, int level)
         {
-            var maxLevel = GetBuildingEntity(buildingId).skillLevels.Count;
-            var currentLevel = GetLevel(buildingId);
-            if (currentLevel >= maxLevel)
-                return IncrementLevelResult.MaxLevelReached;
-
-            currentLevel++;
             var key = GetBuildingLevelKey(buildingId);
-            LocalStorageIO.SetInt(key, currentLevel);
+            LocalStorageIO.SetInt(key, level);
             var update = new BuildingLevelUpdate
             {
                 BuildingId = buildingId,
-                Level = currentLevel
+                Level = level
             };
             updates.OnNext(update);
-            return IncrementLevelResult.Success;
         }
 
         public IObservable<int> GetLevelFlow(string buildingId)

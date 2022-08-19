@@ -1,6 +1,6 @@
-﻿using Features.Buildings.data;
+﻿using Data.PurchasesData;
+using Features.Buildings.data;
 using Features.Buildings.domain;
-using Features.Purchases.domain.repositories;
 using Zenject;
 
 namespace Features.Buildings._di
@@ -24,10 +24,13 @@ namespace Features.Buildings._di
                 .To<BuildingLevelRepositoryPlayfabStatDecorator>()
                 .AsSingle();
 
-            Container.Decorate<IPurchaseRepository>().With<PurchaseRepositoryBuildingLevelPurchasesDecorator>();
+            Container
+                .Bind<IPurchaseEntitiesDao>()
+                .To<PurchaseEntitiesDaoBuildingLevelPurchasesDecorator>()
+                .AsSingle();
 
             Container.BindInterfacesAndSelfTo<BuildingProgressStateUseCase>().AsSingle();
-            Container.BindInterfacesAndSelfTo<UpdateBuildingUseCase>().AsSingle();
+            Container.BindInterfacesAndSelfTo<UpgradeBuildingUseCase>().AsSingle();
         }
     }
 }

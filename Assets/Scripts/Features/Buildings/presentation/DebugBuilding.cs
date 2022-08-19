@@ -6,14 +6,14 @@ using UniRx;
 using UnityEngine;
 using Zenject;
 using static Features.Buildings.domain.BuildingProgressStateUseCase;
-using static Features.Buildings.domain.UpdateBuildingUseCase;
+using static Features.Buildings.domain.UpgradeBuildingUseCase;
 
 namespace Features.Buildings.presentation
 {
     public class DebugBuilding : MonoBehaviour
     {
         [Inject] private BuildingProgressStateUseCase progressStateUseCase;
-        [Inject] private UpdateBuildingUseCase updateBuildingUseCase;
+        [Inject] private UpgradeBuildingUseCase upgradeBuildingUseCase;
 
         [SerializeField] private TextMeshPro levelText;
         [SerializeField] private TextMeshPro progressText;
@@ -35,8 +35,8 @@ namespace Features.Buildings.presentation
             transform.localScale = (state.Level * 0.1f + 1f) * Vector3.one;
         }
 
-        public void Upgrade() => updateBuildingUseCase
-            .UpdateBuilding(BuildingId)
+        public void Upgrade() => upgradeBuildingUseCase
+            .UpgradeBuilding(BuildingId)
             .Subscribe(HandleUpgradeResult)
             .AddTo(this);
 

@@ -12,18 +12,9 @@ namespace Features.Buildings.data
     {
         [Inject] private IBuildingLevelRepository target;
 
-        public int GetLevel(string buildingId) => target.GetLevel(buildingId);
-
-        public IObservable<int> GetLevelFlow(string buildingId) => target.GetLevelFlow(buildingId);
-
-        public IBuildingLevelRepository.IncrementLevelResult IncrementLevel(string buildingId)
+        public void SetLevel(string buildingId, int level)
         {
-            var result = target.IncrementLevel(buildingId);
-            if (result != IBuildingLevelRepository.IncrementLevelResult.Success)
-                return result;
-
             var type = buildingId.IdToBuildingType();
-            var level = target.GetLevel(buildingId);
             var request = new UpdatePlayerStatisticsRequest
             {
                 Statistics = new List<StatisticUpdate>
@@ -36,7 +27,11 @@ namespace Features.Buildings.data
                 }
             };
             PlayFabClientAPI.UpdatePlayerStatistics(request, _ => { }, _ => { });
-            return result;
+            target.SetLevel(buildingId, level);
         }
+
+        public int GetLevel(string buildingId) => target.GetLevel(buildingId);
+
+        public IObservable<int> GetLevelFlow(string buildingId) => target.GetLevelFlow(buildingId);
     }
 }
