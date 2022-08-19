@@ -2,8 +2,7 @@
     "name": "PlayerTrigger",
     "rootNamespace": "",
     "references": [
-        "GUID:ef32a706b9ed4968b95720322a08ce7f",
-        "GUID:560b04d1a97f54a4e82edc0cbbb69285"
+        "GUID:ef32a706b9ed4968b95720322a08ce7f"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
