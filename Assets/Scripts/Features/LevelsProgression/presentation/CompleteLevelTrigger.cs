@@ -3,7 +3,7 @@ using UnityEngine;
 using Utils.PlayerTrigger;
 using Zenject;
 
-namespace Features.LevelsProgression
+namespace Features.LevelsProgression.presentation
 {
     public class CompleteLevelTrigger : PlayerTriggerBase
     {

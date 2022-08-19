@@ -7,7 +7,7 @@ using UniRx;
 using UnityEngine;
 using Zenject;
 
-namespace Features.LevelsProgression
+namespace Features.LevelsProgression.presentation
 {
     public class CompleteLevelNavigator : MonoBehaviour
     {

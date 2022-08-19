@@ -1,5 +1,5 @@
 {
-    "name": "Utils",
+    "name": "PlayerTrigger",
     "rootNamespace": "",
     "references": [
         "GUID:ef32a706b9ed4968b95720322a08ce7f",

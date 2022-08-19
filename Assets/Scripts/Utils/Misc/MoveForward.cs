@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Utils.Enviroment
+namespace Utils.Misc
 {
     public class MoveForward : MonoBehaviour
     {
