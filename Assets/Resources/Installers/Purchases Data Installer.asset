@@ -9,7 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bb9ed6216a1d4ede831da248ab6618ea, type: 3}
-  m_Name: Buildings Data Installer
+  m_Script: {fileID: 11500000, guid: df4f16c1f24d48c182c63e49b331e843, type: 3}
+  m_Name: Purchases Data Installer
   m_EditorClassIdentifier: 
-  dao: {fileID: 11400000, guid: 632ad7c5dbac0d645b66076cdb304b1c, type: 2}
+  defaultPurchaseEntitiesDao: {fileID: 11400000, guid: 59b92278349540a46ac401af9f3ad9c4,
+    type: 2}

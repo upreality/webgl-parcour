@@ -1,9 +1,5 @@
-﻿using System;
-using Data.BuildingsData;
-using Features.Buildings.data;
+﻿using Features.Buildings.data;
 using Features.Buildings.domain;
-using Features.Purchases.data;
-using Features.Purchases.domain;
 using Features.Purchases.domain.repositories;
 using Zenject;
 
@@ -27,7 +23,7 @@ namespace Features.Buildings._di
                 .WithId(IBuildingLevelRepository.DefaultInstance)
                 .To<BuildingLevelRepositoryPlayfabStatDecorator>()
                 .AsSingle();
-            
+
             Container.Decorate<IPurchaseRepository>().With<PurchaseRepositoryBuildingLevelPurchasesDecorator>();
 
             Container.BindInterfacesAndSelfTo<BuildingProgressStateUseCase>().AsSingle();

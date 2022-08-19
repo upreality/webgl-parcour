@@ -12,10 +12,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c395857398447669392a9d9030ace6e, type: 3}
   m_Name: Jumping Building Entity
   m_EditorClassIdentifier: 
-  image: {fileID: 0}
-  ruName: 
-  ruDesc: 
-  enName: 
-  enDesc: 
+  image: {fileID: 21300000, guid: 253a370633f1cd746a2b7d2a577a7e5c, type: 3}
+  ruName: "\u0411\u0430\u0442\u0443\u0442"
+  ruDesc: "\u041F\u0440\u044B\u0433-\u043F\u0440\u044B\u0433"
+  enName: Batute
+  enDesc: Just jump it!
   defaultLevel: 0
-  skillLevels: []
+  skillLevels:
+  - icon: {fileID: 21300000, guid: 1f806a850e4ff264eafc4935f65793b8, type: 3}
+    ruName: "\u0423\u0440\u043E\u0432\u0435\u043D\u044C 1"
+    ruDesc: "\u0423\u043B\u0443\u0447\u0448\u0438 \u0435\u0433\u043E!"
+    enName: Level 1
+    enDesc: Upgrade It!
+    purchase:
+      id: f64e789b-a200-465e-a202-d303bb3b65b7
+      ruName: "\u0423\u043B\u0443\u0447\u0448\u0435\u043D\u0438\u0435 \u0431\u0430\u0442\u0443\u0442\u0430
+        1"
+      ruDescription: 
+      enName: Batute upgrade 1
+      enDescription: 
+      passRewardLevelId: 0
+      currencyCost: 10
+      forPrisoners: 0
+      rewardedVideoCount: 0
+      image: {fileID: 21300000, guid: a2f13c216f2649d49b892cade7f4e5f0, type: 3}
