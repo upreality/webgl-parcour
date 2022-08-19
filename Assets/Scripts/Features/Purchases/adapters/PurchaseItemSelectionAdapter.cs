@@ -7,7 +7,7 @@ namespace Features.Purchases.adapters
     {
         public void SelectItem(string purchaseId)
         {
-            Debug.Log($"item selected: {purchaseId.ToString()}");
+            Debug.Log($"item selected: {purchaseId}");
         }
     }
 }

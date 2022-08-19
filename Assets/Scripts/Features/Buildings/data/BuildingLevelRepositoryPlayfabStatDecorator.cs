@@ -22,7 +22,7 @@ namespace Features.Buildings.data
             if (result != IBuildingLevelRepository.IncrementLevelResult.Success)
                 return result;
 
-            var type = buildingId.ToBuildingType();
+            var type = buildingId.IdToBuildingType();
             var level = target.GetLevel(buildingId);
             var request = new UpdatePlayerStatisticsRequest
             {

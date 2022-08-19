@@ -1,7 +1,11 @@
-﻿using Core.Localization;
+﻿using System.Collections.Generic;
+using System.Linq;
+using Core.Localization;
 using Data.BuildingsData;
 using Features.Buildings.domain;
 using Features.Buildings.domain.model;
+using Features.Purchases.data;
+using Features.Purchases.domain.model;
 using Zenject;
 
 namespace Features.Buildings.data
@@ -10,10 +14,11 @@ namespace Features.Buildings.data
     {
         [Inject] private IBuildingsDao buildingsDao;
         [Inject] private ILanguageProvider languageProvider;
+        [Inject] private PurchaseEntityConverter purchaseEntityConverter;
 
         public BuildingData GetBuilding(string buildingId)
         {
-            var buildingType = buildingId.ToBuildingType();
+            var buildingType = buildingId.IdToBuildingType();
             var entity = buildingsDao.GetBuilding(buildingType);
             return ToBuildingData(entity, buildingId);
         }
@@ -27,8 +32,14 @@ namespace Features.Buildings.data
                 Description = isRu ? entity.ruDesc : entity.enDesc,
                 Name = isRu ? entity.ruName : entity.enName,
                 Image = entity.image,
-                MaxLevel = entity.skillLevels.Count
+                LevelPurchases = GetLevelPurchases(entity)
             };
         }
+
+        private List<Purchase> GetLevelPurchases(BuildingEntity entity) => entity
+            .skillLevels
+            .Select(level => level.purchase)
+            .Select(purchaseEntityConverter.GetPurchaseFromEntity)
+            .ToList();
     }
 }

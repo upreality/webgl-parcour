@@ -36,6 +36,7 @@ namespace Features.Purchases._di
             Container.Bind<PurchasedStateUseCase>().ToSelf().AsSingle();
             Container.Bind<PurchaseAvailableUseCase>().ToSelf().AsSingle();
             Container.Bind<RewardedVideoPurchaseUseCase>().ToSelf().AsSingle();
+            Container.Bind<ExecutePurchaseUseCase>().ToSelf().AsSingle();
             //Adapters
             Container
                 .Bind<IBalanceAccessProvider>()

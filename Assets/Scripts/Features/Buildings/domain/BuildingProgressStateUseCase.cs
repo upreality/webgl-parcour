@@ -36,7 +36,7 @@ namespace Features.Buildings.domain
             if (currentLevel < 1)
                 return NotBuilt;
 
-            var maxLevel = dataRepository.GetBuilding(buildingId).MaxLevel;
+            var maxLevel = dataRepository.GetBuilding(buildingId).LevelPurchases.Count;
             return currentLevel < maxLevel ? UpgradeAvailable : CompletelyUpgraded;
         }
 

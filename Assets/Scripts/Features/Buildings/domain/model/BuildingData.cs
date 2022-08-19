@@ -10,6 +10,6 @@ namespace Features.Buildings.domain.model
         public string Name;
         public string Description;
         public Sprite Image;
-        public int MaxLevel;
+        public List<Purchase> LevelPurchases;
     }
 }

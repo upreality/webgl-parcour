@@ -52,7 +52,7 @@ namespace Features.Buildings.data
 
         private BuildingEntity GetBuildingEntity(string buildingId)
         {
-            var type = buildingId.ToBuildingType();
+            var type = buildingId.IdToBuildingType();
             return buildingsDao.GetBuilding(type);
         }
 
