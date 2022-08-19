@@ -1,12 +1,14 @@
 ﻿using System;
 using UnityEngine;
+using Utils.AutoId;
 
 namespace Data.PurchasesData
 {
     [Serializable]
     public class PurchaseEntity
     {
-        public string id = Guid.NewGuid().ToString();
+        [AutoId]
+        public string id;
         public string ruName;
         public string ruDescription;
         public string enName;

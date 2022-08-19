@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Data.BuildingsData
 {
-    [CreateAssetMenu(menuName = "BuildingEntity")]
+    [CreateAssetMenu(menuName = "Buildings/BuildingEntity")]
     public class BuildingEntity : ScriptableObject
     {
         [Header("Description")]
