@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using Core.Analytics.ads;
 using Core.Analytics.levels;
 using Core.Analytics.screens;
-using Core.Analytics.session.domain;
 using Core.Analytics.settings;
+using Core.SDK.SDKType;
 using PlayFab;
 using PlayFab.ClientModels;
 using PlayFab.EventsModels;
@@ -25,6 +25,15 @@ namespace Core.Analytics.adapter
                 PlacementId = placement.GetName()
             };
             PlayFabClientAPI.ReportAdActivity(request, _ => { }, _ => { });
+        }
+
+        public override void SetPlatform(SDKProvider.SDKType platform)
+        {
+            var updateDataRequest = new UpdateUserDataRequest()
+            {
+                
+            };
+            PlayFabClientAPI.UpdateUserData(updateDataRequest, _ => { }, _ => { });
         }
 
         public override void SendSettingsEvent(SettingType type, bool val)
@@ -93,29 +102,6 @@ namespace Core.Analytics.adapter
                 _ => { Debug.Log("Analytics SendLevelEvent res"); },
                 _ => { Debug.Log("Analytics SendLevelEvent err"); }
             );
-        }
-
-        public override void SendSessionEvent(SessionEvent sessionEvent, LevelPointer currentLevelPointer)
-        {
-            //Skip
-            //TODO: remove if unused
-        }
-
-        public override void SetPlayerId(string id)
-        {
-            //Skip
-            //TODO: remove if unused
-        }
-
-        public override void InitializeWithoutPlayerId()
-        {
-            //Skip
-            //TODO: remove if unused
-        }
-
-        public override void SendFirstOpenEvent()
-        {
-            //TODO: remove if unused
         }
     }
 }

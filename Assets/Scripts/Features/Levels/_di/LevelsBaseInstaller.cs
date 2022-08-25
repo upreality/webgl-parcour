@@ -1,9 +1,7 @@
-using Core.Analytics.session.domain;
 using Features.Levels.data;
 using Features.Levels.data.dao;
 using Features.Levels.domain;
 using Features.Levels.domain.repositories;
-using Features.Levels.presentation.analytics;
 using UnityEngine;
 using Zenject;
 
@@ -41,11 +39,6 @@ namespace Features.Levels._di
             //UseCases
             Container.Bind<SetNextCurrentLevelUseCase>().ToSelf().AsSingle();
             Container.Bind<GetCompletedLevelsUseCase>().ToSelf().AsSingle();
-            //Adapters
-            Container
-                .Bind<ISessionEventLevelIdProvider>()
-                .To<SessionEventCurrentLevelIdProviderImpl>()
-                .AsSingle();
         }
     }
 }

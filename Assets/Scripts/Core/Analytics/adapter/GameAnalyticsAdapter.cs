@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using Core.Analytics.ads;
 using Core.Analytics.levels;
 using Core.Analytics.screens;
-using Core.Analytics.session.domain;
 using Core.Analytics.settings;
+using Core.SDK.SDKType;
 using GameAnalyticsSDK;
 using UnityEngine;
 
@@ -16,7 +16,7 @@ namespace Core.Analytics.adapter
 
         public override void SendAdEvent(AdAction action, AdType type, AdProvider provider, IAdPlacement placement)
         {
-            Debug.Log(" SendAdEvent: " + action + ' ' + type);
+            Debug.Log("SendAdEvent: " + action + ' ' + type);
             var gAAction = action switch
             {
                 AdAction.Request => GAAdAction.Request,
@@ -31,6 +31,11 @@ namespace Core.Analytics.adapter
                 _ => GAAdType.Undefined
             };
             GameAnalytics.NewAdEvent(gAAction, gAType, provider.ToString(), placement.GetName());
+        }
+
+        public override void SetPlatform(SDKProvider.SDKType platform)
+        {
+            GameAnalytics.SetCustomDimension01(platform.ToString());
         }
 
         public override void SendSettingsEvent(SettingType type, bool state)
@@ -76,68 +81,6 @@ namespace Core.Analytics.adapter
             };
             ;
             GameAnalytics.NewProgressionEvent(gAProgressionStatus, "Level_" + levelPointer.LevelId);
-        }
-
-        public override void SendSessionEvent(SessionEvent sessionEvent, LevelPointer currentLevelPointer)
-        {
-            Debug.Log("SendSessionEvent: " + sessionEvent);
-            var param = new Dictionary<string, object> { { "level", currentLevelPointer.LevelId } };
-            var eventName = sessionEvent switch
-            {
-                SessionEvent.Start => "Game Session Started",
-                SessionEvent.Quit => "Quit",
-                _ => defaultPostfix
-            };
-            GameAnalytics.NewDesignEvent(eventName, param);
-        }
-
-        public override void SendErrorEvent(string error)
-        {
-            Debug.Log("SendErrorEvent: " + error);
-            GameAnalytics.NewErrorEvent(GAErrorSeverity.Error, error);
-        }
-
-        public override void SetPlayerId(string id)
-        {
-            Debug.Log("Set player id: " + id);
-            GameAnalytics.SetCustomId(id);
-            GameAnalytics.Initialize();
-        }
-
-        public override void InitializeWithoutPlayerId()
-        {
-            Debug.Log("InitializeWithoutPlayerId");
-            GameAnalytics.Initialize();
-        }
-
-        public override void SendFirstOpenEvent()
-        {
-            Debug.Log("SendFirstOpenEvent");
-            GameAnalytics.NewDesignEvent("FirstOpen");
-        }
-
-        public override void SendPurchasedEvent(long purchaseId)
-        {
-            Debug.Log("SendPurchasedEvent");
-            GameAnalytics.NewResourceEvent(
-                GAResourceFlowType.Sink,
-                "coins",
-                1,
-                defaultPostfix,
-                purchaseId.ToString()
-            );
-        }
-        
-        public override void SendBalanceAddedEvent(int amount)
-        {
-            Debug.Log("SendBalanceAddedEvent");
-            GameAnalytics.NewResourceEvent(
-                GAResourceFlowType.Source,
-                "coins",
-                amount,
-                defaultPostfix,
-                "coins"
-            );
         }
 
         private static void SendLoadLevelEvent(LevelPointer levelPointer)
