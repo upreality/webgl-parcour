@@ -31,25 +31,24 @@ namespace Core.Analytics.adapter
         {
             var updateDataRequest = new UpdateUserDataRequest()
             {
-                
+                Data = new Dictionary<string, string>()
+                {
+                    { "Platform", platform.ToString() }
+                }
             };
             PlayFabClientAPI.UpdateUserData(updateDataRequest, _ => { }, _ => { });
         }
 
         public override void SendSettingsEvent(SettingType type, bool val)
         {
-            var statisticsRequest = new UpdatePlayerStatisticsRequest
+            var updateDataRequest = new UpdateUserDataRequest()
             {
-                Statistics = new List<StatisticUpdate>()
+                Data = new Dictionary<string, string>()
                 {
-                    new()
-                    {
-                        StatisticName = "Settings_" + type,
-                        Value = val ? 1 : 0
-                    }
+                    { "Settings_" + type, val? "enabled" : "disabled" }
                 }
             };
-            PlayFabClientAPI.UpdatePlayerStatistics(statisticsRequest, _ => { }, _ => { });
+            PlayFabClientAPI.UpdateUserData(updateDataRequest, _ => { }, _ => { });
             var eventsRequest = new WriteEventsRequest
             {
                 Events = new List<EventContents>()
