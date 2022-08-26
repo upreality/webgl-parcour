@@ -7,7 +7,7 @@ using Zenject;
 
 namespace Features.LevelTime.presentation
 {
-    public class LevelTimerText: MonoBehaviour
+    public class LevelTimeLeftText: MonoBehaviour
     {
         [SerializeField] private Text text;
         [Inject] private LevelTimeLeftUseCase levelTimeLeftUseCase;
