@@ -1,5 +1,4 @@
 ﻿using Core.Analytics.ads;
-using Core.Analytics.levels;
 using Core.Analytics.screens;
 using Core.Analytics.settings;
 using Core.SDK.SDKType;
@@ -26,8 +25,6 @@ namespace Core.Analytics.adapter
         public override void SendSettingsEvent(SettingType type, bool val) => Log("SendSettingsEvent: " + type + ' ' + val);
 
         public override void SendScreenEvent(string screenName, ScreenAction action) => Log("SendScreenEvent: " + screenName + ' ' + action);
-
-        public override void SendLevelEvent(LevelPointer levelPointer, LevelEvent levelEvent) => Log("SendLevelEvent: " + levelPointer.LevelId + ' ' + levelEvent);
 
         private void Log(string text)
         {

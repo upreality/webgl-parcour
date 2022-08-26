@@ -1,20 +1,18 @@
-﻿using Core.Analytics.adapter;
-using Core.Analytics.levels;
+﻿using Core.Analytics.levels;
 using Features.Levels.domain.repositories;
 using Zenject;
 
-namespace Features.Levels.presentation.analytics
+namespace Features.Levels.domain
 {
     public class LevelFailedAnalyticsEventUseCase
     {
         [Inject] private ICurrentLevelRepository currentLevelRepository;
-        [Inject] private AnalyticsAdapter analytics;
+        [Inject] private ILevelsAnalyticsRepository analyticsRepository;
 
         public void Send()
         {
             var levelId = currentLevelRepository.GetCurrentLevel().ID;
-            var pointer = new LevelPointer(levelId);
-            analytics.SendLevelEvent(pointer, LevelEvent.Fail);
+            analyticsRepository.SendLevelEvent(levelId, LevelEvent.Fail);
         }
     }
 }

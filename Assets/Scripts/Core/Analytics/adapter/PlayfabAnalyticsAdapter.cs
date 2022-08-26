@@ -1,14 +1,12 @@
 ﻿#if PLAYFAB_ANALYTICS
 using System.Collections.Generic;
 using Core.Analytics.ads;
-using Core.Analytics.levels;
 using Core.Analytics.screens;
 using Core.Analytics.settings;
 using Core.SDK.SDKType;
 using PlayFab;
 using PlayFab.ClientModels;
 using PlayFab.EventsModels;
-using UnityEngine;
 
 namespace Core.Analytics.adapter
 {
@@ -33,7 +31,7 @@ namespace Core.Analytics.adapter
             {
                 Data = new Dictionary<string, string>()
                 {
-                    { "Platform", platform.ToString() }
+                    {"Platform", platform.ToString()}
                 }
             };
             PlayFabClientAPI.UpdateUserData(updateDataRequest, _ => { }, _ => { });
@@ -45,7 +43,7 @@ namespace Core.Analytics.adapter
             {
                 Data = new Dictionary<string, string>()
                 {
-                    { "Settings_" + type, val? "enabled" : "disabled" }
+                    {"Settings_" + type, val ? "enabled" : "disabled"}
                 }
             };
             PlayFabClientAPI.UpdateUserData(updateDataRequest, _ => { }, _ => { });
@@ -79,28 +77,6 @@ namespace Core.Analytics.adapter
                 }
             };
             PlayFabEventsAPI.WriteEvents(request, _ => { }, _ => { });
-        }
-
-        public override void SendLevelEvent(LevelPointer levelPointer, LevelEvent levelEvent)
-        {
-            Debug.Log("Analytics SendLevelEvent");
-            var request = new WriteEventsRequest
-            {
-                Events = new List<EventContents>()
-                {
-                    new()
-                    {
-                        EventNamespace = "custom.Levels",
-                        Name = levelEvent.ToString(),
-                        Payload = "level: " + levelPointer.LevelId
-                    }
-                }
-            };
-            PlayFabEventsAPI.WriteEvents(
-                request,
-                _ => { Debug.Log("Analytics SendLevelEvent res"); },
-                _ => { Debug.Log("Analytics SendLevelEvent err"); }
-            );
         }
     }
 }

@@ -1,5 +1,5 @@
-using Core.Analytics.adapter;
 using Core.Analytics.levels;
+using Features.Levels.domain;
 using Zenject;
 
 namespace Features.Levels.presentation.ui
@@ -7,21 +7,21 @@ namespace Features.Levels.presentation.ui
     public class LevelItemControllerAnalyticsDecorator : LevelItem.ILevelItemController
     {
         private readonly LevelItem.ILevelItemController target;
-        private readonly AnalyticsAdapter analytics;
+        private readonly ILevelsAnalyticsRepository analyticsRepository;
 
         [Inject]
         public LevelItemControllerAnalyticsDecorator(
             LevelItem.ILevelItemController decorationTarget,
-            AnalyticsAdapter analyticsAdapter
+            ILevelsAnalyticsRepository analytics
         )
         {
             target = decorationTarget;
-            analytics = analyticsAdapter;
+            analyticsRepository = analytics;
         }
 
         public void OnItemClick(long levelId)
         {
-            analytics.SendLevelEvent(new LevelPointer(levelId), LevelEvent.Load);
+            analyticsRepository.SendLevelEvent(levelId, LevelEvent.Load);
             target.OnItemClick(levelId);
         }
     }

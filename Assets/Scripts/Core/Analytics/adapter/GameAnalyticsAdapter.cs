@@ -1,7 +1,6 @@
 ﻿#if GAME_ANALYTICS
 using System.Collections.Generic;
 using Core.Analytics.ads;
-using Core.Analytics.levels;
 using Core.Analytics.screens;
 using Core.Analytics.settings;
 using Core.SDK.SDKType;
@@ -46,7 +45,7 @@ namespace Core.Analytics.adapter
                 SettingType.SoundToggle => "Sound",
                 _ => defaultPostfix
             };
-            var param = new Dictionary<string, object> { { "value", state } };
+            var param = new Dictionary<string, object> {{"value", state}};
             GameAnalytics.NewDesignEvent(eventName, param);
         }
 
@@ -59,34 +58,8 @@ namespace Core.Analytics.adapter
                 ScreenAction.Close => "Close",
                 _ => defaultPostfix
             };
-            var param = new Dictionary<string, object> { { "screenName", screenName } };
+            var param = new Dictionary<string, object> {{"screenName", screenName}};
             GameAnalytics.NewDesignEvent(eventName, param);
-        }
-
-        public override void SendLevelEvent(LevelPointer levelPointer, LevelEvent levelEvent)
-        {
-            Debug.Log("SendLevelEvent: " + levelPointer.LevelId + ' ' + levelEvent);
-            if (levelEvent == LevelEvent.Load)
-            {
-                SendLoadLevelEvent(levelPointer);
-                return;
-            }
-
-            var gAProgressionStatus = levelEvent switch
-            {
-                LevelEvent.Start => GAProgressionStatus.Start,
-                LevelEvent.Fail => GAProgressionStatus.Fail,
-                LevelEvent.Complete => GAProgressionStatus.Complete,
-                _ => GAProgressionStatus.Undefined
-            };
-            ;
-            GameAnalytics.NewProgressionEvent(gAProgressionStatus, "Level_" + levelPointer.LevelId);
-        }
-
-        private static void SendLoadLevelEvent(LevelPointer levelPointer)
-        {
-            var param = new Dictionary<string, object> { { "levelId", levelPointer.LevelId } };
-            GameAnalytics.NewDesignEvent("ManualLoadLevel", param);
         }
     }
 }

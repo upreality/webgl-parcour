@@ -36,6 +36,15 @@ namespace Features.Levels._di
             Container.Bind<ILevelSceneObjectRepository>().To<LevelsRepository>().AsCached();
             Container.Bind<ICurrentLevelRepository>().To<CurrentLevelRepository>().AsSingle();
             Container.Bind<ILevelCompletedStateRepository>().To<LevelCompletedStateRepository>().AsSingle();
+            
+            Container.Bind<ILevelsAnalyticsRepository>()
+#if PLAYFAB_ANALYTICS
+                .To<PlayfabLevelAnalyticsRepository>()
+#else
+                .To<DebugLogLevelAnalyticsRepository>()
+#endif
+                .AsSingle();
+            
             //UseCases
             Container.Bind<SetNextCurrentLevelUseCase>().ToSelf().AsSingle();
             Container.Bind<GetCompletedLevelsUseCase>().ToSelf().AsSingle();

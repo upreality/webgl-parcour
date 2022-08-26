@@ -3,7 +3,7 @@ using Features.Fall;
 using Features.Fall.presentation;
 using Features.Gameplay.Enemies.AttackAreas;
 using Features.Gameplay.Lever;
-using Features.Levels.presentation.analytics;
+using Features.Levels.domain;
 using Features.LevelsProgression;
 using Features.Respawn.presentation;
 using UnityEngine;
