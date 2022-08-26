@@ -6,8 +6,32 @@ namespace Features.Interaction.domain
     [Serializable]
     public class InteractableData
     {
-        public Sprite sprite;
-        public string text;
-        public KeyCode interactionKey = KeyCode.F;
+        [field: SerializeField]
+        public Sprite Sprite
+        {
+            get;
+            private set;
+        }
+
+        [field: SerializeField]
+        public string Text
+        {
+            get;
+            private set;
+        }
+
+        [field: SerializeField]
+        public KeyCode InteractionKey
+        {
+            get;
+            private set;
+        } = KeyCode.F;
+
+        [field: SerializeField]
+        public float InteractableDistance
+        {
+            get;
+            private set;
+        } = 1.5f;
     }
 }

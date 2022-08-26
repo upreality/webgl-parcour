@@ -50,7 +50,7 @@ namespace Features.Interaction.presentation
         private void Update()
         {
             if (!hasInteractable || lastInteractable == null) return;
-            if (!Input.GetKeyDown(lastInteractable.GetData().interactionKey)) return;
+            if (!Input.GetKeyDown(lastInteractable.GetData().InteractionKey)) return;
             if (!isInteractable) return;
             lastInteractable.Interact();
         }

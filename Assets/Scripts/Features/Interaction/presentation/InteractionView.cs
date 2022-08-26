@@ -42,9 +42,9 @@ namespace Features.Interaction.presentation
             description.color = color;
             key.color = color;
             
-            interaction.sprite = state.Data.sprite;
-            description.text = state.Data.text;
-            key.text = state.Data.interactionKey.ToString("g");
+            interaction.sprite = state.Data.Sprite;
+            description.text = state.Data.Text;
+            key.text = state.Data.InteractionKey.ToString("g");
         }
 
         private static IObservable<InteractableState> GetStateFlow(IInteractable interactable) => interactable

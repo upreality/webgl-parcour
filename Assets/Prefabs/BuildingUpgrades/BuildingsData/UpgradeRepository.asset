@@ -1,0 +1,51 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a94512e78d592b74ebefcc38bd59ee4f, type: 3}
+  m_Name: UpgradeRepository
+  m_EditorClassIdentifier: 
+  <UpgradeList>k__BackingField:
+  - <Name>k__BackingField: PlayerHouse
+    <Sprite>k__BackingField: {fileID: 21300000, guid: d2b14d3d63881fe48be1b89bc6fc85f5,
+      type: 3}
+    <Skills>k__BackingField:
+    - <Name>k__BackingField: Fireball
+      <Description>k__BackingField: xaxa
+    - <Name>k__BackingField: Snowball
+      <Description>k__BackingField: xexe
+    - <Name>k__BackingField: Kek
+      <Description>k__BackingField: =)
+    - <Name>k__BackingField: 
+      <Description>k__BackingField: 
+    - <Name>k__BackingField: 
+      <Description>k__BackingField: 
+    - <Name>k__BackingField: 
+      <Description>k__BackingField: 
+    - <Name>k__BackingField: 
+      <Description>k__BackingField: 
+  - <Name>k__BackingField: Farm
+    <Sprite>k__BackingField: {fileID: 21300000, guid: 253a370633f1cd746a2b7d2a577a7e5c,
+      type: 3}
+    <Skills>k__BackingField:
+    - <Name>k__BackingField: Cow
+      <Description>k__BackingField: moo
+    - <Name>k__BackingField: Pig
+      <Description>k__BackingField: hru
+    - <Name>k__BackingField: 
+      <Description>k__BackingField: 
+    - <Name>k__BackingField: 
+      <Description>k__BackingField: 
+    - <Name>k__BackingField: 
+      <Description>k__BackingField: 
+    - <Name>k__BackingField: 
+      <Description>k__BackingField: 
+    - <Name>k__BackingField: 
+      <Description>k__BackingField: 

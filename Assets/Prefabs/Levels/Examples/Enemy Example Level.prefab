@@ -112,9 +112,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data:
-    sprite: {fileID: 21300000, guid: c258c32458014dd4b978b8e49973240f, type: 3}
-    text: Decs
-    interactionKey: 102
+    <Sprite>k__BackingField: {fileID: 0}
+    <Text>k__BackingField: 
+    <InteractionKey>k__BackingField: 102
+    <InteractableDistance>k__BackingField: 1.5
   interactOnce: 1
   cooldown: 1
   interaction:
@@ -763,6 +764,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Cage
+      objectReference: {fileID: 0}
+    - target: {fileID: 4083834379096285685, guid: 7e3a44fa907dfc84b9ae8f83a0586f61,
+        type: 3}
+      propertyPath: data.<Text>k__BackingField
+      value: a
+      objectReference: {fileID: 0}
+    - target: {fileID: 4083834379096285685, guid: 7e3a44fa907dfc84b9ae8f83a0586f61,
+        type: 3}
+      propertyPath: data.<InteractableDistance>k__BackingField
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8747103018502551088, guid: 7e3a44fa907dfc84b9ae8f83a0586f61,
         type: 3}

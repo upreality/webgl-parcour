@@ -7,7 +7,7 @@ namespace Features.Interaction.data
 {
     public class RaycastInteractableRepository : MonoBehaviour, ISelectedInteractableRepository
     {
-        [SerializeField] private float interactionDistance = 1f;
+        [SerializeField] private float interactionMaxDistance = 10f;
         [SerializeField] private int checkInteractionTimerMs = 500;
         [SerializeField] private Transform raycastSource;
         private readonly ReactiveProperty<bool> hasInteractableSubject = new(false);
@@ -31,10 +31,11 @@ namespace Features.Interaction.data
                 raycastSource.position,
                 raycastSource.forward,
                 out var hit,
-                interactionDistance
+                interactionMaxDistance
             );
 
-            if (!raycast || !hit.transform.TryGetComponent<IInteractable>(out var interactable))
+            if (!raycast || !hit.transform.TryGetComponent<IInteractable>(out var interactable) ||
+                interactable.GetData().InteractableDistance - hit.distance < 0)
             {
                 hasInteractableSubject.Value = false;
                 return;
