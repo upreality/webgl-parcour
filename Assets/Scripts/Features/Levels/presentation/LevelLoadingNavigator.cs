@@ -13,7 +13,7 @@ namespace Features.Levels.presentation
         [Inject] private ILevelSceneObjectRepository repository;
         [Inject] private LevelSceneLoader loader;
 
-        public Action OnLevelLoaded;
+        public Action<long> OnLevelLoaded;
 
         public void LoadLevel(long levelId)
         {
@@ -21,7 +21,7 @@ namespace Features.Levels.presentation
             var scene = repository.GetLevelScene(levelId);
             loader.LoadLevel(scene);
             respawnNavigator.RespawnPlayer(true);
-            OnLevelLoaded?.Invoke();
+            OnLevelLoaded?.Invoke(levelId);
         }
     }
 }

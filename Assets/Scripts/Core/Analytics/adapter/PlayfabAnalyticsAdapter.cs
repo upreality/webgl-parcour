@@ -29,7 +29,7 @@ namespace Core.Analytics.adapter
         {
             var updateDataRequest = new UpdateUserDataRequest()
             {
-                Data = new Dictionary<string, string>()
+                Data = new Dictionary<string, string>
                 {
                     {"Platform", platform.ToString()}
                 }

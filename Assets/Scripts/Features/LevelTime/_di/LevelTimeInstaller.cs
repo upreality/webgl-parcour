@@ -1,4 +1,5 @@
 ﻿using Features.LevelTime.data;
+using Features.LevelTime.domain;
 using UnityEngine;
 using Zenject;
 
@@ -11,6 +12,9 @@ namespace Features.LevelTime._di
         {
             Container.BindInterfacesAndSelfTo<LevelTimerSceneRepository>().FromInstance(levelTimerSceneRepository).AsSingle();
             Container.BindInterfacesAndSelfTo<LevelTimeRepository>().AsSingle();
+            
+            Container.BindInterfacesAndSelfTo<CurrentLevelMaxTimeUseCase>().AsSingle();
+            Container.BindInterfacesAndSelfTo<LevelTimeLeftUseCase>().AsSingle();
         }
     }
 }

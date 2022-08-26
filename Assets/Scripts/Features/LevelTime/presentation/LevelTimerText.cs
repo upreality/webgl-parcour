@@ -10,7 +10,7 @@ namespace Features.LevelTime.presentation
     public class LevelTimerText: MonoBehaviour
     {
         [SerializeField] private Text text;
-        [Inject] private ILevelTimerRepository levelTimerRepository;
+        [Inject] private LevelTimeLeftUseCase levelTimeLeftUseCase;
 
         private void Awake()
         {
@@ -18,7 +18,7 @@ namespace Features.LevelTime.presentation
                 text = GetComponent<Text>();
         }
 
-        private void Start() => levelTimerRepository.GetTimerFlow().Subscribe(UpdateTimer).AddTo(this);
+        private void Start() => levelTimeLeftUseCase.GetTimeLeftFlow().Subscribe(UpdateTimer).AddTo(this);
 
         private void UpdateTimer(long timer)
         {

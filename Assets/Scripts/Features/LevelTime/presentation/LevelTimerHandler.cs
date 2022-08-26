@@ -13,12 +13,13 @@ namespace Features.LevelTime.presentation
         [Inject] private GameStateNavigator gameStateNavigator;
         [Inject] private LevelLoadingNavigator levelLoadingNavigator;
         [Inject] private ILevelTimerRepository levelTimerRepository;
+        [Inject] private ILevelTimeRepository levelTimeRepository;
         [Inject] private IRespawnNavigator respawnNavigator;
 
         private void Start()
         {
             levelTimerRepository.StartTimer();
-            
+
             gameStateNavigator
                 .GetGameState()
                 .Select(state => state == GameState.Active)
@@ -26,7 +27,12 @@ namespace Features.LevelTime.presentation
                     levelTimerRepository.SetPaused(!active)
                 ).AddTo(this);
 
-            levelLoadingNavigator.OnLevelLoaded += () => levelTimerRepository.StartTimer();
+            levelLoadingNavigator.OnLevelLoaded += (levelId) =>
+            {
+                var maxTime = levelTimeRepository.GetMaxTime(levelId);
+                if (maxTime <= 0) return;
+                levelTimerRepository.StartTimer();
+            };
         }
     }
 }
