@@ -21,11 +21,8 @@ namespace Features.BuildingsUpgrade.Pages
         public void UpdatePage(UpgradeData upgrade, int level, IBuildingView buildingView)
         {
             buildingName.text = upgrade.Name;
-            skillsButton.onClick.AddListener(() =>
-            {
-                skillsButton.onClick.RemoveAllListeners();
-                buildingView.OpenSkillPage(upgrade);
-            });
+            skillsButton.onClick.RemoveAllListeners();
+            skillsButton.onClick.AddListener(() => { buildingView.OpenSkillPage(upgrade); });
             if (level > 0)
             {
                 skillsText.text = "Buy Skills";
@@ -38,11 +35,11 @@ namespace Features.BuildingsUpgrade.Pages
                 UpdateSkillInfo(upgrade.Skills[^1], level);
                 skillName.text = "Last Skill";
                 buyButton.gameObject.SetActive(true);
+                buyButton.onClick.RemoveAllListeners();
                 buyButton.onClick.AddListener(() =>
                 {
                     //TODO: upgrade.Price (building)
                     buildingView.BuyUpgrade(upgrade, 1);
-                    buyButton.onClick.RemoveAllListeners();
                     buyButton.gameObject.SetActive(false);
                 });
                 costText.text = upgrade.Price.ToString();
