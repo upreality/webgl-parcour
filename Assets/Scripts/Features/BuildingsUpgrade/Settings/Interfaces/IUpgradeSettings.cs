@@ -17,7 +17,7 @@ namespace Features.BuildingsUpgrade.Settings.Interfaces
 
         MonoBuildingButton ButtonPrefab { get; }
         
-        Image FirstPage { get; }
+        MonoUpgradePage FirstPage { get; }
         
         MonoSkillPage SecondPage { get; }
     }

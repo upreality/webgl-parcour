@@ -1,15 +1,19 @@
 using Features.BuildingsUpgrade.Data;
 using System;
+using System.Collections.Generic;
 
 namespace Features.BuildingsUpgrade.Interactions.Interfaces
 {
     public interface IBuildingView
     {
-        event Action<UpgradeData> OnSkillsOpen; 
-        
-        void OpenSkillPage(UpgradeData upgradeData);
+        event Action<UpgradeData> OnSkillsOpen;
+        event Action<UpgradeData, int> OnBuyUpgrade;
 
+        void OpenSkillPage(UpgradeData upgradeData);
         void UpdateSkillLevel(int activeCount, int count);
-        void Initialize(UpgradeRepository upgradeRepository);
+        void Initialize(Dictionary<UpgradeData, int> upgradesDictionary);
+        void UpdateView(UpgradeData upgradeData, int level);
+        void DisplayInfo(UpgradeData upgradeData);
+        void BuyUpgrade(UpgradeData upgradeData, int level);
     }
 }

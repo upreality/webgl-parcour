@@ -26,7 +26,7 @@ namespace Features.BuildingsUpgrade.Settings
         public Button CloseButton { get; private set; }
         
         [field: SerializeField]
-        public Image FirstPage { get; private set; }
+        public MonoUpgradePage FirstPage { get; private set; }
         
         [field: SerializeField]
         public MonoSkillPage SecondPage { get; private set; }

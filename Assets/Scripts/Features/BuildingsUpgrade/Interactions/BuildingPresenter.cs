@@ -1,9 +1,10 @@
 using Features.BuildingsUpgrade.Interactions.Interfaces;
 using Features.BuildingsUpgrade.Data;
+using System;
 
 namespace Features.BuildingsUpgrade.Interactions
 {
-    public class BuildingPresenter : IBuildingPresenter
+    public class BuildingPresenter : IBuildingPresenter, IDisposable
     {
         public BuildingPresenter(IBuildingView view, IBuildingModel model, UpgradeRepository upgradeRepository)
         {
@@ -21,8 +22,19 @@ namespace Features.BuildingsUpgrade.Interactions
         private void Initialize()
         {
             _view.OnSkillsOpen += _model.GetInfo;
+            _view.OnBuyUpgrade += _model.ChangeUpgrade;
             _model.OnDataCallback += _view.UpdateSkillLevel;
-            _view.Initialize(_upgradeRepository);
+            _model.OnModelInitialized += _view.Initialize;
+            _model.Initialize(_upgradeRepository);
+            _model.OnModelChanged += _view.UpdateView;
+        }
+
+        public void Dispose()
+        {
+            _view.OnSkillsOpen -= _model.GetInfo;
+            _view.OnBuyUpgrade -= _model.ChangeUpgrade;
+            _model.OnDataCallback -= _view.UpdateSkillLevel;
+            _model.OnModelInitialized -= _view.Initialize;
         }
     }
 }

@@ -1,23 +1,30 @@
 using System;
+using System.Collections.Generic;
+using Features.Balance.domain;
 using Features.BuildingsUpgrade.Settings.Interfaces;
 using Features.BuildingsUpgrade.Data;
 using Features.BuildingsUpgrade.Interactions.Interfaces;
+using UnityEngine;
 using Object = UnityEngine.Object;
 
 namespace Features.BuildingsUpgrade.Interactions
 {
     public class BuildingView : IBuildingView
     {
-        public BuildingView(IUpgradeSettings upgradeSettings)
+        public BuildingView(IUpgradeSettings upgradeSettings, DecreaseBalanceUseCase balanceUseCase)
         {
             _upgradeSettings = upgradeSettings;
+            BalanceUseCase = balanceUseCase;
             _upgradeSettings.UpgradeChannel.AddListener(OpenShop);
             _upgradeSettings.CloseButton.onClick.AddListener(() => OpenShop(false));
         }
 
         public event Action<UpgradeData> OnSkillsOpen = _ => { };
+        public event Action<UpgradeData, int> OnBuyUpgrade = (x, y) => { };
 
         private readonly IUpgradeSettings _upgradeSettings;
+        private Dictionary<UpgradeData, int> _upgradesDictionary;
+        private readonly List<MonoBuildingButton> _buildingButtons = new();
 
         private void OpenShop(bool value)
         {
@@ -26,28 +33,62 @@ namespace Features.BuildingsUpgrade.Interactions
             _upgradeSettings.ShopPanel.gameObject.SetActive(value);
         }
 
-        public void Initialize(UpgradeRepository upgradeRepository)
+        public void Initialize(Dictionary<UpgradeData, int> upgradesDictionary)
         {
-            var upgradeList = upgradeRepository.UpgradeList;
+            _upgradesDictionary = upgradesDictionary;
             var buttonPrefab = _upgradeSettings.ButtonPrefab;
             var buttonHandler = _upgradeSettings.ButtonsHandler;
 
-            upgradeList.ForEach(data => { Object.Instantiate(buttonPrefab, buttonHandler).Initialize(data, this); });
+            foreach (var data in _upgradesDictionary)
+            {
+                _buildingButtons.Add(Object.Instantiate(buttonPrefab, buttonHandler));
+            }
+
+            UpdateButtons();
+        }
+
+        public void UpdateView(UpgradeData upgradeData, int level)
+        {
+            _upgradesDictionary[upgradeData] = level;
+            UpdateButtons();
+        }
+
+        private void UpdateButtons()
+        {
+            var id = 0;
+            foreach (var data in _upgradesDictionary)
+            {
+                _buildingButtons[id].Initialize(data, this);
+                id += 1;
+            }
         }
 
         public void UpdateSkillLevel(int activeCount, int count)
         {
             _upgradeSettings.SecondPage.SetButtons(activeCount, count);
         }
-        
+
         public void OpenSkillPage(UpgradeData upgradeData)
         {
-            OnSkillsOpen.Invoke(upgradeData);
             var skillPage = _upgradeSettings.SecondPage;
             skillPage.gameObject.SetActive(true);
-            skillPage.Initialize(upgradeData);
-            
+            skillPage.Initialize(upgradeData, this);
+            OnSkillsOpen.Invoke(upgradeData);
+
             _upgradeSettings.FirstPage.gameObject.SetActive(false);
         }
+
+        public void DisplayInfo(UpgradeData upgradeData)
+        {
+            var upgradePage = _upgradeSettings.FirstPage;
+            upgradePage.UpdatePage(upgradeData, _upgradesDictionary[upgradeData], this);
+        }
+
+        public void BuyUpgrade(UpgradeData upgradeData, int level)
+        {
+            OnBuyUpgrade.Invoke(upgradeData, level);
+        }
+
+        public DecreaseBalanceUseCase BalanceUseCase { get; }
     }
 }
