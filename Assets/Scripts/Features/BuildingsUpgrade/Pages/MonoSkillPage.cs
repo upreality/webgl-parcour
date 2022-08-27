@@ -1,11 +1,11 @@
 using System;
-using Features.Balance.domain;
 using Features.BuildingsUpgrade.Data;
 using Features.BuildingsUpgrade.Interactions;
-using Features.BuildingsUpgrade.Interactions.Interfaces;
+using ModestTree;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Outline = UnityEngine.UI.Outline;
 
 namespace Features.BuildingsUpgrade.Pages
 {
@@ -18,6 +18,7 @@ namespace Features.BuildingsUpgrade.Pages
         [SerializeField] private Button buyButton;
         [SerializeField] private TextMeshProUGUI[] upgradeTexts;
 
+        private UnityEngine.UI.Outline[] _buttonOutline;
         private BuildingView _buildingView;
         private UpgradeData _upgradeData;
         private int _lockedId;
@@ -64,6 +65,7 @@ namespace Features.BuildingsUpgrade.Pages
             skillName.text = data.Name;
             description.text = data.Description;
             buyButton.gameObject.SetActive(id == _lockedId);
+            SetActiveOutline(id);            
             
             if (id != _lockedId) return;
             
@@ -78,12 +80,30 @@ namespace Features.BuildingsUpgrade.Pages
 
         }
 
-        private void Start()
+        private void SetActiveOutline(int id)
+        {
+            if (_buttonOutline == null)
+            {
+                _buttonOutline = new UnityEngine.UI.Outline[buttons.Length];
+                for (var i = 0; i < buttons.Length; i++)
+                {
+                    _buttonOutline[i] = buttons[i].GetComponent<UnityEngine.UI.Outline>();
+                }
+            }
+            for (var i = 0; i < _buttonOutline.Length; i++)
+            {
+                _buttonOutline[i].enabled = false;
+            }
+
+            _buttonOutline[id].enabled = true;
+        }
+
+        private void Awake()
         {
             for (var i = 0; i < buttons.Length - 1; i++)
             {
                 var id = i;
-                buttons[i].onClick.AddListener(() => ChangeSkill(id));
+                buttons[i].onClick.AddListener(() => { ChangeSkill(id); });
             }
         }
     }

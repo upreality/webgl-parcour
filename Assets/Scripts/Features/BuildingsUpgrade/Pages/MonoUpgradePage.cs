@@ -42,7 +42,7 @@ namespace Features.BuildingsUpgrade.Pages
                     buildingView.BuyUpgrade(upgrade, 1);
                     buyButton.gameObject.SetActive(false);
                 });
-                costText.text = upgrade.Price.ToString();
+                costText.text = "Buy : " + upgrade.Price;
             }
         }
 

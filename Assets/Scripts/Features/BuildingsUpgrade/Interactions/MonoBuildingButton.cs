@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Features.BuildingsUpgrade.Interactions.Interfaces;
 using Features.BuildingsUpgrade.Data;
@@ -12,6 +13,7 @@ namespace Features.BuildingsUpgrade.Interactions
         [SerializeField] private Button button;
         [SerializeField] private TextMeshProUGUI price;
         [SerializeField] private Image image;
+        private UnityEngine.UI.Outline _outline;
 
         public void Initialize(KeyValuePair<UpgradeData, int> dataPair, IBuildingView buildingView)
         {
@@ -26,10 +28,19 @@ namespace Features.BuildingsUpgrade.Interactions
             }
             else
             {
-                price.text = "50";
+                price.text = upgrade.Price.ToString();
             }
 
-            button.onClick.AddListener(() => buildingView.DisplayInfo(dataPair.Key));
+            button.onClick.AddListener(() =>
+            {
+                _outline.enabled = true;
+                buildingView.DisplayInfo(dataPair.Key, () => { _outline.enabled = false;});
+            });
+        }
+
+        private void Start()
+        {
+            _outline = GetComponent<UnityEngine.UI.Outline>();
         }
     }
 }

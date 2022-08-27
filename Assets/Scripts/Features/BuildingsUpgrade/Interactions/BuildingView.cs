@@ -1,10 +1,10 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Features.Balance.domain;
 using Features.BuildingsUpgrade.Settings.Interfaces;
 using Features.BuildingsUpgrade.Data;
 using Features.BuildingsUpgrade.Interactions.Interfaces;
-using UnityEngine;
 using Object = UnityEngine.Object;
 
 namespace Features.BuildingsUpgrade.Interactions
@@ -22,15 +22,19 @@ namespace Features.BuildingsUpgrade.Interactions
         public event Action<UpgradeData> OnSkillsOpen = _ => { };
         public event Action<UpgradeData, int> OnBuyUpgrade = (x, y) => { };
 
+        private event Action OnSwitchButton = () => { };
         private readonly IUpgradeSettings _upgradeSettings;
         private Dictionary<UpgradeData, int> _upgradesDictionary;
         private readonly List<MonoBuildingButton> _buildingButtons = new();
 
-        private void OpenShop(bool value)
+        public void OpenShop(bool value)
         {
             _upgradeSettings.SecondPage.gameObject.SetActive(false);
             _upgradeSettings.FirstPage.gameObject.SetActive(true);
             _upgradeSettings.ShopPanel.gameObject.SetActive(value);
+            if (!value) return;
+            var firstKeyPair = _upgradesDictionary.First();
+            DisplayInfo(firstKeyPair.Key, () => {});
         }
 
         public void Initialize(Dictionary<UpgradeData, int> upgradesDictionary)
@@ -78,8 +82,10 @@ namespace Features.BuildingsUpgrade.Interactions
             _upgradeSettings.FirstPage.gameObject.SetActive(false);
         }
 
-        public void DisplayInfo(UpgradeData upgradeData)
+        public void DisplayInfo(UpgradeData upgradeData, Action callback)
         {
+            OnSwitchButton.Invoke();
+            OnSwitchButton = callback;
             var upgradePage = _upgradeSettings.FirstPage;
             upgradePage.UpdatePage(upgradeData, _upgradesDictionary[upgradeData], this);
         }

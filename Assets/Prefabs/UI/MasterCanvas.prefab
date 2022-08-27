@@ -1206,6 +1206,7 @@ GameObject:
   - component: {fileID: 47091560959909842}
   - component: {fileID: 6687729669447143637}
   - component: {fileID: 4597461128448507693}
+  - component: {fileID: 7365686708869506885}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -1316,6 +1317,21 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &7365686708869506885
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3208826445459302440}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 1, g: 0.63169324, b: 0, a: 0.72156864}
+  m_EffectDistance: {x: 7, y: -7}
+  m_UseGraphicAlpha: 1
 --- !u!1 &3272748254811510288
 GameObject:
   m_ObjectHideFlags: 0
@@ -5237,6 +5253,7 @@ GameObject:
   - component: {fileID: 7308728918819545683}
   - component: {fileID: 5262640791353085932}
   - component: {fileID: 5684432742841861443}
+  - component: {fileID: 459715446622348774}
   m_Layer: 5
   m_Name: View - UpgradeBuildings
   m_TagString: Untagged
@@ -5305,6 +5322,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &459715446622348774
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8068869848968348118}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf1e20fd1c3e63448adcf5f46016ccc0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8530935686432435951
 GameObject:
   m_ObjectHideFlags: 0
