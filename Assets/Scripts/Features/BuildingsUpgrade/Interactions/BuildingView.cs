@@ -93,6 +93,10 @@ namespace Features.BuildingsUpgrade.Interactions
         public void BuyUpgrade(UpgradeData upgradeData, int level)
         {
             OnBuyUpgrade.Invoke(upgradeData, level);
+            if (level == 1)
+            {
+                //TODO: upgradeData.position
+            }
         }
 
         public DecreaseBalanceUseCase BalanceUseCase { get; }

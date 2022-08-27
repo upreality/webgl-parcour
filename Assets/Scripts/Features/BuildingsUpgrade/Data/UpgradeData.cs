@@ -15,6 +15,9 @@ namespace Features.BuildingsUpgrade.Data
 
         [field: SerializeField]
         public Sprite Sprite { get; private set; }
+        
+        [field: SerializeField]
+        public Vector3 BuildingPosition { get; private set; }
 
         [field: SerializeField, NonReorderable]
         public List<SkillData> Skills { get; private set; }
