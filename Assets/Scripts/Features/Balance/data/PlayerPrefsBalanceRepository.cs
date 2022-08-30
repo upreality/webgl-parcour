@@ -14,7 +14,7 @@ namespace Features.Balance.data
         private readonly ReactiveDictionary<CurrencyType, int> balanceFlowMap = new();
 
         
-        public IObservable<int> GetBalance(CurrencyType currencyType)
+        public IObservable<int> GetBalanceFlow(CurrencyType currencyType)
         {
             balanceFlowMap[currencyType] = GetBalanceValue(currencyType);
             return balanceFlowMap.GetItemFlow(currencyType);

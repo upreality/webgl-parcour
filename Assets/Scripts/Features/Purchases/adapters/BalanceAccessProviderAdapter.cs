@@ -15,7 +15,7 @@ namespace Features.Purchases.adapters
         public IObservable<bool> CanRemove(int value, PurchaseType type)
         {
             var currencyType = GetCurrencyType(type);
-            return decreaseBalanceUseCase.GetCanDecrease(value, currencyType);
+            return decreaseBalanceUseCase.GetCanDecreaseFlow(value, currencyType);
         }
 
         public IObservable<bool> Remove(int value, PurchaseType type)

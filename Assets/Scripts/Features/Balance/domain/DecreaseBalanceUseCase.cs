@@ -9,13 +9,13 @@ namespace Features.Balance.domain
     {
         [Inject] private IBalanceRepository repository;
 
-        public IObservable<bool> GetCanDecrease(int amount, CurrencyType currencyType)
+        public IObservable<bool> GetCanDecreaseFlow(int amount, CurrencyType currencyType)
         {
             if (currencyType == CurrencyType.None)
                 return Observable.Return(false);
                 
             return repository
-                .GetBalance(currencyType)
+                .GetBalanceFlow(currencyType)
                 .Select(balance => balance >= amount);
         }
 
@@ -23,7 +23,7 @@ namespace Features.Balance.domain
         public IObservable<DecreaseBalanceResult> Decrease(
             int amount,
             CurrencyType currencyType
-        ) => GetCanDecrease(amount, currencyType)
+        ) => GetCanDecreaseFlow(amount, currencyType)
             .Take(1)
             .Select(canDecrease =>
                 DecreaseBalance(canDecrease, amount, currencyType)

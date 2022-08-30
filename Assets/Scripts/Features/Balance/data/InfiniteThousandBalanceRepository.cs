@@ -7,7 +7,7 @@ namespace Features.Balance.data
 {
     public class InfiniteThousandBalanceRepository: IBalanceRepository
     {
-        public IObservable<int> GetBalance(CurrencyType currencyType)
+        public IObservable<int> GetBalanceFlow(CurrencyType currencyType)
         {
             return Observable.Return(1000);
         }

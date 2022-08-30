@@ -21,7 +21,7 @@ namespace Features.Balance.presentation.ui
                 text = GetComponent<Text>();
         }
 
-        private void Start() => balanceRepository.GetBalance(currencyType).Subscribe(UpdateBalance).AddTo(this);
+        private void Start() => balanceRepository.GetBalanceFlow(currencyType).Subscribe(UpdateBalance).AddTo(this);
 
         private void UpdateBalance(int balance)
         {
