@@ -1,11 +1,11 @@
 using Core.Localization;
+using Core.Localization.LanguageProviders;
 using Core.Localization.presentation;
-using Features.BuildingsUpgrade.Interactions.Interfaces;
 using Features.BuildingsUpgrade.Data;
-using UnityEngine.UI;
-using UnityEngine;
+using Features.BuildingsUpgrade.Interactions.Interfaces;
 using TMPro;
-using Zenject;
+using UnityEngine;
+using UnityEngine.UI;
 
 namespace Features.BuildingsUpgrade.Pages
 {
@@ -19,8 +19,13 @@ namespace Features.BuildingsUpgrade.Pages
         [SerializeField] private TextMeshProUGUI costText;
         [SerializeField] private Button buyButton;
         [SerializeField] private TextMeshProUGUI skillsText;
+
         [SerializeField] private Button skillsButton;
-        [Header("Localization")] [Inject] private ILanguageProvider languageProvider;
+
+        //TODO: provide languageProvider via DI
+        private readonly ILanguageProvider languageProvider = new DefaultLanguageProvider();
+
+        [Header("Localization")] 
         [SerializeField] private SimpleLocalizedTextProvider buySkillsText;
         [SerializeField] private SimpleLocalizedTextProvider allSkillsText;
         [SerializeField] private SimpleLocalizedTextProvider lastSkillText;
@@ -41,7 +46,7 @@ namespace Features.BuildingsUpgrade.Pages
             else
             {
                 skillsText.text = allSkillsText.GetText(languageProvider);
-                UpdateSkillInfo(upgrade.Skills[^0], level);
+                UpdateSkillInfo(upgrade.Skills[0], level);
                 skillName.text = lastSkillText.GetText(languageProvider);
                 buyButton.gameObject.SetActive(true);
                 buyButton.onClick.RemoveAllListeners();
