@@ -46,8 +46,8 @@ namespace Features.BuildingsUpgrade.Interactions
 
             button.onClick.AddListener(() =>
             {
-                _outline.enabled = true;
                 buildingView.DisplayInfo(dataPair.Key, () => { _outline.enabled = false; });
+                _outline.enabled = true;
             });
         }
 

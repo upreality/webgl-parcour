@@ -36,7 +36,8 @@ namespace Features.BuildingsUpgrade.Pages
 
             if (activeCount == _count || activeCount == 0)
             {
-                ChangeSkill(_count - 1);
+                var id = activeCount == _count ? _count - 1 : activeCount;
+                ChangeSkill(id);
                 _lockedId = int.MaxValue;
                 buyButton.gameObject.SetActive(false);
             }
