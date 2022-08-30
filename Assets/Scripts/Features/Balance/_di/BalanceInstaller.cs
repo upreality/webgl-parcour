@@ -18,6 +18,7 @@ namespace Features.Balance._di
                 .To<PlayerPrefsBalanceRepository>()
 #else
                 .To<LocalStorageBalanceRepository>()
+                // .To<InfiniteThousandBalanceRepository>()
 #endif
                 .AsSingle();
             

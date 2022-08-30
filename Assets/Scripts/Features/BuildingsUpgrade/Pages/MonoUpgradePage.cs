@@ -1,3 +1,4 @@
+using System;
 using Core.Localization;
 using Core.Localization.LanguageProviders;
 using Core.Localization.presentation;
@@ -37,8 +38,20 @@ namespace Features.BuildingsUpgrade.Pages
 
         [Inject] private DecreaseBalanceUseCase decreaseBalanceUseCase;
 
+        private Subject<int> priceSubject = new();
+
+        private void Awake()
+        {
+            priceSubject
+                .Select(price => decreaseBalanceUseCase.GetCanDecreaseFlow(price, CurrencyType.Secondary))
+                .Switch()
+                .Subscribe(canBuy => buyButton.interactable = canBuy)
+                .AddTo(this);
+        }
+
         public void UpdatePage(UpgradeData upgrade, int level, IBuildingView buildingView)
         {
+            priceSubject.OnNext(upgrade.Price);
             buildingName.text = upgrade.Name;
             skillsButton.onClick.RemoveAllListeners();
             skillsButton.onClick.AddListener(() => { buildingView.OpenSkillPage(upgrade); });
@@ -53,35 +66,26 @@ namespace Features.BuildingsUpgrade.Pages
                 var firstSkill = upgrade.Skills[0];
                 skillsText.text = allSkillsText.GetText(languageProvider);
                 UpdateSkillInfo(firstSkill, level);
-                buyButton.gameObject.SetActive(true);
-                buyButton.interactable = decreaseBalanceUseCase.GetCanDecreaseFlow(upgrade.Price, CurrencyType.Secondary)
-                buyButton.onClick.RemoveAllListeners();
-                buyButton.onClick.AddListener(() =>
+                costText.text = buyTextPrefix.GetText(languageProvider) + upgrade.Price;
+                SetupBuyButton(upgrade,purchaseResult =>
                 {
-                    //TODO: upgrade.Price (building)
-                    balanceRepository.GetBalance()
+                    if(!purchaseResult) return;
                     buildingView.BuyUpgrade(upgrade, 1);
                     buyButton.gameObject.SetActive(false);
                 });
-                costText.text = buyTextPrefix.GetText(languageProvider) + upgrade.Price;
             }
         }
 
-        private void SetupBuyButton(UpgradeData upgrade, bool interactable, IBuildingView buildingView)
+        private void SetupBuyButton(UpgradeData upgrade, Action<bool> onBought)
         {
-            buyButton.interactable = interactable;
+            buyButton.gameObject.SetActive(true);
             buyButton.onClick.RemoveAllListeners();
             buyButton.onClick.AddListener(() =>
             {
                 decreaseBalanceUseCase
                     .Decrease(upgrade.Price, CurrencyType.Secondary)
-                    .Where(result => result == Success)
-                    .Subscribe(_ =>
-                        {
-                            buildingView.BuyUpgrade(upgrade, 1);
-                            buyButton.gameObject.SetActive(false);
-                        }
-                    ).AddTo(this);
+                    .Subscribe(result => onBought(result == Success))
+                    .AddTo(this);
             });
         }
 
