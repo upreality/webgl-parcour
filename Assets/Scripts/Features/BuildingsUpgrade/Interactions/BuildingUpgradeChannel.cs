@@ -1,26 +1,33 @@
+using Features.BuildingsUpgrade.Data;
 using UnityEngine;
 using System;
 
 namespace Features.BuildingsUpgrade.Interactions
 {
-    [CreateAssetMenu(fileName = "BuildingUpgrade")]
+    [CreateAssetMenu(fileName = "BuildingUpgradeChannel")]
     public class BuildingUpgradeChannel : ScriptableObject
     {
-        private event Action<bool> OnInteraction = _ => { };
-        
-        public void Fire(bool value)
+        private event Action<UpgradeData, int> OnUpgrade = (x,y) => { };
+        public event Action OnInitialized = () => { };
+
+        public void Fire(UpgradeData value, int num)
         {
-            OnInteraction.Invoke(value);
+            OnUpgrade.Invoke(value, num);
         }
 
-        public void AddListener(Action<bool> action)
+        public void AddListener(Action<UpgradeData, int> action)
         {
-            OnInteraction += action;
+            OnUpgrade += action;
         }
 
-        public void RemoveListener(Action<bool> action)
+        public void RemoveListener(Action<UpgradeData, int> action)
         {
-            OnInteraction -= action;
+            OnUpgrade -= action;
+        }
+
+        public void Initialize()
+        {
+            OnInitialized.Invoke();
         }
     }
 }

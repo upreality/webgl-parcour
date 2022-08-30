@@ -41,7 +41,7 @@ namespace Features.BuildingsUpgrade.Pages
             else
             {
                 skillsText.text = allSkillsText.GetText(languageProvider);
-                UpdateSkillInfo(upgrade.Skills[^1], level);
+                UpdateSkillInfo(upgrade.Skills[^0], level);
                 skillName.text = lastSkillText.GetText(languageProvider);
                 buyButton.gameObject.SetActive(true);
                 buyButton.onClick.RemoveAllListeners();
