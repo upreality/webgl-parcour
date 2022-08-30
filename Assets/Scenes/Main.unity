@@ -3031,7 +3031,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   upgradeSettings:
-    <UpgradeChannel>k__BackingField: {fileID: 11400000, guid: bf6cf6839a0ef3f46a9e8b21a111b823,
+    <InteractionChannel>k__BackingField: {fileID: 11400000, guid: bf6cf6839a0ef3f46a9e8b21a111b823,
+      type: 2}
+    <UpgradeChannel>k__BackingField: {fileID: 11400000, guid: 623c4b68fc1a7f04e8d92cc5b6742183,
       type: 2}
     <ShopPanel>k__BackingField: {fileID: 1421014546}
     <ButtonPrefab>k__BackingField: {fileID: 646634128749927227, guid: ab6421b196e849040ad68198cff51964,

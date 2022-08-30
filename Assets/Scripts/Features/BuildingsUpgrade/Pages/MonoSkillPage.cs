@@ -1,11 +1,9 @@
 using System;
 using Features.BuildingsUpgrade.Data;
 using Features.BuildingsUpgrade.Interactions;
-using ModestTree;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using Outline = UnityEngine.UI.Outline;
 
 namespace Features.BuildingsUpgrade.Pages
 {
@@ -32,17 +30,21 @@ namespace Features.BuildingsUpgrade.Pages
             for (var i = 0; i < count; i++)
             {
                 buttons[i].gameObject.SetActive(true);
-                buttons[i].interactable = i <= activeCount;
+                buttons[i].interactable = true;
                 upgradeTexts[i].text = _upgradeData.Skills[i].Price.ToString();
             }
 
             if (activeCount == _count || activeCount == 0)
             {
+                ChangeSkill(_count - 1);
                 _lockedId = int.MaxValue;
+                buyButton.gameObject.SetActive(false);
             }
             else
             {
                 _lockedId = activeCount;
+                ChangeSkill(activeCount);
+                buyButton.gameObject.SetActive(true);
             }
         }
 
@@ -74,8 +76,8 @@ namespace Features.BuildingsUpgrade.Pages
             buyButton.onClick.AddListener(() =>
             {
                 _buildingView.BuyUpgrade(_upgradeData, id + 1);
-                SetButtons(id + 1, _count);
                 buyButton.gameObject.SetActive(false);
+                SetButtons(id + 1, _count);
             });
 
         }

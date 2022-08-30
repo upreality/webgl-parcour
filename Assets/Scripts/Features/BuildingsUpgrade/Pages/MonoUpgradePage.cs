@@ -32,8 +32,8 @@ namespace Features.BuildingsUpgrade.Pages
             else
             {
                 skillsText.text = "All skills";
-                UpdateSkillInfo(upgrade.Skills[^1], level);
-                skillName.text = "Last Skill";
+                UpdateSkillInfo(upgrade.Skills[0], level);
+                skillName.text = "1 Skill";
                 buyButton.gameObject.SetActive(true);
                 buyButton.onClick.RemoveAllListeners();
                 buyButton.onClick.AddListener(() =>

@@ -11,6 +11,9 @@ namespace Features.BuildingsUpgrade.Settings
     public class UpgradeSettings : IUpgradeSettings
     {
         [field: SerializeField] 
+        public BuildingInteractionChannel InteractionChannel { get; private set; }
+        
+        [field: SerializeField] 
         public BuildingUpgradeChannel UpgradeChannel { get; private set; }
 
         [field: SerializeField] 
