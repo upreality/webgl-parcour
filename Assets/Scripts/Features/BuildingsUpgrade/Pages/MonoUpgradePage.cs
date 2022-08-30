@@ -28,7 +28,6 @@ namespace Features.BuildingsUpgrade.Pages
         [Header("Localization")] 
         [SerializeField] private SimpleLocalizedTextProvider buySkillsText;
         [SerializeField] private SimpleLocalizedTextProvider allSkillsText;
-        [SerializeField] private SimpleLocalizedTextProvider lastSkillText;
         [SerializeField] private SimpleLocalizedTextProvider buyTextPrefix;
         [SerializeField] private SimpleLocalizedTextProvider skillPostfixText;
 
@@ -45,9 +44,9 @@ namespace Features.BuildingsUpgrade.Pages
             }
             else
             {
+                var firstSkill = upgrade.Skills[0];
                 skillsText.text = allSkillsText.GetText(languageProvider);
-                UpdateSkillInfo(upgrade.Skills[0], level);
-                skillName.text = lastSkillText.GetText(languageProvider);
+                UpdateSkillInfo(firstSkill, level);
                 buyButton.gameObject.SetActive(true);
                 buyButton.onClick.RemoveAllListeners();
                 buyButton.onClick.AddListener(() =>
