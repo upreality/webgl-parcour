@@ -39,7 +39,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 644712076}
-  m_IndirectSpecularColor: {r: 0.50374806, g: 0.77667284, b: 0.8216002, a: 1}
+  m_IndirectSpecularColor: {r: 0.5037839, g: 0.77674294, b: 0.82175285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2373,7 +2373,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1287311189}
-  - component: {fileID: 1287311190}
   - component: {fileID: 1287311191}
   m_Layer: 0
   m_Name: AutoLogin
@@ -2397,18 +2396,6 @@ Transform:
   m_Father: {fileID: 1474724047}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1287311190
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1287311188}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2bb104ddc0d4b8495301728add56bd9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1287311191
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4143,6 +4130,21 @@ MonoBehaviour:
   buyButton: {fileID: 1968228165}
   skillsText: {fileID: 1350243170}
   skillsButton: {fileID: 1204160494}
+  buySkillsText:
+    ruText: "\u041A\u0443\u043F\u0438\u0442\u044C \u043D\u0430\u0432\u044B\u043A\u0438"
+    enText: Buy skills
+  allSkillsText:
+    ruText: "\u0412\u0441\u0435 \u043D\u0430\u0432\u044B\u043A\u0438"
+    enText: All skills
+  lastSkillText:
+    ruText: "\u0421\u043B\u0435\u0434. \u043D\u0430\u0432\u044B\u043A"
+    enText: Last skill
+  buyTextPrefix:
+    ruText: "\u041A\u0443\u043F\u0438\u0442\u044C : "
+    enText: 'Buy : '
+  skillPostfixText:
+    ruText: " \u041D\u0430\u0432\u044B\u043A"
+    enText: ' skill'
 --- !u!114 &1964133772 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8877876022694026079, guid: 04c188d70605e7a4ba8ebc290357db88,

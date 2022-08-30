@@ -1,5 +1,6 @@
 ﻿using Core.Auth.data;
 using Core.Auth.domain;
+using Core.Auth.presentation;
 using UnityEngine;
 using Zenject;
 
@@ -11,6 +12,7 @@ namespace Core.Auth._di
         public override void InstallBindings()
         {
             Container.Bind<IAuthRepository>().To<PlayfabAuthRepository>().AsSingle();
+            Container.BindInterfacesAndSelfTo<AutoLoginService>().AsSingle();
         }
     }
 }
