@@ -1,4 +1,5 @@
 using Core.Localization;
+using Core.Localization.LanguageProviders;
 using Core.Localization.presentation;
 using Features.Balance.domain;
 using Features.BuildingsUpgrade.Data;
@@ -22,12 +23,15 @@ namespace Features.BuildingsUpgrade.Pages
         [SerializeField] private TextMeshProUGUI costText;
         [SerializeField] private Button buyButton;
         [SerializeField] private TextMeshProUGUI skillsText;
+
         [SerializeField] private Button skillsButton;
 
-        [Header("Localization")] [Inject] private ILanguageProvider languageProvider;
+        //TODO: provide languageProvider via DI
+        private readonly ILanguageProvider languageProvider = new DefaultLanguageProvider();
+
+        [Header("Localization")] 
         [SerializeField] private SimpleLocalizedTextProvider buySkillsText;
         [SerializeField] private SimpleLocalizedTextProvider allSkillsText;
-        [SerializeField] private SimpleLocalizedTextProvider lastSkillText;
         [SerializeField] private SimpleLocalizedTextProvider buyTextPrefix;
         [SerializeField] private SimpleLocalizedTextProvider skillPostfixText;
 
@@ -46,9 +50,9 @@ namespace Features.BuildingsUpgrade.Pages
             }
             else
             {
+                var firstSkill = upgrade.Skills[0];
                 skillsText.text = allSkillsText.GetText(languageProvider);
-                UpdateSkillInfo(upgrade.Skills[^1], level);
-                skillName.text = lastSkillText.GetText(languageProvider);
+                UpdateSkillInfo(firstSkill, level);
                 buyButton.gameObject.SetActive(true);
                 buyButton.interactable = decreaseBalanceUseCase.GetCanDecreaseFlow(upgrade.Price, CurrencyType.Secondary)
                 buyButton.onClick.RemoveAllListeners();

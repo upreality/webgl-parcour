@@ -1,6 +1,5 @@
-using System;
-using System.Collections.Generic;
 using Features.BuildingsUpgrade.Interactions.Interfaces;
+using System.Collections.Generic;
 using Features.BuildingsUpgrade.Data;
 using UnityEngine.UI;
 using UnityEngine;
@@ -21,7 +20,21 @@ namespace Features.BuildingsUpgrade.Interactions
             var level = dataPair.Value;
 
             image.sprite = upgrade.Sprite;
-            
+            if (upgrade.IsHub)
+            {
+                if (_outline)
+                {
+                    _outline.enabled = true;
+                }
+                else
+                {
+                    _outline = GetComponent<UnityEngine.UI.Outline>();
+                    _outline.enabled = true;
+                }
+
+                buildingView.DisplayInfo(dataPair.Key, () => { _outline.enabled = false; });
+            }
+
             if (level > 0)
             {
                 price.gameObject.SetActive(false);
@@ -33,8 +46,8 @@ namespace Features.BuildingsUpgrade.Interactions
 
             button.onClick.AddListener(() =>
             {
+                buildingView.DisplayInfo(dataPair.Key, () => { _outline.enabled = false; });
                 _outline.enabled = true;
-                buildingView.DisplayInfo(dataPair.Key, () => { _outline.enabled = false;});
             });
         }
 

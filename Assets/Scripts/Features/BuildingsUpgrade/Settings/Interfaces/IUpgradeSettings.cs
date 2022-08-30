@@ -10,8 +10,10 @@ namespace Features.BuildingsUpgrade.Settings.Interfaces
         Image ShopPanel { get; }
 
         Button CloseButton { get; }
-
-        BuildingUpgradeChannel UpgradeChannel { get; }
+        
+        BuildingUpgradeChannel UpgradeChannel { get;}
+        
+        BuildingInteractionChannel InteractionChannel { get; }
 
         Transform ButtonsHandler { get; }
 

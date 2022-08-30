@@ -39,7 +39,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 644712076}
-  m_IndirectSpecularColor: {r: 0.5037839, g: 0.77674294, b: 0.82175285, a: 1}
+  m_IndirectSpecularColor: {r: 0.50374806, g: 0.77667284, b: 0.8216002, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1011,12 +1011,12 @@ PrefabInstance:
     - target: {fileID: 2611209321915865653, guid: 04c188d70605e7a4ba8ebc290357db88,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 304.65
       objectReference: {fileID: 0}
     - target: {fileID: 2611209321915865653, guid: 04c188d70605e7a4ba8ebc290357db88,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -62.0609
       objectReference: {fileID: 0}
     - target: {fileID: 2620781941061280229, guid: 04c188d70605e7a4ba8ebc290357db88,
         type: 3}
@@ -1026,7 +1026,7 @@ PrefabInstance:
     - target: {fileID: 2620781941061280229, guid: 04c188d70605e7a4ba8ebc290357db88,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2620781941061280229, guid: 04c188d70605e7a4ba8ebc290357db88,
         type: 3}
@@ -1036,17 +1036,17 @@ PrefabInstance:
     - target: {fileID: 2620781941061280229, guid: 04c188d70605e7a4ba8ebc290357db88,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2620781941061280229, guid: 04c188d70605e7a4ba8ebc290357db88,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 304.65
       objectReference: {fileID: 0}
     - target: {fileID: 2620781941061280229, guid: 04c188d70605e7a4ba8ebc290357db88,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -283.5122
       objectReference: {fileID: 0}
     - target: {fileID: 3138763944578504454, guid: 04c188d70605e7a4ba8ebc290357db88,
         type: 3}
@@ -1056,7 +1056,7 @@ PrefabInstance:
     - target: {fileID: 3138763944578504454, guid: 04c188d70605e7a4ba8ebc290357db88,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3138763944578504454, guid: 04c188d70605e7a4ba8ebc290357db88,
         type: 3}
@@ -1066,7 +1066,7 @@ PrefabInstance:
     - target: {fileID: 3138763944578504454, guid: 04c188d70605e7a4ba8ebc290357db88,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3138763944578504454, guid: 04c188d70605e7a4ba8ebc290357db88,
         type: 3}
@@ -1081,12 +1081,12 @@ PrefabInstance:
     - target: {fileID: 3138763944578504454, guid: 04c188d70605e7a4ba8ebc290357db88,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 304.65
       objectReference: {fileID: 0}
     - target: {fileID: 3138763944578504454, guid: 04c188d70605e7a4ba8ebc290357db88,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -541.6705
       objectReference: {fileID: 0}
     - target: {fileID: 3215787834288494139, guid: 04c188d70605e7a4ba8ebc290357db88,
         type: 3}
@@ -1096,7 +1096,7 @@ PrefabInstance:
     - target: {fileID: 3215787834288494139, guid: 04c188d70605e7a4ba8ebc290357db88,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3215787834288494139, guid: 04c188d70605e7a4ba8ebc290357db88,
         type: 3}
@@ -1106,17 +1106,17 @@ PrefabInstance:
     - target: {fileID: 3215787834288494139, guid: 04c188d70605e7a4ba8ebc290357db88,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3215787834288494139, guid: 04c188d70605e7a4ba8ebc290357db88,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 304.65
       objectReference: {fileID: 0}
     - target: {fileID: 3215787834288494139, guid: 04c188d70605e7a4ba8ebc290357db88,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -833.6095
       objectReference: {fileID: 0}
     - target: {fileID: 3258947683427723852, guid: 04c188d70605e7a4ba8ebc290357db88,
         type: 3}
@@ -1873,7 +1873,7 @@ PrefabInstance:
     - target: {fileID: 8068869848968348118, guid: 04c188d70605e7a4ba8ebc290357db88,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8655335484980612305, guid: 04c188d70605e7a4ba8ebc290357db88,
         type: 3}
@@ -1883,7 +1883,7 @@ PrefabInstance:
     - target: {fileID: 8655335484980612305, guid: 04c188d70605e7a4ba8ebc290357db88,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8655335484980612305, guid: 04c188d70605e7a4ba8ebc290357db88,
         type: 3}
@@ -1893,17 +1893,17 @@ PrefabInstance:
     - target: {fileID: 8655335484980612305, guid: 04c188d70605e7a4ba8ebc290357db88,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8655335484980612305, guid: 04c188d70605e7a4ba8ebc290357db88,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 304.65
       objectReference: {fileID: 0}
     - target: {fileID: 8655335484980612305, guid: 04c188d70605e7a4ba8ebc290357db88,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -704.82874
       objectReference: {fileID: 0}
     - target: {fileID: 9013502560639987301, guid: 04c188d70605e7a4ba8ebc290357db88,
         type: 3}
@@ -3018,7 +3018,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   upgradeSettings:
-    <UpgradeChannel>k__BackingField: {fileID: 11400000, guid: bf6cf6839a0ef3f46a9e8b21a111b823,
+    <InteractionChannel>k__BackingField: {fileID: 11400000, guid: bf6cf6839a0ef3f46a9e8b21a111b823,
+      type: 2}
+    <UpgradeChannel>k__BackingField: {fileID: 11400000, guid: 623c4b68fc1a7f04e8d92cc5b6742183,
       type: 2}
     <ShopPanel>k__BackingField: {fileID: 1421014546}
     <ButtonPrefab>k__BackingField: {fileID: 646634128749927227, guid: ab6421b196e849040ad68198cff51964,
