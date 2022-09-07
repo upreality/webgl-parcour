@@ -9,13 +9,19 @@ namespace Core.Leaderboard.presentation
     {
         [SerializeField] private Text posText;
         [SerializeField] private Text scoreText;
-        [SerializeField] private GameObject currentUserOutline;
+        [SerializeField] private Color currentUserTextColor;
+        [SerializeField] private Color defTextColor;
+        [SerializeField] private Outline currentUserOutline;
+        [SerializeField] private Outline scoreOutline;
 
         public void Setup(LeaderBoardItem item, bool isCurrentPlayer)
         {
-            posText.text = item.Position + " " + item.PlayerName;
+            posText.text = item.Position + ". " + item.PlayerName;
             scoreText.text = item.Score.ToString();
-            currentUserOutline.SetActive(isCurrentPlayer);
+            posText.color = isCurrentPlayer ? currentUserTextColor : defTextColor;
+            scoreText.color = isCurrentPlayer ? currentUserTextColor : defTextColor;
+            currentUserOutline.enabled = isCurrentPlayer;
+            scoreOutline.enabled = isCurrentPlayer;
         }
         
         public class Factory : PlaceholderFactory<LeaderBoardItemView>
