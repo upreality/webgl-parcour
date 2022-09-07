@@ -14,7 +14,7 @@ namespace Features.LevelsProgression.domain
 {
     public class CompleteCurrentLevelUseCase
     {
-        [Inject] private AnalyticsAdapter analytics;
+        [Inject] private ILevelsAnalyticsRepository analyticsRepository;
         [Inject] private ILevelCompletedStateRepository levelsRepository;
         [Inject] private ICurrentLevelRepository currentLevelRepository;
         [Inject] private IBalanceRepository balanceRepository;
@@ -28,7 +28,7 @@ namespace Features.LevelsProgression.domain
             levelsRepository.SetLevelCompleted(currentLevel.ID);
             setNextCurrentLevelUseCase.SetNextCurrentLevel();
             if (currentLevel.Reward > 0) balanceRepository.Add(currentLevel.Reward, CurrencyType.Primary);
-            analytics.SendLevelEvent(new LevelPointer(currentLevel.ID), LevelEvent.Complete);
+            analyticsRepository.SendLevelEvent(currentLevel.ID, LevelEvent.Complete);
             return updateCurrentLevelScoreUseCase.UpdateScore().Select(levelRes =>
                 updateGlobalScoreUseCase.UpdateGlobalScore().Select(globalRes => levelRes && globalRes)
             ).Switch();

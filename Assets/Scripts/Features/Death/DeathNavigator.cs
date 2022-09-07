@@ -1,7 +1,7 @@
 ﻿using System;
 using Core.Ads.presentation.InterstitialAdNavigator;
 using Core.SDK.GameState;
-using Features.Levels.presentation.analytics;
+using Features.Levels.domain;
 using Features.Levels.presentation.respawn;
 using UniRx;
 using Zenject;

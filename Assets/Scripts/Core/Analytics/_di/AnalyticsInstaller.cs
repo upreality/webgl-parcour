@@ -1,6 +1,4 @@
 ﻿using Core.Analytics.adapter;
-using Core.Analytics.session.data;
-using Core.Analytics.session.domain;
 using UnityEngine;
 using Zenject;
 #if GAME_ANALYTICS
@@ -25,15 +23,6 @@ namespace Core.Analytics._di
                 .FromInstance(new DebugLogAnalyticsAdapter(true))
 #else
                 .FromInstance(new DebugLogAnalyticsAdapter(false))
-#endif
-                .AsSingle();
-
-            Container
-                .Bind<IFirstOpenEventSentRepository>()
-#if PLAYER_PREFS_STORAGE
-                .To<PlayerPrefsFirstOpenEventSentRepository>()
-#else
-                .To<LocalStorageFirstOpenEventSentRepository>()
 #endif
                 .AsSingle();
         }

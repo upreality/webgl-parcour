@@ -1,8 +1,7 @@
 ﻿using Core.Analytics.ads;
-using Core.Analytics.levels;
 using Core.Analytics.screens;
-using Core.Analytics.session.domain;
 using Core.Analytics.settings;
+using Core.SDK.SDKType;
 using UnityEngine;
 
 namespace Core.Analytics.adapter
@@ -21,40 +20,11 @@ namespace Core.Analytics.adapter
             Log(" SendAdEvent: " + action + ' ' + type);
         }
 
-        public override void SendSettingsEvent(SettingType type, bool val)
-        {
-            Log("SendSettingsEvent: " + type + ' ' + val);
-        }
+        public override void SetPlatform(SDKProvider.SDKType platform) => Log(" SetPlatform: " + platform);
 
-        public override void SendScreenEvent(string screenName, ScreenAction action)
-        {
-            Log("SendScreenEvent: " + screenName + ' ' + action);
-        }
+        public override void SendSettingsEvent(SettingType type, bool val) => Log("SendSettingsEvent: " + type + ' ' + val);
 
-        public override void SendLevelEvent(LevelPointer levelPointer, LevelEvent levelEvent)
-        {
-            Log("SendLevelEvent: " + levelPointer.LevelId + ' ' + levelEvent);
-        }
-
-        public override void SendSessionEvent(SessionEvent sessionEvent, LevelPointer currentLevelPointer)
-        {
-            Log("SendSessionEvent: " + sessionEvent);
-        }
-
-        public override void SetPlayerId(string id)
-        {
-            Log("Set player id: " + id);
-        }
-
-        public override void InitializeWithoutPlayerId()
-        {
-            Log("Initialize Analytics Without PlayerId");
-        }
-
-        public override void SendFirstOpenEvent()
-        {
-            Log("First Open");
-        }
+        public override void SendScreenEvent(string screenName, ScreenAction action) => Log("SendScreenEvent: " + screenName + ' ' + action);
 
         private void Log(string text)
         {

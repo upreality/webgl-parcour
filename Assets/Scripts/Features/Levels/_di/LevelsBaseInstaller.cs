@@ -1,9 +1,7 @@
-using Core.Analytics.session.domain;
 using Features.Levels.data;
 using Features.Levels.data.dao;
 using Features.Levels.domain;
 using Features.Levels.domain.repositories;
-using Features.Levels.presentation.analytics;
 using UnityEngine;
 using Zenject;
 
@@ -38,14 +36,18 @@ namespace Features.Levels._di
             Container.Bind<ILevelSceneObjectRepository>().To<LevelsRepository>().AsCached();
             Container.Bind<ICurrentLevelRepository>().To<CurrentLevelRepository>().AsSingle();
             Container.Bind<ILevelCompletedStateRepository>().To<LevelCompletedStateRepository>().AsSingle();
+            
+            Container.Bind<ILevelsAnalyticsRepository>()
+#if PLAYFAB_ANALYTICS
+                .To<PlayfabLevelAnalyticsRepository>()
+#else
+                .To<DebugLogLevelAnalyticsRepository>()
+#endif
+                .AsSingle();
+            
             //UseCases
             Container.Bind<SetNextCurrentLevelUseCase>().ToSelf().AsSingle();
             Container.Bind<GetCompletedLevelsUseCase>().ToSelf().AsSingle();
-            //Adapters
-            Container
-                .Bind<ISessionEventLevelIdProvider>()
-                .To<SessionEventCurrentLevelIdProviderImpl>()
-                .AsSingle();
         }
     }
 }

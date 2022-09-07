@@ -11,7 +11,7 @@ namespace Core.Auth.data
     public class PlayfabAuthRepository : IAuthRepository
     {
         private readonly ReactiveProperty<bool> loggedInFlow = new(false);
-        private const string UserIDKey = "PLAYFAB_USER_ID_KEY"; 
+        private const string UserIDKey = "PLAYFAB_USER_ID_KEY";
 
         private static string LoginUserId
         {

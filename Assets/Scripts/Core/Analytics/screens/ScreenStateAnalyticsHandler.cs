@@ -1,10 +1,9 @@
 using Core.Analytics.adapter;
-using Core.Analytics.screens;
 using Doozy.Engine.UI;
 using UnityEngine;
 using Zenject;
 
-namespace Features.Levels.presentation.analytics
+namespace Core.Analytics.screens
 {
     [RequireComponent(typeof(UIView))]
     public class ScreenStateAnalyticsHandler : MonoBehaviour
